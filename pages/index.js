@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Annamaria Ricci</title>
+        <title>Anna Maria Ricci</title>
         <link
           rel="icon"
           type="image/png"

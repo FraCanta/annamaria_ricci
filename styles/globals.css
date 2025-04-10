@@ -23,6 +23,22 @@ p {
   font-family: "Work Sans", sans-serif;
 }
 
+@keyframes wave {
+  0% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    height: 20%;
+  }
+}
+
+.animate-wave {
+  animation: wave 1s infinite ease-in-out;
+}
+
 @font-face {
   font-family: "AbhayaLibre";
   src: url("/fonts/AbhayaLibre-Regular.ttf") format("truetype");

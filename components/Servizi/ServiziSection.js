@@ -33,7 +33,7 @@ const ServiziSection = () => {
       icon: "/assets/az.svg",
     },
     {
-      title: "Genealogia",
+      title: "Psicogenealogia junghiana®",
       text: "Albero genealogico delle professioni.",
       icon: "/assets/gene.svg",
     },
@@ -41,9 +41,9 @@ const ServiziSection = () => {
 
   const grouped = [items.slice(0, 2), items.slice(2, 4), items.slice(4, 6)];
   return (
-    <div className="flex flex-col xl:flex-row gap-10 justify-between  xl:h-[86vh] 2xl:h-[80vh] 2xla:min-h-[60vh] my-10 items-center">
+    <div className="flex flex-col xl:flex-row gap-10 justify-between lg:h-screen 2xla:h-[60vh] my-10 items-center">
       <div className="w-full xl:w-[60%] h-full order-last xl:order-first gap-4 md:gap-10 ">
-        <div className="h-full flex flex-col justify-between xl:py-10">
+        <div className="h-full flex flex-col justify-between ">
           {grouped.map((pair, i) => (
             <div key={i} className="flex flex-col items-center">
               <div className="flex h-full flex-col md:flex-row md:items-start md:justify-between gap-8 py-10 px-2 md:p-4 md:py-10">

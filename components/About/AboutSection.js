@@ -29,7 +29,7 @@ const AboutSection = () => {
           <div className="grid grid-cols-2 gap-10">
             <div className="flex flex-col gap-2">
               <h3 className="font-work font-regular text-[26px] md:text-[38px] 2xl:text-[48px] leading-none text-purple100 ">
-                800+
+                1000+
               </h3>
               <p className="font-work font-regular text-[13px] md:text-base leading-none text-gray90 ">
                 ore di orientamento specialistico
