@@ -18,7 +18,7 @@ const AboutSection = () => {
         <div className="hidden 2xl:block h-[350px] items-center">
           <VerticalAnimatedLine />
         </div>
-        <div className="px-10 2xl:hidden block w-[400px] md:w-[600px] 2xl:w-[400px] order-2">
+        <div className="px-10 2xl:hidden block w-full order-2">
           <AnimatedLineView />
         </div>
 
