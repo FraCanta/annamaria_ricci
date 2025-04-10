@@ -16,26 +16,26 @@ const Navbar = () => {
             height={93}
           />
         </div>
-        <ul className="flex items-center gap-10">
+        <ul className="flex items-center gap-10 capitalize text-lg">
           <li className=" text-gray-700 hover:text-gray-900 cursor-pointer">
-            <Link href="/">Home</Link>
+            <Link href="/">Servizi e percorsi</Link>
           </li>
           <li className=" text-gray-700 hover:text-gray-900 cursor-pointer">
-            About
+            <Link href="/">Chi sono</Link>
           </li>
           <li className=" text-gray-700 hover:text-gray-900 cursor-pointer">
-            Contact
+            <Link href="/">Respiro</Link>
           </li>
           <li className=" text-gray-700 hover:text-gray-900 cursor-pointer">
-            Contact
+            <Link href="/">Blog</Link>
           </li>
           <li className=" text-gray-700 hover:text-gray-900 cursor-pointer">
-            Contact
+            <Link href="/">Contatti</Link>
           </li>
           <li>
             <Link
               href="/"
-              className="bg-red text-white px-4 py-4 rounded-sm  transition duration-200"
+              className="bg-red text-white px-4 py-4 rounded-sm text-base  transition duration-200 uppercase"
             >
               Hai bisogno di aiuto?
             </Link>

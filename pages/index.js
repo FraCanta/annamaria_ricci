@@ -2,6 +2,7 @@ import AboutSection from "@/components/About/AboutSection";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import VerticalAnimatedLine from "@/components/AnimatedLine/VerticalAnimatedLine";
 import HeroHome from "@/components/layout/HeroHome";
+import ServiziSection from "@/components/Servizi/ServiziSection";
 import Head from "next/head";
 
 export default function Home() {
@@ -31,6 +32,14 @@ export default function Home() {
         <AnimatedLineView />
       </div>
       <AboutSection />
+      <div>
+        <AnimatedLineView />
+      </div>
+      <ServiziSection />
+      <div>
+        <AnimatedLineView />
+      </div>
+      <p>carosello</p>
       <div>
         <AnimatedLineView />
       </div>

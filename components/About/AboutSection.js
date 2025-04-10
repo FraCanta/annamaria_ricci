@@ -5,8 +5,8 @@ import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 const AboutSection = () => {
   return (
     <>
-      <div className="flex flex-col 2xl:flex-row gap-6 justify-between h-full py-4 items-center">
-        <div className="w-full 2xl:w-[60%] h-full flex flex-col justify-center order-last 2xl:order-first gap-4 md:gap-10 py-10">
+      <div className="flex flex-col xl:flex-row gap-6 justify-between h-full py-4 items-center">
+        <div className="w-full xl:w-[60%] h-full flex flex-col justify-center order-last xl:order-first gap-4 md:gap-10 py-10">
           <h2 className="font-abhaya font-regular text-[38px] md:text-[48px] 2xl:text-[58px] leading-none text-gray90 text-center lg:text-start">
             “Ogni orientamento presuppone <br />
             un disorientamento”
@@ -15,14 +15,14 @@ const AboutSection = () => {
             Hans Magnus Enzensberger
           </p>
         </div>
-        <div className="hidden 2xl:block h-[350px] items-center">
+        <div className="hidden xl:block h-[350px] items-center">
           <VerticalAnimatedLine />
         </div>
-        <div className="px-10 2xl:hidden block w-full order-2">
+        <div className="px-10 xl:hidden block w-full order-2">
           <AnimatedLineView />
         </div>
 
-        <div className="w-full 2xl:w-[40%] h-full flex flex-col gap-10 order-first 2xl:order-last p-2 md:p-6 lg:p-10">
+        <div className="w-full xl:w-[40%] h-full flex flex-col gap-10 order-first xl:order-last p-2 md:p-6 lg:p-10">
           <h2 className="font-abhaya font-bold text-[30px] md:text-[38px] 2xl:text-[48px]  leading-none text-gray100 ">
             Su di me
           </h2>
