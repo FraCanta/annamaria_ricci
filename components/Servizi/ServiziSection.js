@@ -9,7 +9,7 @@ const ServiziSection = () => {
   const items = [
     {
       title: "Counseling",
-      text: "Ti ascolto in modo empatico in modo empatico e attivo, senza giudizio. Il mio approccio è influenzato anche dalla mia pratica in meditazione, comunicazione non violenta, respirazione circolare consapevole.",
+      text: "Ti ascolto in modo empatico e attivo, senza giudizio. Il mio approccio è influenzato anche dalla mia pratica in meditazione, comunicazione non violenta, respirazione circolare consapevole.",
       icon: "/assets/couns.svg",
     },
     {
@@ -83,7 +83,7 @@ const ServiziSection = () => {
                     <h3 className="text-[25px] 2xl:text-[32px] font-abhaya font-bold text-gray100 leading-none">
                       {pair[1].title}
                     </h3>
-                    <p className="mt-2 text-sm text-gray-700">{pair[1].text}</p>
+                    <p className="mt-2 text-sm text-gray90">{pair[1].text}</p>
                   </div>
                 </div>
               </div>
