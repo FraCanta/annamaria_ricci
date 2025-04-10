@@ -41,8 +41,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-
-      <AnimatedLine />
+      <div className="hidden md:block">
+        <AnimatedLine />
+      </div>
     </>
   );
 };

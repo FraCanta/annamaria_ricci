@@ -1,19 +1,26 @@
 import React from "react";
 import AnimatedLine from "../AnimatedLine/AnimatedLine";
 import Image from "next/image";
+import { Icon } from "@iconify/react";
 
 const Mobile = () => {
   return (
     <>
-      <div className="w-[95%] mx-auto py-4 flex items-center justify-between md:hidden ">
-        <div className="flex items-center space-x-2">
+      <div className=" py-4 flex items-center justify-between md:hidden ">
+        <div className="flex items-center ">
           <Image
             src="/assets/logo_annamaria.svg"
             alt="Logo"
-            width={100}
+            width={95}
             height={93}
           />
         </div>
+        <Icon
+          icon="bx:menu-alt-right"
+          width="40"
+          height="40"
+          style={{ color: "#5D2A74" }}
+        />
       </div>
       <div className="w-[95%] mx-auto">
         <AnimatedLine />
