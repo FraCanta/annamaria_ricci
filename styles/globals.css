@@ -18,8 +18,9 @@ html {
   margin: 0 auto;
 }
 
-a {
-  font-family: "Lato", sans-serif;
+a,
+p {
+  font-family: "Work Sans", sans-serif;
 }
 
 @font-face {

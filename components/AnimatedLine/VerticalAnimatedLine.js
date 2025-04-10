@@ -8,7 +8,7 @@ const VerticalAnimatedLine = ({ className = "" }) => {
   return (
     <motion.div
       ref={ref}
-      className={`w-[1.5px] h-1/2 bg-gray90 ${className}`}
+      className={`w-[1.5px] h-full bg-gray90 ${className}`}
       initial={{ height: 0 }}
       animate={isInView ? { height: "100%" } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}

@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         abhaya: ["AbhayaLibre", "sans-serif"],
+        work: ["Work Sans", "sans-serif"],
       },
       screens: {
         sm: "640px",
