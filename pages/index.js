@@ -31,6 +31,10 @@ export default function Home() {
         <AnimatedLineView />
       </div>
       <AboutSection />
+      <div>
+        <AnimatedLineView />
+      </div>
+      <AboutSection />
     </>
   );
 }
