@@ -51,7 +51,7 @@ const AudioPlayer = () => {
         {[1, 2, 3, 4, 5].map((bar, i) => (
           <span
             key={i}
-            className={`w-0.5 bg-purple-500 rounded-sm ${
+            className={`w-0.5 bg-purple100 rounded-sm ${
               isPlaying ? `animate-wave animation-delay-${i}` : `h-2.5`
             }`}
             style={{
@@ -61,7 +61,7 @@ const AudioPlayer = () => {
           />
         ))}
       </div>
-      <span className="text-gray-600 text-sm font-medium tracking-wide">
+      <span className="text-gray90 text-sm font-work font-medium tracking-wide">
         {isPlaying ? "SOUND ON" : "SOUND OFF"}
       </span>
     </div>
