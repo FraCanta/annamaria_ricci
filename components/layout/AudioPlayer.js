@@ -10,7 +10,7 @@ const AudioPlayer = () => {
     const newSound = new Howl({
       src: ["/audio/nuvole_bianche.mp3"],
       loop: true,
-      volume: 0.04,
+      volume: 0.02,
     });
 
     newSound.once("play", () => {

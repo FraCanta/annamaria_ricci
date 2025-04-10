@@ -99,7 +99,7 @@ const ServiziSection = () => {
         </div>
       </div>
 
-      <div className="hidden xl:block h-full items-center">
+      <div className="hidden xl:flex h-full items-center">
         <VerticalAnimatedLine />
       </div>
       <div className="px-10 xl:hidden block w-full order-2">

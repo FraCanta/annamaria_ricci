@@ -12,6 +12,7 @@
     "@iconify/react": "^5.2.1",
     "framer-motion": "^12.6.3",
     "howler": "^2.2.4",
+    "lenis": "^1.2.3",
     "next": "15.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
