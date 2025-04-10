@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import AnimatedLine from "../AnimatedLine/AnimatedLine";
+import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 
 const Navbar = () => {
   return (
     <>
-      <div className="py-4 md:flex items-center justify-between hidden ">
+      <div className="py-4 lg:flex items-center justify-between hidden ">
         <div className="flex items-center space-x-2">
           <Image
             src="/assets/logo_annamaria.svg"
@@ -34,14 +35,14 @@ const Navbar = () => {
           <li>
             <Link
               href="/"
-              className="bg-red text-white px-4 py-4 rounded  transition duration-200"
+              className="bg-red text-white px-4 py-4 rounded-sm  transition duration-200"
             >
               Hai bisogno di aiuto?
             </Link>
           </li>
         </ul>
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <AnimatedLine />
       </div>
     </>
