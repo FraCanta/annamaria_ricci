@@ -41,7 +41,7 @@ const ServiziSection = () => {
 
   const grouped = [items.slice(0, 2), items.slice(2, 4), items.slice(4, 6)];
   return (
-    <div className="flex flex-col xl:flex-row gap-10 justify-between lg:h-screen 2xla:h-[60vh] my-10 items-center">
+    <div className="flex flex-col xl:flex-row gap-10 justify-between lg:h-screen 2xla:h-[80vh] my-10 items-center">
       <div className="w-full xl:w-[60%] h-full order-last xl:order-first gap-4 md:gap-10 ">
         <div className="h-full flex flex-col justify-between ">
           {grouped.map((pair, i) => (
