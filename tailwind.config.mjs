@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         abhaya: ["AbhayaLibre", "sans-serif"],
+        ppneue: ["PP Neue Montreal", "sans-serif"],
         work: ["Work Sans", "sans-serif"],
       },
       screens: {
@@ -40,7 +41,7 @@ export default {
         red: "#921360",
         gray90: "#74757A",
         gray80: "#E0DCE2",
-        gray100: "#141414",
+        gray100: "#1e211e",
         purple100: "#897392",
       },
     },

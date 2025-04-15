@@ -1,7 +1,6 @@
 import AudioPlayer from "@/components/layout/AudioPlayer";
 import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
-import "@/styles/preloader.css";
 
 import { AnimatePresence, motion } from "framer-motion";
 export default function App({ Component, pageProps }) {
