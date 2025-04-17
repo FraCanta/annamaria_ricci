@@ -7,6 +7,7 @@ import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import InfiniteTextScroll from "@/components/InfiniteTextScroller/InfiniteTextScroll";
 import HeroHome from "@/components/layout/HeroHome";
 import ServiziSection from "@/components/Servizi/ServiziSection";
+import FadeInSection from "@/components/layout/FadeInSection";
 
 export default function Home() {
   return (
@@ -28,35 +29,63 @@ export default function Home() {
       <main className="content">
         <HeroHome />
         <AnimatedLineView />
-        <AboutSection />
+        <FadeInSection delay={200}>
+          <AboutSection />
+        </FadeInSection>
         <AnimatedLineView />
-        <ServiziSection />
+        <FadeInSection delay={100}>
+          <ServiziSection />
+        </FadeInSection>
         <AnimatedLineView />
         <InfiniteTextScroll />
         <AnimatedLineView />
 
-        <div className="h-screen my-20 relative">
-          <div className="absolute top-0 left-0 w-full">
-            <Image
-              src="/assets/annamaria_scritta.png"
-              alt="Hero"
-              width={800}
-              height={800}
-              className="w-full h-full object-cover lg:object-contain object-right overflow-x-hidden"
-            />
-            <div className="grid grid-cols-1 lg:grid-cols-2 absolute top-6 lg:top-20 left-0 w-full h-full gap-10">
-              <div className="aspect-square rounded-full relative">
+        <div className="h-screen mt-20 relative mb-10">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <FadeInSection delay={200}>
+              <Image
+                src="/assets/annamaria_scritta.png"
+                alt="Hero"
+                width={800}
+                height={800}
+                className="w-full h-full object-cover lg:object-contain object-right overflow-x-hidden"
+              />
+            </FadeInSection>
+          </div>
+          {/* SEZIONE A DUE COLONNE */}
+          <FadeInSection delay={100}>
+            <div className="relative top-6 lg:top-6 left-0 w-full h-full flex flex-col lg:flex-row items-center  gap-20">
+              {/* COLONNA SINISTRA - 60% */}
+
+              <div className="w-full lg:w-[60%] relative aspect-square flex justify-center items-center">
                 <Image
                   src="/assets/chi_sono.webp"
                   alt="Hero"
                   fill
-                  className="w-full h-full object-contain object-right rounded-full absolute top-0 left-0"
+                  className="object-contain rounded-full p-8"
+                  priority
                 />
               </div>
-              <div>testo</div>
+
+              {/* COLONNA DESTRA - 40% */}
+              <div className="w-full lg:w-[40%] flex flex-col gap-4">
+                <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">
+                  Il mio percorso tra crescita personale e professionale
+                </h2>
+                <p className="font-work font-regular text-base md:text-[18px] text-gray90 my-6 flex-grow flex items-center">
+                  La mia passione per l’apprendimento e la libertà mi ha portata
+                  a specializzarmi nell’aiuto alla persona, nel benessere e
+                  nell’orientamento professionale. Attraverso counseling,
+                  respiro circolare consapevole e comunicazione non violenta,
+                  accompagno individui e organizzazioni verso una maggiore
+                  consapevolezza e crescita.
+                </p>
+              </div>
             </div>
-          </div>
+          </FadeInSection>
         </div>
+
+        <AnimatedLineView />
       </main>
     </>
   );

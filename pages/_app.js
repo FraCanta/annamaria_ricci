@@ -53,8 +53,7 @@ export default function App({ Component, pageProps }) {
             initial={{
               scaleY: 0.2,
               scaleX: 0.8,
-              bottom: "50px",
-              right: 0, // Offset dal basso di 50px
+              bottom: "50px", // Offset dal basso di 50px
               top: 0, // Inizia dalla parte superiore
               transformOrigin: "bottom center",
             }}
@@ -89,7 +88,7 @@ export default function App({ Component, pageProps }) {
       {/* Mostra contenuto solo quando la transizione è terminata */}
       {!isTransitioning && (
         <Layout>
-          <AudioPlayer />
+          {/* <AudioPlayer /> */}
           <Component key={currentRoute} {...pageProps} />
         </Layout>
       )}

@@ -191,6 +191,7 @@ const Navbar = () => {
             "Servizio 1",
             "Servizio 2",
             "Servizio 3",
+            "Tutti i servizi",
           ].map((label, index) => (
             <div
               key={index}
@@ -222,7 +223,7 @@ const Navbar = () => {
         // onMouseEnter={handleLeave}
       ></div>
 
-      <div className="lg:block hidden z-[999]">
+      <div className="lg:flex hidden z-[99999]">
         <AnimatedLineView />
       </div>
     </>
