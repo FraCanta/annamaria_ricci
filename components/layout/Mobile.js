@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import Link from "next/link";
-
+import gsap from "gsap/dist/gsap";
 const Mobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
@@ -36,6 +36,29 @@ const Mobile = () => {
       if (navbarRef.current) observer.unobserve(navbarRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      // Animazione di entrata delle voci del menu
+      const menuItems = document.querySelectorAll(".menu-item");
+      gsap.fromTo(
+        menuItems,
+        {
+          opacity: 0,
+          y: 30,
+          filter: "blur(8px)",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.3,
+          stagger: 0.1, // Ogni voce si anima con un piccolo ritardo
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [menuOpen]);
 
   return (
     <>
@@ -101,16 +124,32 @@ const Mobile = () => {
         }`}
       >
         <div className="flex flex-col mt-32 w-[90%] mx-auto h-full gap-6 text-3xl font-medium">
-          <Link href="#servizi" onClick={() => setMenuOpen(false)}>
+          <Link
+            href="#servizi"
+            className="menu-item"
+            onClick={() => setMenuOpen(false)}
+          >
             Servizi
           </Link>
-          <Link href="#percorsi" onClick={() => setMenuOpen(false)}>
+          <Link
+            href="#percorsi"
+            className="menu-item"
+            onClick={() => setMenuOpen(false)}
+          >
             Percorsi
           </Link>
-          <Link href="/chi-sono" onClick={() => setMenuOpen(false)}>
+          <Link
+            href="/chi-sono"
+            className="menu-item"
+            onClick={() => setMenuOpen(false)}
+          >
             Chi siamo
           </Link>
-          <Link href="#contatti" onClick={() => setMenuOpen(false)}>
+          <Link
+            href="#contatti"
+            className="menu-item"
+            onClick={() => setMenuOpen(false)}
+          >
             Contatti
           </Link>
         </div>
