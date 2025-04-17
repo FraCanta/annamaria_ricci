@@ -17,8 +17,11 @@ const Navbar = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const items = document.querySelectorAll("li, a.bg-red, .logo");
+          const items = navbarRef.current.querySelectorAll(
+            "li, a.bg-red, .logo"
+          );
           items.forEach((item, index) => {
+            item.classList.add("transition-all", "duration-700", "ease-out");
             setTimeout(() => {
               item.classList.remove("opacity-0", "translate-y-2");
               item.classList.add("opacity-100", "translate-y-0");
@@ -95,6 +98,16 @@ const Navbar = () => {
     }, 100); // evita flickering
   };
 
+  useEffect(() => {
+    if (megaMenuRef.current) {
+      gsap.set(megaMenuRef.current, {
+        display: "none",
+        clipPath: "inset(0 0 100% 0)",
+        opacity: 0,
+      });
+    }
+  }, []);
+
   return (
     <>
       <div
@@ -162,7 +175,7 @@ const Navbar = () => {
       {/* Megamenu */}
       <div
         ref={megaMenuRef}
-        className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-[100] overflow-hidden"
+        className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-[100] overflow-hidden hidden"
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
