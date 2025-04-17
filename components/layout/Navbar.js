@@ -3,79 +3,97 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import gsap from "gsap";
+
 const Navbar = () => {
   const navbarRef = useRef(null);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [hoveredItemIndex, setHoveredItemIndex] = useState(null);
+
   const megaMenuRef = useRef(null);
   const menuItemsRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           const items = document.querySelectorAll("li, a.bg-red, .logo");
-
           items.forEach((item, index) => {
             setTimeout(() => {
               item.classList.remove("opacity-0", "translate-y-2");
               item.classList.add("opacity-100", "translate-y-0");
-            }, 300 + 50 * index); // più morbido: 20ms anziché 50ms
+            }, 300 + 50 * index);
           });
         }
       },
       { threshold: 0.5 }
     );
-
-    if (navbarRef.current) {
-      observer.observe(navbarRef.current);
-    }
-
+    if (navbarRef.current) observer.observe(navbarRef.current);
     return () => {
-      if (navbarRef.current) {
-        observer.unobserve(navbarRef.current);
-      }
+      if (navbarRef.current) observer.unobserve(navbarRef.current);
     };
   }, []);
 
   useEffect(() => {
-    if (megaMenuRef.current) {
-      if (showMegaMenu) {
-        gsap.to(megaMenuRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "power3.out",
-          display: "block",
-        });
+    const menu = megaMenuRef.current;
+    if (!menu) return;
 
-        // Stagger animazione degli item dentro
-        gsap.fromTo(
-          menuItemsRef.current.querySelectorAll(".menu-item"),
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            delay: 0.2,
-            stagger: 0.1,
-            ease: "power3.out",
-          }
-        );
-      } else {
-        gsap.to(megaMenuRef.current, {
-          y: -50,
+    if (showMegaMenu) {
+      clearTimeout(timeoutRef.current);
+      gsap.killTweensOf(menu);
+      gsap.set(menu, {
+        display: "block",
+        clipPath: "inset(0 0 100% 0)",
+        opacity: 1,
+      });
+
+      gsap.to(menu, {
+        clipPath: "inset(0 0 0% 0)",
+        duration: 0.55,
+        ease: "power2.out",
+      });
+
+      gsap.fromTo(
+        menuItemsRef.current.querySelectorAll(".menu-item"),
+        {
           opacity: 0,
-          duration: 0.4,
-          ease: "power3.in",
-          onComplete: () => {
-            if (megaMenuRef.current) {
-              megaMenuRef.current.style.display = "none";
-            }
-          },
-        });
-      }
+          y: 30,
+          filter: "blur(8px)",
+        },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.8,
+          delay: 0.05,
+          stagger: 0.05,
+          ease: "power2.out",
+        }
+      );
+    } else {
+      gsap.killTweensOf(menu);
+      gsap.to(menu, {
+        clipPath: "inset(0 0 100% 0)",
+        duration: 0.55,
+        ease: "power2.in",
+        onComplete: () => {
+          gsap.set(menu, { display: "none" });
+        },
+      });
     }
   }, [showMegaMenu]);
+
+  // Gestione sicura dell'hover
+  const handleEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setShowMegaMenu(true);
+  };
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowMegaMenu(false);
+    }, 100); // evita flickering
+  };
 
   return (
     <>
@@ -84,10 +102,8 @@ const Navbar = () => {
         ref={navbarRef}
       >
         <div
-          className=" flex items-center space-x-2 logo opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
-          style={{
-            transitionDelay: `calc(0.02s * 0 + 0.3s)`,
-          }}
+          className="flex items-center space-x-2 logo opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
+          style={{ transitionDelay: `calc(0.02s * 0 + 0.3s)` }}
         >
           <Link href="/">
             <Image
@@ -99,46 +115,36 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <ul className="flex items-center gap-[30px] uppercase text-lg">
+        <ul className="flex items-center gap-[30px] uppercase">
           <li
-            onMouseEnter={() => setShowMegaMenu(true)}
-            onMouseLeave={() => setShowMegaMenu(false)}
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-base"
-            style={{
-              transitionDelay: `calc(0.02s * 1 + 0.3s)`,
-            }}
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 1 + 0.3s)` }}
           >
-            <Link href="/">Servizi e percorsi +</Link>
+            <span>Servizi e percorsi +</span>
           </li>
           <li
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-base"
-            style={{
-              transitionDelay: `calc(0.02s * 2 + 0.3s)`,
-            }}
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
           >
             <Link href="/">Respiro</Link>
           </li>
           <li
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-base"
-            style={{
-              transitionDelay: `calc(0.02s * 3 + 0.3s)`,
-            }}
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 3 + 0.3s)` }}
           >
             <Link href="/">Blog</Link>
           </li>
           <li
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-base"
-            style={{
-              transitionDelay: `calc(0.02s * 4 + 0.3s)`,
-            }}
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 4 + 0.3s)` }}
           >
             <Link href="/chi-sono">Chi sono</Link>
           </li>
           <li
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-base"
-            style={{
-              transitionDelay: `calc(0.02s * 5 + 0.3s)`,
-            }}
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
             <Link href="/">Contatti</Link>
           </li>
@@ -146,42 +152,61 @@ const Navbar = () => {
 
         <Link
           href="/"
-          className="bg-red uppercase text-white px-4 py-4 rounded-sm text-base transition-all opacity-0 translate-y-2 duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
-          style={{
-            transitionDelay: `calc(0.02s * 6 + 0.3s)`,
-          }}
+          className="bg-red uppercase text-white px-4 py-4 rounded-sm text-[15px] transition-all opacity-0 translate-y-2 duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
+          style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
         >
           Hai bisogno di aiuto?
         </Link>
       </div>
-      {/* dropdown megamenu */}
+
+      {/* Megamenu */}
       <div
         ref={megaMenuRef}
-        className={`bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-[99] transition-all duration-300 ease-in-out ${
-          showMegaMenu ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-        onMouseEnter={() => setShowMegaMenu(true)}
-        onMouseLeave={() => setShowMegaMenu(false)}
+        className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-[100] overflow-hidden"
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
       >
         <div
           ref={menuItemsRef}
-          className="grid grid-cols-3 gap-8 text-gray100 w-[95%] mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="grid grid-cols-1 text-[3vw] leading-tight font-regular font-work text-gray100 w-[95%] mx-auto absolute  top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          style={{ "--nav-dd-index": hoveredItemIndex ?? -1 }}
         >
-          <div className="menu-item opacity-0 translate-y-4">Percorso 1</div>
-          <div className="menu-item opacity-0 translate-y-4">Percorso 2</div>
-          <div className="menu-item opacity-0 translate-y-4">Percorso 3</div>
-          <div className="menu-item opacity-0 translate-y-4">Servizio 1</div>
-          <div className="menu-item opacity-0 translate-y-4">Servizio 2</div>
-          <div className="menu-item opacity-0 translate-y-4">Servizio 3</div>
+          {[
+            "Percorso 1",
+            "Percorso 2",
+            "Percorso 3",
+            "Servizio 1",
+            "Servizio 2",
+            "Servizio 3",
+          ].map((label, index) => (
+            <div
+              key={index}
+              onMouseEnter={() => setHoveredItemIndex(index)}
+              onMouseLeave={() => setHoveredItemIndex(null)}
+              className="menu-item relative translate-y-4"
+            >
+              <Link
+                href={`/${label.toLowerCase().replace(/\s/g, "-")}`}
+                className={`inline-block relative z-10 text-gray100 transition-opacity duration-300 ease-in-out ${
+                  hoveredItemIndex !== null && hoveredItemIndex !== index
+                    ? "opacity-30"
+                    : "opacity-100"
+                }`}
+              >
+                {label}
+                <div className="utl-hover_block absolute z-0" />
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay (sotto il megamenu) */}
       <div
-        className={`fixed inset-0 bg-purple100 bg-opacity-40 backdrop-blur-sm z-[90] transition-opacity duration-500 ease-out ${
+        className={`fixed inset-0 bg-purple100 bg-opacity-40  z-[90] transition-opacity duration-500 ease-out ${
           showMegaMenu ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
-        onMouseEnter={() => setShowMegaMenu(false)} // facoltativo: chiude se si esce dal mega
+        // onMouseEnter={handleLeave}
       ></div>
 
       <div className="lg:block hidden z-[999]">

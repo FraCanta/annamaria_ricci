@@ -35,6 +35,23 @@ p {
   }
 }
 
+.menu-item .utl-hover_block {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  bottom: -6px;
+  left: -6px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.menu-item:hover .utl-hover_block {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.05); /* o il colore che preferisci */
+}
+
 .nav__burger {
   z-index: 10;
   grid-column-gap: 6px;
