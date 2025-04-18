@@ -165,7 +165,7 @@ const Navbar = () => {
 
         <Link
           href="/"
-          className="bg-red uppercase text-white px-4 py-4 rounded-sm text-[15px] transition-all opacity-0 translate-y-2 duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
+          className="bg-red uppercase text-white px-4 py-[14px] rounded-sm text-[15px] transition-all opacity-0 translate-y-2 duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
           style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
         >
           Hai bisogno di aiuto?

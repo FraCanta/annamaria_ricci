@@ -4,6 +4,7 @@ import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import Button from "../layout/Button";
 
 const ServiziSection = () => {
   const items = [
@@ -122,13 +123,7 @@ const ServiziSection = () => {
           </p>
         </div>
 
-        <Link
-          href="/"
-          className="bg-purple100 text-white px-4 py-4 rounded-sm  transition duration-200 max-w-max uppercase flex items-center gap-2"
-        >
-          i miei servizi{" "}
-          <Icon icon="lets-icons:arrow-right-light" width="24" height="24" />
-        </Link>
+        <Button href="/servizi">i miei servizi</Button>
       </div>
     </div>
   );

@@ -3,6 +3,8 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Button from "./Button";
+import ButtonOutline from "./ButtonOutline";
 
 const HeroHome = () => {
   const [animate, setAnimate] = useState(false);
@@ -47,30 +49,10 @@ const HeroHome = () => {
               }`}
           >
             <div className="flex gap-4 lg:gap-10 items-center">
-              <Link
-                href="/"
-                className="bg-purple100 text-sm text-white px-[18px] py-[16px] rounded-sm transition duration-200 max-w-max uppercase flex items-center gap-2"
-              >
-                sei un'azienda?
-                <Icon
-                  icon="lets-icons:arrow-right-light"
-                  width="24"
-                  height="24"
-                />
-              </Link>
+              <Button href="/">sei un'azienda?</Button>
               <p className="font-abhaya uppercase text-base">oppure</p>
             </div>
-            <Link
-              href="/"
-              className="border border-purple100 text-sm text-purple100 px-[18px] py-[16px] rounded-sm transition duration-200 max-w-max uppercase flex items-center gap-2"
-            >
-              sei un professionista?
-              <Icon
-                icon="lets-icons:arrow-right-light"
-                width="24"
-                height="24"
-              />
-            </Link>
+            <ButtonOutline href="/">sei un professionista?</ButtonOutline>
           </div>
         </div>
 

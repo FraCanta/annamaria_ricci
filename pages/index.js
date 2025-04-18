@@ -8,6 +8,9 @@ import InfiniteTextScroll from "@/components/InfiniteTextScroller/InfiniteTextSc
 import HeroHome from "@/components/layout/HeroHome";
 import ServiziSection from "@/components/Servizi/ServiziSection";
 import FadeInSection from "@/components/layout/FadeInSection";
+import BlogSection from "@/components/BlogSection/BlogSection";
+import Button from "@/components/layout/Button";
+import Reviews from "@/components/Reviews/Reviews";
 
 export default function Home() {
   return (
@@ -40,7 +43,7 @@ export default function Home() {
         <InfiniteTextScroll />
         <AnimatedLineView />
 
-        <div className="h-screen mt-20 relative mb-10">
+        <div className="min-h-screen mt-20 relative mb-10">
           <div className="absolute top-0 left-0 w-full h-full">
             <FadeInSection delay={200}>
               <Image
@@ -80,11 +83,20 @@ export default function Home() {
                   accompagno individui e organizzazioni verso una maggiore
                   consapevolezza e crescita.
                 </p>
+                <Button href="/chi-sono">chi sono</Button>
               </div>
             </div>
           </FadeInSection>
         </div>
 
+        <AnimatedLineView />
+        <FadeInSection delay={100}>
+          <Reviews />
+        </FadeInSection>
+        <AnimatedLineView />
+        <FadeInSection delay={100}>
+          <BlogSection />
+        </FadeInSection>
         <AnimatedLineView />
       </main>
     </>
