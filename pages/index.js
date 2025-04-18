@@ -97,7 +97,7 @@ export default function Home() {
         <div className="min-h-screen mt-20 relative mb-20 lg:mb-10">
           {/* SEZIONE A DUE COLONNE */}
           <FadeInSection delay={50}>
-            <div className="relative  w-full h-full flex flex-col lg:flex-row items-center lg:my-20 px-2 lg:px-4 gap-6 lg:gap-20">
+            <div className="relative  w-full h-full flex flex-col lg:flex-row items-center lg:my-20 px-2 lg:px-4 gap-20">
               {/* COLONNA DESTRA - 40% */}
               <div className="w-full lg:w-[40%] flex flex-col gap-4">
                 <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">
@@ -115,7 +115,7 @@ export default function Home() {
                 <Button href="/chi-sono">scopri sul respiro</Button>
               </div>
               {/* COLONNA SINISTRA - 60% */}
-              <div className="w-full lg:w-[60%] relative aspect-square flex justify-center items-center p-8">
+              <div className="w-full lg:w-[60%] relative aspect-square flex justify-center items-center lg:p-8">
                 {/* Contenitore per immagine e overlay */}
                 <div className="w-full h-full relative ">
                   {/* Immagine con padding */}
