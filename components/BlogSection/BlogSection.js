@@ -42,7 +42,7 @@ function BlogSection() {
   ];
 
   return (
-    <section className="my-20 py-10 px-2 lg:px-4 w-full flex flex-col gap-6 min-h-screen">
+    <section className="lg:my-20 py-10 px-2 lg:px-4 w-full flex flex-col gap-6 min-h-screen">
       <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-6 gap-6">
         <div className="flex flex-col gap-6 lg:max-w-[60%]">
           <h2 className="font-abhaya font-bold text-[35px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">

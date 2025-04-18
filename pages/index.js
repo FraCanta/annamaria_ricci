@@ -43,21 +43,21 @@ export default function Home() {
         <InfiniteTextScroll />
         <AnimatedLineView />
 
-        <div className="min-h-screen mt-20 relative mb-10">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <FadeInSection delay={200}>
+        <div className="min-h-screen mt-20 relative mb-20 lg:mb-10">
+          <div className="absolute top-0 left-0 w-screen lg:w-full h-full mx-auto">
+            <FadeInSection delay={50}>
               <Image
                 src="/assets/annamaria_scritta.png"
                 alt="Hero"
-                width={800}
-                height={800}
-                className="w-full h-full object-cover lg:object-contain object-right overflow-x-hidden"
+                width={1500}
+                height={1500}
+                className="w-full lg:h-full object-cover object-left lg:object-contain lg:object-right overflow-x-hidden h-[70px]"
               />
             </FadeInSection>
           </div>
           {/* SEZIONE A DUE COLONNE */}
-          <FadeInSection delay={100}>
-            <div className="relative top-6 lg:top-6 left-0 w-full h-full flex flex-col lg:flex-row items-center  gap-20">
+          <FadeInSection delay={50}>
+            <div className="relative top-8 lg:top-6 left-0 w-full h-full flex flex-col lg:flex-row items-center lg:my-20 px-2 lg:px-4 gap-6 lg:gap-20">
               {/* COLONNA SINISTRA - 60% */}
 
               <div className="w-full lg:w-[60%] relative aspect-square flex justify-center items-center">
@@ -65,7 +65,7 @@ export default function Home() {
                   src="/assets/chi_sono.webp"
                   alt="Hero"
                   fill
-                  className="object-contain rounded-full p-8"
+                  className="object-contain rounded-full lg:p-8 "
                   priority
                 />
               </div>
@@ -90,14 +90,58 @@ export default function Home() {
         </div>
 
         <AnimatedLineView />
-        <FadeInSection delay={100}>
+        <FadeInSection delay={50}>
           <Reviews />
         </FadeInSection>
         <AnimatedLineView />
-        <FadeInSection delay={100}>
+        <div className="min-h-screen mt-20 relative mb-20 lg:mb-10">
+          {/* SEZIONE A DUE COLONNE */}
+          <FadeInSection delay={50}>
+            <div className="relative  w-full h-full flex flex-col lg:flex-row items-center lg:my-20 px-2 lg:px-4 gap-6 lg:gap-20">
+              {/* COLONNA DESTRA - 40% */}
+              <div className="w-full lg:w-[40%] flex flex-col gap-4">
+                <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">
+                  La mia formazione ed esperienza nel Respiro Circolare
+                  Consapevole
+                </h2>
+                <p className="font-work font-regular text-base md:text-[18px] text-gray90 my-6 flex-grow flex items-center">
+                  Dal 2008 mi sono formata in Respiro Circolare Consapevole con
+                  insegnanti internazionali, arricchendo la mia pratica con
+                  esperienze in sessioni individuali e di gruppo. La mia
+                  passione per la crescita personale mi ha portata a sviluppare
+                  un approccio personalizzato, rispettoso dei tempi e delle
+                  necessità di ciascuno.
+                </p>
+                <Button href="/chi-sono">scopri sul respiro</Button>
+              </div>
+              {/* COLONNA SINISTRA - 60% */}
+              <div className="w-full lg:w-[60%] relative aspect-square flex justify-center items-center p-8">
+                {/* Contenitore per immagine e overlay */}
+                <div className="w-full h-full relative ">
+                  {/* Immagine con padding */}
+                  <div className="relative w-full h-full ">
+                    {" "}
+                    {/* Padding applicato qui, separato dal contenitore */}
+                    <Image
+                      src="/assets/respiro.jpg"
+                      alt="Hero"
+                      fill
+                      className="object-cover rounded-full"
+                      priority
+                    />
+                  </div>
+
+                  {/* Overlay sopra l'immagine */}
+                  <div className="absolute top-0 left-0 w-full h-full bg-purple100/30 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+        <AnimatedLineView />
+        <FadeInSection delay={50}>
           <BlogSection />
         </FadeInSection>
-        <AnimatedLineView />
       </main>
     </>
   );
