@@ -11,6 +11,7 @@ import FadeInSection from "@/components/layout/FadeInSection";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import Button from "@/components/layout/Button";
 import Reviews from "@/components/Reviews/Reviews";
+import Banner from "@/components/Banner/Banner";
 
 export default function Home() {
   return (
@@ -132,7 +133,7 @@ export default function Home() {
                   </div>
 
                   {/* Overlay sopra l'immagine */}
-                  <div className="absolute top-0 left-0 w-full h-full bg-purple100/30 rounded-full"></div>
+                  <div className="absolute top-0 left-0 w-full h-full bg-gray80/20 rounded-full"></div>
                 </div>
               </div>
             </div>
@@ -142,6 +143,9 @@ export default function Home() {
         <FadeInSection delay={50}>
           <BlogSection />
         </FadeInSection>
+        <AnimatedLineView />
+        <Banner />
+        <AnimatedLineView />
       </main>
     </>
   );
