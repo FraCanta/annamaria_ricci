@@ -24,7 +24,7 @@ const AboutSection = () => {
 
         <div className="w-full xl:w-[40%] h-full flex flex-col gap-10 order-first xl:order-last p-2 md:p-6 lg:p-10">
           <h2 className="font-abhaya font-bold text-[30px] md:text-[38px] 2xl:text-[48px]  leading-none text-gray100 ">
-            Su di me
+            Il mio background
           </h2>
           <div className="grid grid-cols-2 gap-10">
             <div className="flex flex-col gap-2">

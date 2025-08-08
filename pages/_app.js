@@ -88,7 +88,7 @@ export default function App({ Component, pageProps }) {
       {/* Mostra contenuto solo quando la transizione è terminata */}
       {!isTransitioning && (
         <Layout>
-          <AudioPlayer />
+          {/* <AudioPlayer /> */}
           <Component key={currentRoute} {...pageProps} />
         </Layout>
       )}

@@ -13,7 +13,7 @@ function Button({
     <Link
       href={href}
       className={clsx(
-        "group bg-purple100 text-sm text-white px-[18px] py-[14px] rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110",
+        "group bg-purple100 text-md text-white px-[18px] py-[14px] rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110",
         className
       )}
       {...props}

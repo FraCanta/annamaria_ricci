@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import gsap from "gsap";
+import { Icon } from "@iconify/react";
 
 const Navbar = () => {
   const navbarRef = useRef(null);
@@ -110,7 +111,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div
+      <nav
         className="h-[90px] lg:flex items-center justify-between hidden py-10 relative z-[999]"
         ref={navbarRef}
       >
@@ -130,47 +131,66 @@ const Navbar = () => {
 
         <ul className="flex items-center gap-[30px] uppercase">
           <li
-            onMouseEnter={handleEnter}
-            onMouseLeave={handleLeave}
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 1 + 0.3s)` }}
           >
-            <span>Servizi e percorsi +</span>
+            <Link href="/">Home</Link>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
           >
-            <Link href="/">Respiro</Link>
+            <Link href="/">Strumenti</Link>
           </li>
           <li
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 3 + 0.3s)` }}
           >
-            <Link href="/">Blog</Link>
+            <span>Percorsi +</span>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 4 + 0.3s)` }}
           >
-            <Link href="/chi-sono">Chi sono</Link>
+            <Link href="/">Respiro</Link>
           </li>
+
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
-            <Link href="/">Contatti</Link>
+            <Link href="/">Blog</Link>
+          </li>
+          <li
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
+          >
+            <Link href="/chi-sono">Chi sono</Link>
+          </li>
+          <li
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 7 + 0.3s)` }}
+          >
+            <Link href="/chi-sono">Contatti</Link>
           </li>
         </ul>
 
         <Link
           href="/"
-          className="bg-red uppercase text-white px-4 py-[14px] rounded-sm text-[15px] transition-all opacity-0 translate-y-2 duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
-          style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
+          className="group bg-red text-md text-white px-[18px] py-[14px] opacity-0 translate-y-2 rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110"
+          style={{ transitionDelay: `calc(0.02s * 8 + 0.3s)` }}
         >
-          Hai bisogno di aiuto?
+          Prenota una consulenza{" "}
+          <Icon
+            icon="prime:arrow-up-right"
+            width="24"
+            height="24"
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
         </Link>
-      </div>
+      </nav>
 
       {/* Megamenu */}
       <div
@@ -181,37 +201,122 @@ const Navbar = () => {
       >
         <div
           ref={menuItemsRef}
-          className="grid grid-cols-1 text-[3vw] leading-tight font-regular font-work text-gray100 w-[95%] mx-auto absolute  top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="flex flex-col items-center justify-start w-[95%] mx-auto absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style={{ "--nav-dd-index": hoveredItemIndex ?? -1 }}
         >
-          {[
-            "Percorso 1",
-            "Percorso 2",
-            "Percorso 3",
-            "Servizio 1",
-            "Servizio 2",
-            "Servizio 3",
-            "Tutti i servizi",
-          ].map((label, index) => (
+          {/* Grid a 3 colonne */}
+          <div className="grid grid-cols-2 gap-10 leading-tight font-regular font-work text-gray100 w-full mb-8">
+            {[
+              {
+                title: "Privati",
+                items: [
+                  {
+                    label: "Trova la tua direzione",
+                    href: "/privati/trova-la-tua-direzione",
+                  },
+                  {
+                    label: "Cambia e trova la tua strada nel lavoro",
+                    href: "/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
+                  },
+                  {
+                    label: "Trova il lavoro che desideri",
+                    href: "/privati/trova-il-lavoro-che-desideri",
+                  },
+                ],
+              },
+              {
+                title: "Libera professione",
+                items: [
+                  {
+                    label: "Avvia la tua attività con consapevolezza",
+                    href: "/liberi-professionisti/servizio-1",
+                  },
+                ],
+              },
+              {
+                title: "Organizzazioni",
+                items: [
+                  {
+                    label: "Soluzioni su misura per crescere",
+                    href: "/organizzazioni/soluzioni-su-misura-per-crescere",
+                  },
+                ],
+              },
+            ].map((group, colIndex) => {
+              const baseIndex = colIndex * 10;
+              return (
+                <div key={colIndex} className="flex flex-col gap-3">
+                  {/* Titolo con opacità */}
+                  <div
+                    onMouseEnter={() => setHoveredItemIndex(baseIndex - 1)}
+                    onMouseLeave={() => setHoveredItemIndex(null)}
+                    className="menu-item relative translate-y-4"
+                  >
+                    <h3
+                      className={`inline-block relative text-[3vw] z-10 transition-opacity duration-300 ease-in-out font-medium ${
+                        hoveredItemIndex !== null &&
+                        !(
+                          hoveredItemIndex >= baseIndex &&
+                          hoveredItemIndex < baseIndex + group.items.length
+                        ) &&
+                        hoveredItemIndex !== baseIndex - 1
+                          ? "opacity-30"
+                          : "opacity-100"
+                      }`}
+                    >
+                      {group.title}
+                      <div className="utl-hover_block absolute z-0" />
+                    </h3>
+                  </div>
+
+                  {/* Voci del menu */}
+                  {group.items.map((item, index) => {
+                    const itemIndex = baseIndex + index;
+                    return (
+                      <div
+                        key={itemIndex}
+                        onMouseEnter={() => setHoveredItemIndex(itemIndex)}
+                        onMouseLeave={() => setHoveredItemIndex(null)}
+                        className="menu-item relative translate-y-4"
+                      >
+                        <Link
+                          href={item.href}
+                          className={`inline-block relative text-[2vw] w-full z-10 text-gray100/80 transition-opacity duration-300 ease-in-out ${
+                            hoveredItemIndex !== null &&
+                            hoveredItemIndex !== itemIndex
+                              ? "opacity-30"
+                              : "opacity-100"
+                          }`}
+                        >
+                          {item.label}
+                          <div className="utl-hover_block absolute z-0" />
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })}
             <div
-              key={index}
-              onMouseEnter={() => setHoveredItemIndex(index)}
+              onMouseEnter={() => setHoveredItemIndex(999)}
               onMouseLeave={() => setHoveredItemIndex(null)}
-              className="menu-item relative translate-y-4"
+              className="menu-item relative translate-y-4 text-[2.5vw] leading-tight font-regular font-work text-gray100 w-full"
             >
               <Link
-                href={`/${label.toLowerCase().replace(/\s/g, "-")}`}
+                href="/tutti-i-percorsi"
                 className={`inline-block relative z-10 text-gray100 transition-opacity duration-300 ease-in-out ${
-                  hoveredItemIndex !== null && hoveredItemIndex !== index
+                  hoveredItemIndex !== null && hoveredItemIndex !== 999
                     ? "opacity-30"
                     : "opacity-100"
                 }`}
               >
-                {label}
+                Tutti i Percorsi
                 <div className="utl-hover_block absolute z-0" />
               </Link>
             </div>
-          ))}
+          </div>
+
+          {/* Voce finale sotto (Tutti i servizi) */}
         </div>
       </div>
 

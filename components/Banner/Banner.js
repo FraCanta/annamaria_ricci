@@ -9,6 +9,15 @@ const Banner = ({ title, text, address, book, contact }) => {
   return (
     <div className="flex flex-col justify-between h-full bg-third/20 my-20">
       <div className="grid items-center w-full gap-2 xl:grid-cols-2 bg-gray80/30">
+        <div className="relative w-full h-full aspect-video">
+          <Image
+            src="/assets/banner.jpg"
+            alt="contact image"
+            fill
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
         <div className="flex flex-col gap-6 w-[90%] lg:w-[80%] mx-auto py-10 ">
           <div>
             <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] leading-none text-gray100 ">
@@ -62,15 +71,6 @@ const Banner = ({ title, text, address, book, contact }) => {
               Scrivimi
             </ButtonOutline>
           </div>
-        </div>
-        <div className="relative w-full h-full aspect-video">
-          <Image
-            src="/assets/banner.jpg"
-            alt="contact image"
-            fill
-            className="object-cover w-full h-full"
-            priority
-          />
         </div>
       </div>
     </div>
