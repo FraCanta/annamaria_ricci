@@ -77,7 +77,7 @@ function HeroAbout() {
         <FadeInSection delay={50}>
           <Image
             src="/assets/annamaria_scritta.png"
-            alt="Hero"
+            alt="Hero Home"
             width={1500}
             height={1500}
             className="w-full lg:h-full object-cover object-left lg:object-contain lg:object-right overflow-x-hidden h-[50px]"
