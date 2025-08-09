@@ -61,7 +61,7 @@ const HeroHome = () => {
               w-full h-[50vh] lg:h-full relative`}
           >
             <Image
-              src="/assets/io.jpg"
+              src="/assets/Io.jpg"
               alt="Hero Home"
               fill
               className="md:w-[800px] h-full w-full absolute top-0 right-0 object-cover object-right"
