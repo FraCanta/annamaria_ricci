@@ -30,10 +30,16 @@ const percorsiPerTab = {
       image: "/assets/trova_il_lavoro_che_desideri.jpg",
       link: "/privati2",
     },
+    {
+      id: 4,
+      title: "Trova le tue radici",
+      image: "/assets/cerca_le_tue_radici.jpg",
+      link: "/privati2",
+    },
   ],
   "libera professione": [
     {
-      id: 4,
+      id: 5,
       title: "Avvia la tua attività con consapevolezza",
       image: "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
       link: "/liberaprof1",
@@ -41,7 +47,7 @@ const percorsiPerTab = {
   ],
   organizzazioni: [
     {
-      id: 5,
+      id: 6,
       title: "Soluzioni su misura per crescere",
       image: "/assets/soluzioni_su_misura_per_crescere.jpg",
       link: "/organizzazioni1",

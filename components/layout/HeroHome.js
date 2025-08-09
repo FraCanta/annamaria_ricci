@@ -62,7 +62,7 @@ const HeroHome = () => {
           >
             <Image
               src="/assets/io.jpg"
-              alt="Hero"
+              alt="Hero Home"
               fill
               className="md:w-[800px] h-full w-full absolute top-0 right-0 object-cover object-right"
             />
