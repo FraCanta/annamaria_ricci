@@ -62,7 +62,7 @@ function BlogSection() {
       {/* Primo post grande */}
       <Link
         href={"/"}
-        className="flex flex-col lg:flex-row gap-6 bg-gray80/30 h-[450px] lg:h-[600px] hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
+        className="flex flex-col lg:flex-row gap-6 bg-gray80/30 h-[450px] md:h-[600px] hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
       >
         <div className="relative w-full h-full">
           <Image
@@ -79,7 +79,7 @@ function BlogSection() {
               {posts[0].category}
             </p>
 
-            <h3 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">
+            <h3 className="font-abhaya font-bold text-[28px] lg:text-[48px] 2xl:text-[58px] leading-none text-gray100 ">
               {posts[0].title}
             </h3>
           </div>
@@ -103,14 +103,14 @@ function BlogSection() {
       </Link>
 
       {/* Altri 3 post in colonne */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
         {posts.slice(1).map((post) => (
           <Link
             href={"/"}
             key={post.id}
             className="flex flex-col bg-gray80/30 hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
           >
-            <div className="relative w-full h-[200px] lg:h-[300px]  aspect-square">
+            <div className="relative w-full h-[200px] md:h-[300px]  aspect-square">
               <Image
                 src={post.image}
                 alt={post.title}

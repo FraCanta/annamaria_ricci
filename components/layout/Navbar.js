@@ -179,7 +179,7 @@ const Navbar = () => {
 
         <Link
           href="/"
-          className="group bg-red text-md text-white px-[18px] py-[14px] opacity-0 translate-y-2 rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110"
+          className="group bg-red text-md md:text-xl lg:text-lg xl:text-sm 2xl:text-md text-white px-[18px] py-[14px] opacity-0 translate-y-2 rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110"
           style={{ transitionDelay: `calc(0.02s * 8 + 0.3s)` }}
         >
           Prenota una consulenza{" "}

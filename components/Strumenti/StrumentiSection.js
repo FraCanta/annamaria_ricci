@@ -54,13 +54,13 @@ const StrumentiSection = () => {
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3.2 },
+              1024: { slidesPerView: 2.5 },
             }}
             className=" !mt-10 lg:!pb-10 !px-0"
           >
             {items.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-14 bg-gray80/30 h-[400px] lg:h-[320px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                <div className="flex flex-col gap-14 bg-gray80/30 h-[450px] lg:h-[320px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
                   <div className="h-[50px] w-[50px]">
                     <Image
                       src={item.icon}
@@ -74,7 +74,7 @@ const StrumentiSection = () => {
                     <h3 className="font-abhaya font-bold text-[25px] lg:text-[30px] leading-none text-gray100 ">
                       {item.title}
                     </h3>
-                    <p className="text-gray200">{item.text}</p>
+                    <p className="text-gray90">{item.text}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -82,7 +82,7 @@ const StrumentiSection = () => {
             {/* Slide extra per il bottone */}
             <SwiperSlide>
               <div className="flex items-center justify-center  h-[400px] lg:h-[320px] p-8 ">
-                <Button href="/i-miei-strumenti">Tutti i miei strumenti</Button>
+                <Button href="/i-miei-strumenti">vedi tutti</Button>
               </div>
             </SwiperSlide>
           </Swiper>

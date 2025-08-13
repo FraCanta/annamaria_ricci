@@ -6,7 +6,7 @@ import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 function Footer() {
   return (
     <>
-      <footer className="my-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-4 lg:p-0">
+      <footer className="my-14 grid grid-cols-1 md:grid-cols-3 gap-10 p-4 lg:p-0">
         <div className="flex flex-col">
           <Link href="/">
             <Image

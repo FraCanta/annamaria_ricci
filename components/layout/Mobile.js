@@ -119,7 +119,7 @@ const Mobile = () => {
 
       {/* Menu a sipario */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-gray80 z-40 transition-transform duration-500 ease-in-out ${
+        className={`fixed top-0 left-0 w-full h-screen bg-gray80 z-10 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >

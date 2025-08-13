@@ -96,7 +96,7 @@ const PercorsiCarousel = () => {
           breakpoints={{
             640: { slidesPerView: 1.5 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            1024: { slidesPerView: 2.5 },
           }}
           className="!px-0"
         >
@@ -116,7 +116,7 @@ const PercorsiCarousel = () => {
                   <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>
                 </div>
                 <div className="absolute bottom-10 left-10 ">
-                  <h3 className="font-abhaya font-bold text-[8vw] lg:text-[2.6vw] leading-none text-white">
+                  <h3 className="font-abhaya font-bold text-[8vw] md:text-[4vw] lg:text-[2.6vw] leading-none text-white">
                     {post.title}
                   </h3>
                   <Button className="mt-4" href={post.link}>

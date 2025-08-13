@@ -14,12 +14,12 @@ const HeroHome = () => {
   }, []);
 
   return (
-    <div className="min-h-screen md:h-[calc(100vh-90px)] w-full">
+    <div className="min-h-screen lg:h-[calc(100vh-90px)] w-full">
       <div className="flex flex-col lg:flex-row justify-between w-full h-full py-4 items-center gap-y-4">
         {/* TESTO */}
         <div className="w-full lg:w-[55%] py-4 flex flex-col gap-6 lg:gap-10">
           <h1
-            className={`font-abhaya font-bold text-[10vw] md:text-[6vw] leading-none text-gray100 
+            className={`font-abhaya font-bold text-[10vw] lg:text-[5.5vw] leading-none text-gray100 
               transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
           >
@@ -27,7 +27,7 @@ const HeroHome = () => {
           </h1>
 
           <p
-            className={`font-abhaya font-regular text-[18px] md:text-[28px] 2xla:text-[30px] leading-tight text-gray90 
+            className={`font-abhaya font-regular text-[18px] md:text-[26px] 2xla:text-[30px] leading-tight text-gray90 
     transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 
     ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
           >
@@ -38,7 +38,7 @@ const HeroHome = () => {
 
           {/* BOTTONI */}
           <div
-            className={`flex flex-col lg:flex-row gap-4 lg:gap-10 lg:items-center 
+            className={`flex flex-col md:flex-row gap-4 lg:gap-10 lg:items-center 
               transition-all duration-1000 ease-in-out delay-500
               ${
                 animate
@@ -47,9 +47,7 @@ const HeroHome = () => {
               }`}
           >
             <Button href="/">Scopri i miei percorsi</Button>
-            <ButtonOutline href="/">
-              Contattami per una consulenza
-            </ButtonOutline>
+            <ButtonOutline href="/">Chiedi una consulenza</ButtonOutline>
           </div>
         </div>
 
@@ -58,7 +56,7 @@ const HeroHome = () => {
           <div
             className={`transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"} 
-              w-full h-[50vh] lg:h-full relative`}
+              w-full h-[60vh] md:h-[80vh] lg:h-full relative`}
           >
             <Image
               src="/assets/Io.jpg"
