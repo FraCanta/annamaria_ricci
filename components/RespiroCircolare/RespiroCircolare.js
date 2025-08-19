@@ -118,7 +118,7 @@ export default function RespiroCircolare() {
             </FadeInSection>
           </h2>
           <div className="flex justify-end">
-            <Button href="/i-miei-percorsi">Scopri di più</Button>
+            <Button href="/respiro-circolare-consapevole">Scopri di più</Button>
           </div>
         </div>
       </div>

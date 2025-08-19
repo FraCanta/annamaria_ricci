@@ -8,7 +8,7 @@ const AnimatedLineView = ({ className = "" }) => {
   return (
     <motion.div
       ref={ref}
-      className={`h-[1.4px] bg-gray90/50 ${className} `}
+      className={`h-[1.4px] bg-gray90/50 z-[100] ${className} `}
       initial={{ width: 0 }}
       animate={isInView ? { width: "100%" } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}

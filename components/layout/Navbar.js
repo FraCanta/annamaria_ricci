@@ -112,7 +112,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="h-[90px] lg:flex items-center justify-between hidden py-10 relative z-[999]"
+        className="h-[90px] lg:flex items-center justify-between hidden py-10 relative z-[100]"
         ref={navbarRef}
       >
         <div
@@ -140,7 +140,7 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
           >
-            <Link href="/">Strumenti</Link>
+            <Link href="/i-miei-strumenti">Strumenti</Link>
           </li>
           <li
             onMouseEnter={handleEnter}
@@ -154,14 +154,14 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 4 + 0.3s)` }}
           >
-            <Link href="/">Respiro</Link>
+            <Link href="/respiro-circolare-consapevole">Respiro</Link>
           </li>
 
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
-            <Link href="/">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
@@ -173,7 +173,7 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 7 + 0.3s)` }}
           >
-            <Link href="/chi-sono">Contatti</Link>
+            <Link href="/contatti">Contatti</Link>
           </li>
         </ul>
 
@@ -195,7 +195,7 @@ const Navbar = () => {
       {/* Megamenu */}
       <div
         ref={megaMenuRef}
-        className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-[100] overflow-hidden hidden"
+        className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-50 overflow-hidden hidden"
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
       >
@@ -212,15 +212,19 @@ const Navbar = () => {
                 items: [
                   {
                     label: "Trova la tua direzione",
-                    href: "/privati/trova-la-tua-direzione",
+                    href: "/tutti-i-percorsi/privati/trova-la-tua-direzione",
                   },
                   {
                     label: "Cambia e trova la tua strada nel lavoro",
-                    href: "/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
+                    href: "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
                   },
                   {
                     label: "Trova il lavoro che desideri",
-                    href: "/privati/trova-il-lavoro-che-desideri",
+                    href: "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
+                  },
+                  {
+                    label: "Trova le tue radici",
+                    href: "/tutti-i-percorsi/privati/trova-le-tue-radici",
                   },
                 ],
               },
@@ -229,7 +233,7 @@ const Navbar = () => {
                 items: [
                   {
                     label: "Avvia la tua attività con consapevolezza",
-                    href: "/liberi-professionisti/servizio-1",
+                    href: "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
                   },
                 ],
               },
@@ -238,7 +242,7 @@ const Navbar = () => {
                 items: [
                   {
                     label: "Soluzioni su misura per crescere",
-                    href: "/organizzazioni/soluzioni-su-misura-per-crescere",
+                    href: "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
                   },
                 ],
               },
@@ -322,13 +326,13 @@ const Navbar = () => {
 
       {/* Overlay (sotto il megamenu) */}
       <div
-        className={`fixed inset-0 bg-purple100 bg-opacity-40  z-[90] transition-opacity duration-500 ease-out ${
+        className={`fixed inset-0 bg-purple100 bg-opacity-40  z-20 transition-opacity duration-500 ease-out ${
           showMegaMenu ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         // onMouseEnter={handleLeave}
       ></div>
 
-      <div className="lg:flex hidden z-[99999]">
+      <div className="lg:flex hidden">
         <AnimatedLineView />
       </div>
     </>

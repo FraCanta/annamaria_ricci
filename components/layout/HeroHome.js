@@ -46,7 +46,7 @@ const HeroHome = () => {
                   : "opacity-0 blur-sm translate-y-4"
               }`}
           >
-            <Button href="/">Scopri i miei percorsi</Button>
+            <Button href="/tutti-i-percorsi">Scopri i miei percorsi</Button>
             <ButtonOutline href="/">Chiedi una consulenza</ButtonOutline>
           </div>
         </div>

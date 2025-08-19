@@ -72,7 +72,7 @@ export default function Home() {
               <h2 className="text-[12vw] md:text-[8vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
                 I miei percorsi
               </h2>
-              <Button href="/percorsi">Vedi tutti i percorsi</Button>
+              <Button href="/tutti-i-percorsi">Vedi tutti i percorsi</Button>
             </div>
           </FadeInSection>
           <PercorsiSection />
@@ -83,11 +83,11 @@ export default function Home() {
 
         <AnimatedLineView />
 
-        <FadeInSection delay={50}>
+        <FadeInSection delay={100}>
           <BlogSection />
         </FadeInSection>
         <AnimatedLineView />
-        <FadeInSection delay={50}>
+        <FadeInSection delay={100}>
           <Banner />
         </FadeInSection>
         <AnimatedLineView />

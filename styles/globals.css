@@ -23,6 +23,22 @@ p {
   font-family: "Work Sans", sans-serif;
 }
 
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 2px !important;
+  background: transparent !important;
+  border: 1px solid #74757a !important;
+  opacity: 1;
+  border-radius: 1rem !important;
+}
+.swiper-pagination-bullet-active {
+  width: 25px !important;
+  transition: width 0.5s !important;
+  border-radius: 1rem !important;
+  background: #897392 !important;
+  border: 1px solid transparent !important;
+}
+
 @keyframes wave {
   0% {
     height: 20%;

@@ -1,12 +1,144 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import { useState, useRef } from "react";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
+
+function AccordionSection({ title, children }) {
+  const [open, setOpen] = useState(false);
+  const contentRef = useRef();
+
+  return (
+    <div className="border-b border-gray90">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex justify-between items-center py-4 text-left text-gray100 font-[600] uppercase"
+      >
+        <span>{title}</span>
+        <span
+          className={`transition-transform duration-300 text-[25px] font-[400] ${
+            open ? "rotate-45" : ""
+          }`}
+        >
+          +
+        </span>
+      </button>
+
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: open ? `${contentRef.current.scrollHeight}px` : "0px",
+        }}
+        className="overflow-hidden transition-all duration-300"
+      >
+        <div className="pb-10">{children}</div>
+      </div>
+    </div>
+  );
+}
 
 function Footer() {
   return (
     <>
-      <footer className="my-14 grid grid-cols-1 md:grid-cols-3 gap-10 p-4 lg:p-0">
+      {/* FOOTER MOBILE */}
+      <footer className="block md:hidden py-10 text-[15px]">
+        {/* Logo + copyright */}
+        <div className="mb-6">
+          <Link href="/">
+            <Image
+              src="/assets/logo_annamaria.svg"
+              alt="Logo"
+              width={120}
+              height={113}
+            />
+          </Link>
+          <p className="text-gray100 mt-4">
+            Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
+          </p>
+        </div>
+
+        {/* Accordion Pagine */}
+        <AccordionSection title="Pagine">
+          <ul className="flex flex-col gap-3">
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/">Strumenti</Link>
+            </li>
+            <li>
+              <Link href="/tutti-i-percorsi">Percorsi</Link>
+            </li>
+            <li>
+              <Link href="/">Respiro</Link>
+            </li>
+            <li>
+              <Link href="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link href="/chi-sono">Chi sono</Link>
+            </li>
+            <li>
+              <Link href="/contatti">Contatti</Link>
+            </li>
+            <li>
+              <Link href="/">Prenota una consulenza</Link>
+            </li>
+          </ul>
+        </AccordionSection>
+
+        {/* Accordion Orari */}
+        <AccordionSection title="Orari e contatti">
+          <ul className="flex flex-col gap-3 text-gray100">
+            <li>Lun - Ven: 9:00 - 18:00</li>
+            <li>
+              <Link href="tel:+393515991968">
+                <strong>Mobile:</strong> +39 351 599 1968
+              </Link>
+            </li>
+            <li>
+              <Link href="mailto:welcome@annamariaricci.eu">
+                <strong>Email:</strong> welcome@annamariaricci.eu
+              </Link>
+            </li>
+          </ul>
+        </AccordionSection>
+
+        {/* Accordion Socials */}
+        <AccordionSection title="Socials">
+          <div className="flex flex-col gap-2">
+            <Link href="https://www.facebook.com">Facebook</Link>
+            <Link href="https://www.instagram.com">Instagram</Link>
+            <Link href="https://www.linkedin.com">Linkedin</Link>
+          </div>
+        </AccordionSection>
+        <AnimatedLineView />
+        {/* Credits */}
+        <div className="flex flex-col gap-3 text-gray100 text-[15px] my-6 uppercase">
+          <div className="flex flex-col gap-2 mb-6">
+            <p>
+              Made with ❤️ by{" "}
+              <Link href="https://www.thallion-dev.it/" target="_blank">
+                Thallion dev -
+              </Link>
+            </p>
+            <p>
+              brand by{" "}
+              <Link href="https://www.miaographics.it/" target="_blank">
+                Miao graphics
+              </Link>
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/cookie-policy">Cookie Policy</Link>
+          </div>
+        </div>
+      </footer>
+
+      {/* FOOTER DESKTOP (3 colonne) */}
+      <footer className="hidden md:grid my-14 grid-cols-3 gap-[120px] p-4 lg:p-0 text-[14px]">
+        {/* Logo + copyright */}
         <div className="flex flex-col">
           <Link href="/">
             <Image
@@ -20,81 +152,94 @@ function Footer() {
             Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
           </p>
         </div>
-        <div className="flex flex-col">
-          <h4 className="font-bold mb-2 text-gray100">Menu</h4>
-          <ul className="flex flex-col gap-3 leading-none">
-            <li
-              className="text-gray100 hover:text-gray90 cursor-pointer text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 1 + 0.3s)` }}
-            >
+
+        {/* Pagine */}
+        <div className="flex flex-col gap-3">
+          <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+            Pagine
+          </h4>
+          <ul className="flex flex-col gap-3">
+            <li>
               <Link href="/">Home</Link>
             </li>
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 1 + 0.3s)` }}
-            >
+            <li>
               <Link href="/">Strumenti</Link>
             </li>
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
-            >
-              <Link href="/">Percorsi</Link>
+            <li>
+              <Link href="/tutti-i-percorsi">Percorsi</Link>
             </li>
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 3 + 0.3s)` }}
-            >
+            <li>
               <Link href="/">Respiro</Link>
             </li>
-
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 4 + 0.3s)` }}
-            >
-              <Link href="/">Blog</Link>
+            <li>
+              <Link href="/blog">Blog</Link>
             </li>
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
-            >
+            <li>
               <Link href="/chi-sono">Chi sono</Link>
             </li>
-            <li
-              className="text-gray100 hover:text-gray90  text-[17px]"
-              style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
-            >
-              <Link href="/chi-sono">Contatti</Link>
+            <li>
+              <Link href="/contatti">Contatti</Link>
+            </li>
+            <li>
+              <Link href="/">Prenota una consulenza</Link>
             </li>
           </ul>
         </div>
-        <div className="flex flex-col ">
-          <h4 className="font-bold mb-2">Seguimi</h4>
-          <a
-            href="https://www.facebook.com"
-            className="text-gray100 hover:underline"
-          >
-            Facebook
-          </a>
-          <a
-            href="https://www.instagram.com"
-            className="text-gray100 hover:underline"
-          >
-            Instagram
-          </a>
+
+        {/* Orari e Socials */}
+        <div className="flex flex-col justify-between">
+          <div className="flex flex-col gap-3">
+            <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+              Orari e contatti
+            </h4>
+            <ul className="flex flex-col gap-2 text-gray100">
+              <li>Lun - Ven: 9:00 - 18:00</li>
+              <li>
+                <Link href="tel:+393515991968">Mobile: +39 351 599 1968</Link>
+              </li>
+              <li>
+                <Link href="mailto:welcome@annamariaricci.eu">
+                  Email: welcome@annamariaricci.eu
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-col gap-3">
+            <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+              Socials
+            </h4>
+            <div className="flex flex-col gap-2">
+              <Link href="https://www.facebook.com">Facebook</Link>
+              <Link href="https://www.instagram.com">Instagram</Link>
+              <Link href="https://www.linkedin.com">Linkedin</Link>
+            </div>
+          </div>
         </div>
       </footer>
+
+      {/* Animated line (se ti serve in entrambi i layout) */}
       <AnimatedLineView />
-      <div className=" w-full my-6 flex gap-4 flex-wrap justify-between items-center p-4 lg:p-0">
-        <p className="text-gray100">
-          Made with ❤️ by{" "}
-          <Link href="https://www.thallion-dev.it/" target="_blank">
-            Thallion dev
-          </Link>{" "}
-        </p>
-        <div className="flex gap-4 text-gray100">
-          <p>Privacy Policy</p>
-          <p>Cookie Policy</p>
+
+      {/* Credits desktop */}
+      <div className="hidden md:flex w-full my-6 gap-4 justify-between items-center p-4 lg:p-0 text-[14px] text-gray100 uppercase">
+        <div className="flex gap-2">
+          <p>
+            Made with ❤️ by{" "}
+            <Link href="https://www.thallion-dev.it/" target="_blank">
+              Thallion dev -
+            </Link>
+          </p>
+          <p>
+            brand by{" "}
+            <Link href="https://www.miaographics.it/" target="_blank">
+              Miao graphics
+            </Link>
+          </p>
+        </div>
+
+        <div className="flex gap-4">
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/cookie-policy">Cookie Policy</Link>
         </div>
       </div>
     </>

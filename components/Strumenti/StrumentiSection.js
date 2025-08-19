@@ -1,14 +1,11 @@
 import React from "react";
-import VerticalAnimatedLine from "../AnimatedLine/VerticalAnimatedLine";
-import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
-import Link from "next/link";
 import Image from "next/image";
-import { Icon } from "@iconify/react";
 import Button from "../layout/Button";
 import FadeInSection from "../layout/FadeInSection";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
-
+import "swiper/css/pagination";
 const StrumentiSection = () => {
   const items = [
     {
@@ -49,12 +46,17 @@ const StrumentiSection = () => {
         <FadeInSection delay={100}>
           <Swiper
             spaceBetween={20}
-            slidesPerView={1.2}
+            modules={[Pagination]}
+            slidesPerView={1.1}
             grabCursor={true}
+            pagination={{
+              clickable: true,
+              el: ".swiper-pagination",
+            }}
             breakpoints={{
               640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 2.5 },
+              768: { slidesPerView: 1 },
+              1024: { slidesPerView: 2.2 },
             }}
             className=" !mt-10 lg:!pb-10 !px-0"
           >
@@ -85,6 +87,9 @@ const StrumentiSection = () => {
                 <Button href="/i-miei-strumenti">vedi tutti</Button>
               </div>
             </SwiperSlide>
+            <div className="relative flex w-full mt-10">
+              <div className="mt-10 swiper-pagination"></div>
+            </div>
           </Swiper>
         </FadeInSection>
       </div>
