@@ -13,7 +13,7 @@ export default function StrumentiLayout({ translation }) {
   }, [translation]);
 
   return (
-    <div className="p-6">
+    <div className="mb-10">
       {/* Header toggle */}
       <div className="flex justify-end items-center mb-6">
         <FadeInSection delay={100}>

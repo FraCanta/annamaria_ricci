@@ -30,7 +30,7 @@ function SinglePercorso({ percorsi, others }) {
         <meta property="og:description" content={percorsi.description} />
         <meta property="og:image" content={percorsi.img} />
       </Head>
-      <div className="absolute inset-0 lg:aspect-[1920/2000] ">
+      <div className="absolute inset-0 lg:aspect-[1920/2000] overflow-hidden">
         <h1
           dangerouslySetInnerHTML={{
             __html: percorsi.name,
@@ -99,7 +99,7 @@ function SinglePercorso({ percorsi, others }) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
             <FadeInSection delay={100}>
-              <div className="flex flex-col gap-10 bg-gray80/30 h-[380px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+              <div className="flex flex-col gap-10 bg-gray80/30 h-auto lg:h-[300px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
                 <div className="h-[30px] w-[30px]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ function SinglePercorso({ percorsi, others }) {
             </FadeInSection>
             {percorsi.howTo.step2 && (
               <FadeInSection delay={200}>
-                <div className="flex flex-col gap-10 bg-gray80/30 h-[380px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                <div className="flex flex-col gap-10 bg-gray80/30 h-auto lg:h-[300px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
                   <div className="h-[30px] w-[30px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
