@@ -341,6 +341,46 @@ function ChiSono() {
       </FadeInSection>{" "}
       <InfiniteTextScroll />
       <AnimatedLineView />
+      <div className="my-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="relative h-[50vh] lg:h-[80vh]">
+            <Image
+              src="/assets/annamaria_chisono.jpg"
+              alt="Formazione Professionale"
+              fill
+              className="w-full h-full object-cover aspect-square"
+            />
+          </div>
+          <div className="flex flex-col gap-4">
+            <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+              Un paio di cose che non dico a tutti
+            </h2>
+            <p className="font-abhaya font-[500] text-[22px] my-2 text-gray100 mb-4">
+              ( ma per il mio primo e nuovissimo sito faccio un’eccezione )
+            </p>
+            <ul className="flex flex-col gap-4 font-work font-normal text-xl  text-gray90 leading-snug list-disc list-inside">
+              <li>
+                Amo la politica… del fare e tutte le forme d’arte, infatti la
+                “uso” quando lavoro.
+              </li>
+              <p>Come?</p>
+              <li>
+                Con la scrittura, con i mandala, con la poesia, i collages,
+                fotografia, caviardage, visualboard, brainstorming e molti altri
+                strumenti che decido di volta in volta in base alle esigenze
+                (insomma non posso spoilerare tutto).
+              </li>
+              <li>
+                Mi sono occupata di Diritti, Doveri e Pari Opportunità per tutti
+                per 16 anni, ricoprendo anche il ruolo di Presidente del
+                Consiglio per le Pari Opportunità di San Giuliano Terme (PI).
+              </li>
+              <li>Mi piace guidare e viaggiare.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <AnimatedLineView />
       {/* --- PERCORSI --- */}
       <FadeInSection delay={100}>
         {" "}

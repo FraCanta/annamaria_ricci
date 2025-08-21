@@ -157,12 +157,12 @@ const Navbar = () => {
             <Link href="/respiro-circolare-consapevole">Respiro</Link>
           </li>
 
-          <li
+          {/* <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
             <Link href="/blog">Blog</Link>
-          </li>
+          </li> */}
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}

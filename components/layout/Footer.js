@@ -72,9 +72,9 @@ function Footer() {
             <li>
               <Link href="/">Respiro</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/blog">Blog</Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/chi-sono">Chi sono</Link>
             </li>
@@ -88,9 +88,8 @@ function Footer() {
         </AccordionSection>
 
         {/* Accordion Orari */}
-        <AccordionSection title="Orari e contatti">
+        <AccordionSection title="Contatti">
           <ul className="flex flex-col gap-3 text-gray100">
-            <li>Lun - Ven: 9:00 - 18:00</li>
             <li>
               <Link href="tel:+393515991968">
                 <strong>Mobile:</strong> +39 351 599 1968
@@ -171,9 +170,9 @@ function Footer() {
             <li>
               <Link href="/">Respiro</Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/blog">Blog</Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/chi-sono">Chi sono</Link>
             </li>
@@ -190,10 +189,9 @@ function Footer() {
         <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-3">
             <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
-              Orari e contatti
+              Contatti
             </h4>
             <ul className="flex flex-col gap-2 text-gray100">
-              <li>Lun - Ven: 9:00 - 18:00</li>
               <li>
                 <Link href="tel:+393515991968">Mobile: +39 351 599 1968</Link>
               </li>

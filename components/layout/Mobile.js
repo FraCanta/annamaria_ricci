@@ -181,13 +181,13 @@ const Mobile = () => {
           >
             Respiro
           </Link>
-          <Link
+          {/* <Link
             href="/blog"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
           >
             Blog
-          </Link>
+          </Link> */}
           <Link
             href="/chi-sono"
             className="menu-item"

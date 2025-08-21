@@ -83,10 +83,10 @@ export default function Home() {
 
         <AnimatedLineView />
 
-        <FadeInSection delay={100}>
+        {/* <FadeInSection delay={100}>
           <BlogSection />
         </FadeInSection>
-        <AnimatedLineView />
+        <AnimatedLineView /> */}
         <FadeInSection delay={100}>
           <Banner />
         </FadeInSection>
