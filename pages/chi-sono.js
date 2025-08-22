@@ -22,25 +22,25 @@ function ChiSono() {
       {/* --- INTRO --- */}
       <FadeInSection delay={50}>
         <div className="w-full  flex flex-col gap-10 my-20">
-          <h2 className="font-abhaya font-[400] text-[38px] md:text-[48px] 2xl:text-[4.8vw] leading-none text-gray100 ">
+          <h2 className="font-abhaya font-[400] text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100 ">
             Tornare alle radici — un filo conduttore che attraversa il mio
             percorso di vita.
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="flex flex-col justify-between">
-              <p className="font-work font-normal text-base md:text-[20px] text-gray90 leading-snug">
+              <p className="font-work font-normal text-base md:text-md text-gray90 leading-snug">
                 Sono nata in Lombardia, e ho radici Umbre di cui sono molto
                 fiera. Vivo in Toscana dal 1999, una terra che amo molto. Sono
                 la quarta di sei figli, prima femmina dopo 3 maschi.
               </p>
-              <p className="font-work font-normal text-base md:text-[20px] text-gray90 leading-snug">
+              <p className="font-work font-normal text-base md:text-md text-gray90 leading-snug">
                 Il lavoro per me è sempre stato molto importante, ho infatti
                 iniziato da giovanissima, per una forte spinta interiore verso
                 la libertà.
               </p>
             </div>
-            <p className="font-work font-normal text-base md:text-[20px] text-gray90 leading-snug">
+            <p className="font-work font-normal text-base md:text-md text-gray90 leading-snug">
               Amo <span className="font-[600]">profondamente</span>,{" "}
               <span className="font-[600]">imparare</span>,{" "}
               <span className="font-[600]">studiare</span>,{" "}
@@ -72,9 +72,8 @@ function ChiSono() {
       <div className="my-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex flex-col gap-6">
-            <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
-              Il mio percorso <br />
-              lavorativo
+            <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+              Il mio percorso lavorativo
             </h2>
           </div>
           <div>
@@ -198,9 +197,9 @@ function ChiSono() {
             {" "}
             <div className="flex flex-col gap-6">
               {" "}
-              <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+              <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
                 {" "}
-                Collaborazioni <br />& Credenziali{" "}
+                Collaborazioni
               </h2>{" "}
             </div>{" "}
             <div className="flex flex-col gap-6 w-full font-work font-normal text-base md:text-[20px] text-gray90 leading-snug">
@@ -286,6 +285,17 @@ function ChiSono() {
                   </ul>
                 </li>
               </ul>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+            <div className="flex flex-col gap-6">
+              {" "}
+              <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+                {" "}
+                Credenziali
+              </h2>{" "}
+            </div>{" "}
+            <div className="flex flex-col gap-6 w-full font-work font-normal text-base md:text-[20px] text-gray90 leading-snug">
               <ul className="flex flex-col gap-4">
                 <li>
                   <span className="font-[600]">Dal 2025</span>
@@ -336,7 +346,7 @@ function ChiSono() {
                 </li>
               </ul>
             </div>
-          </div>{" "}
+          </div>
         </div>{" "}
       </FadeInSection>{" "}
       <InfiniteTextScroll />

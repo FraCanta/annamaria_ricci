@@ -41,25 +41,13 @@ export default function Home() {
           <AboutSection />
         </FadeInSection>
         <AnimatedLineView />
-        <div className="lg:min-h-screen my-20 relative lg:mb-10">
-          <h2 className="text-[12vw] font-abhaya font-bold leading-none text-gray-900">
-            <FadeInSection delay={100}>
-              <span
-                className={`block pl-[15%] transition-[padding-left] duration-500 [transition-timing-function:cubic-bezier(0.77,0,0.175,1)]`}
-              >
-                I miei strumenti
-              </span>
-            </FadeInSection>
-            <FadeInSection delay={200}>
-              <span className="flex w-full justify-between items-center gap-2">
-                <span>tra</span> <span>tradizione</span>
-              </span>
-            </FadeInSection>
-
-            <FadeInSection delay={400}>
-              <span className="flex justify-end">e innovazione</span>
-            </FadeInSection>
-          </h2>
+        <div className="my-20 relative lg:mb-10">
+          <FadeInSection delay={100}>
+            <h2 className="font-abhaya font-bold text-[8vw] lg:text-[4vw] leading-none text-gray100 lg:text-center">
+              I miei strumenti <br />
+              tra tradizione e innovazione
+            </h2>
+          </FadeInSection>
 
           <FadeInSection delay={100}>
             <StrumentiSection />
@@ -83,10 +71,10 @@ export default function Home() {
 
         <AnimatedLineView />
 
-        {/* <FadeInSection delay={100}>
+        <FadeInSection delay={100}>
           <BlogSection />
         </FadeInSection>
-        <AnimatedLineView /> */}
+        <AnimatedLineView />
         <FadeInSection delay={100}>
           <Banner />
         </FadeInSection>

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../layout/Button";
 import FadeInSection from "../layout/FadeInSection";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
+import { Icon } from "@iconify/react";
 import "swiper/css";
 import "swiper/css/pagination";
+
 const StrumentiSection = () => {
   const items = [
     {
@@ -33,36 +35,47 @@ const StrumentiSection = () => {
       text: "Supporto per dipendenti, career counseling, orientamento, politiche attive, tutoraggio, ricerca e selezione, head hunting, design thinking olistico e scouting per tirocini.",
       icon: "/assets/az.svg",
     },
-    {
-      title: "Psicogenealogia junghiana®",
-      text: "Albero genealogico delle professioni.",
-      icon: "/assets/gene.svg",
-    },
   ];
 
+  const [showPrev, setShowPrev] = useState(false);
+  const [showNext, setShowNext] = useState(items.length > 1);
+
   return (
-    <div className="flex flex-col xl:flex-row gap-10 justify-between my-10">
-      <div className="w-full  h-full order-last xl:order-first gap-4 md:gap-10 ">
+    <div className="flex flex-col xl:flex-row gap-10 justify-between lg:my-10 relative">
+      <div className="w-full h-full order-last xl:order-first gap-4 md:gap-10">
         <FadeInSection delay={100}>
           <Swiper
             spaceBetween={20}
-            modules={[Pagination]}
-            slidesPerView={1.1}
+            modules={[Pagination, Navigation]}
+            slidesPerView={1}
             grabCursor={true}
+            loop={false}
             pagination={{
               clickable: true,
               el: ".swiper-pagination",
             }}
+            navigation={{
+              prevEl: ".pre",
+              nextEl: ".nex",
+            }}
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 1 },
-              1024: { slidesPerView: 2.2 },
+              1024: { slidesPerView: 3 },
             }}
-            className=" !mt-10 lg:!pb-10 !px-0"
+            onSwiper={(swiper) => {
+              setShowPrev(!swiper.isBeginning);
+              setShowNext(!swiper.isEnd);
+            }}
+            onSlideChange={(swiper) => {
+              setShowPrev(!swiper.isBeginning);
+              setShowNext(!swiper.isEnd);
+            }}
+            className="!mt-10 lg:!pb-6 !px-0"
           >
             {items.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-14 bg-gray80/30 h-[450px] lg:h-[320px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                <div className="flex flex-col gap-14 bg-gray80/30 h-[350px] lg:h-[320px] p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
                   <div className="h-[50px] w-[50px]">
                     <Image
                       src={item.icon}
@@ -81,47 +94,39 @@ const StrumentiSection = () => {
                 </div>
               </SwiperSlide>
             ))}
+
             {/* Slide extra per il bottone */}
             <SwiperSlide>
-              <div className="flex items-center justify-center  h-[400px] lg:h-[320px] p-8 ">
+              <div className="flex items-center justify-center h-[400px] lg:h-[320px] p-8">
                 <Button href="/i-miei-strumenti">vedi tutti</Button>
               </div>
             </SwiperSlide>
-            <div className="relative flex w-full mt-10">
+
+            <div className="relative flex w-full lg:mt-10">
               <div className="mt-10 swiper-pagination"></div>
             </div>
           </Swiper>
+
+          {/* Frecce sempre nel DOM */}
+          <button
+            className={`pre absolute top-1/2 left-2 lg:-left-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+              hover:bg-purple100 hover:text-white
+              ${showPrev ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            aria-label="Previous slide"
+          >
+            <Icon icon="prime:chevron-left" width={30} className="text-main" />
+          </button>
+
+          <button
+            className={`nex absolute top-1/2 right-2 lg:-right-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+              hover:bg-purple100 hover:text-white
+              ${showNext ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            aria-label="Next slide"
+          >
+            <Icon icon="prime:chevron-right" width={30} className="text-main" />
+          </button>
         </FadeInSection>
       </div>
-
-      {/* <div className="w-full xl:w-[40%] lg:h-screen flex flex-col lg:justify-between order-first xl:order-last p-2">
-        <div>
-          <h2 className="font-abhaya font-semibold text-[30px] md:text-[38px] 2xl:text-[48px] leading-none text-gray100">
-            I miei strumenti: tra tradizione e innovazione
-          </h2>
-
-          <p className="font-work font-regular text-base md:text-[18px] text-gray90 my-6 flex-grow flex items-center">
-            Nel mio percorso di oltre 37 anni nel mondo del lavoro, ho integrato
-            strumenti consolidati del counseling, della formazione e
-            dell’orientamento professionale con approcci olistici per il
-            benessere personale e relazionale.
-          </p>
-          <p className="font-work font-regular text-base md:text-[18px] text-gray90 my-6 flex-grow flex items-center">
-            Credo che ogni persona abbia risorse uniche da valorizzare e che la
-            crescita personale e professionale passi dall’ascolto profondo e
-            dalla consapevolezza di sé.
-          </p>
-          <p className="font-work font-regular text-base md:text-[18px] text-gray90 my-6 flex-grow flex items-center">
-            Nel mio studio – online e in presenza – troverai uno spazio sicuro,
-            accogliente e non giudicante, dove essere ascoltatə e guidatə con
-            cura, rispetto e professionalità. Ogni percorso è unico: insieme
-            possiamo trovare nuove strade, riconoscere e scoprire talenti e
-            mettere le basi per il futuro che desideri.
-          </p>
-        </div>
-
-        <Button href="/i-miei-strumenti">Tutti i miei strumenti</Button>
-      </div> */}
     </div>
   );
 };

@@ -138,6 +138,12 @@ const Navbar = () => {
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
+            style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
+          >
+            <Link href="/chi-sono">Chi sono</Link>
+          </li>
+          <li
+            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
           >
             <Link href="/i-miei-strumenti">Strumenti</Link>
@@ -157,18 +163,13 @@ const Navbar = () => {
             <Link href="/respiro-circolare-consapevole">Respiro</Link>
           </li>
 
-          {/* <li
+          <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
             <Link href="/blog">Blog</Link>
-          </li> */}
-          <li
-            className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
-            style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
-          >
-            <Link href="/chi-sono">Chi sono</Link>
           </li>
+
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 7 + 0.3s)` }}
@@ -201,7 +202,7 @@ const Navbar = () => {
       >
         <div
           ref={menuItemsRef}
-          className="flex flex-col items-center justify-start w-[95%] mx-auto absolute top-[350px] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          className="flex flex-col items-center justify-start w-[95%] mx-auto absolute top-[380px] left-1/2 transform -translate-x-1/2 -translate-y-1/2"
           style={{ "--nav-dd-index": hoveredItemIndex ?? -1 }}
         >
           {/* Grid a 3 colonne */}
@@ -257,7 +258,7 @@ const Navbar = () => {
                     className="menu-item relative translate-y-4"
                   >
                     <h3
-                      className={`inline-block relative text-[3vw] z-10 transition-opacity duration-300 ease-in-out font-medium ${
+                      className={`inline-block relative text-[2vw] z-10 transition-opacity duration-300 ease-in-out font-medium ${
                         hoveredItemIndex !== null &&
                         !(
                           hoveredItemIndex >= baseIndex &&
@@ -285,7 +286,7 @@ const Navbar = () => {
                       >
                         <Link
                           href={item.href}
-                          className={`inline-block relative text-[2vw] w-full z-10 text-gray100/80 transition-opacity duration-300 ease-in-out ${
+                          className={`inline-block relative text-[1.5vw] w-full z-10 text-gray100/80 transition-opacity duration-300 ease-in-out ${
                             hoveredItemIndex !== null &&
                             hoveredItemIndex !== itemIndex
                               ? "opacity-30"

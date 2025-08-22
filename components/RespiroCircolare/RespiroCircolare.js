@@ -71,10 +71,10 @@ export default function RespiroCircolare() {
   }, []);
 
   return (
-    <div className="min-h-[100vh] py-10">
+    <div className="lg:min-h-[100vh] py-10">
       <div
         ref={containerRef}
-        className="relative w-full h-screen mx-auto overflow-hidden"
+        className="relative w-full aspect-square lg:h-screen mx-auto overflow-hidden"
         style={{
           position: "relative",
         }}
@@ -93,33 +93,21 @@ export default function RespiroCircolare() {
         />
         <div
           ref={contentRef}
-          className="absolute bottom-20  lg:bottom-0 left-0 flex flex-col gap-10  text-white p-8 text-center w-full"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-10 text-center text-white p-8"
           style={{ opacity: 0 }}
         >
-          <h2 className="text-[8vw] font-abhaya font-bold leading-none text-white">
-            <FadeInSection delay={100}>
-              <span
-                className={`block pl-[15%] transition-[padding-left] duration-500 [transition-timing-function:cubic-bezier(0.77,0,0.175,1)]`}
-              >
-                La mia formazione
-              </span>
-            </FadeInSection>
-            <FadeInSection delay={200}>
-              <span className="flex w-full mx-auto justify-between items-center gap-2">
-                <span> ed esperienza</span> <span>nel</span>
-              </span>
-            </FadeInSection>
-
-            <FadeInSection delay={400}>
-              <span className="flex justify-end">Respiro Circolare</span>
-            </FadeInSection>
-            <FadeInSection delay={400}>
-              <span className="flex justify-end">Consapevole</span>
-            </FadeInSection>
-          </h2>
-          <div className="flex justify-end">
-            <Button href="/respiro-circolare-consapevole">Scopri di più</Button>
-          </div>
+          <FadeInSection delay={100}>
+            <h2 className="text-[8vw] lg:text-[5vw] font-abhaya font-[600] leading-none">
+              Il Respiro Circolare Consapevole
+            </h2>
+          </FadeInSection>
+          <FadeInSection delay={200}>
+            <div className="flex justify-center">
+              <Button href="/respiro-circolare-consapevole">
+                Scopri di più
+              </Button>
+            </div>
+          </FadeInSection>
         </div>
       </div>
     </div>

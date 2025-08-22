@@ -19,7 +19,7 @@ function Contatti() {
   return (
     <div>
       <h1
-        className={`text-[14vw] w-full leading-none lg:text-[8vw] flex flex-col text-gray100 my-14 font-abhaya font-bold`}
+        className={`text-[14vw] w-full leading-none lg:text-[5vw] flex flex-col text-gray100 my-14 font-abhaya font-bold`}
       >
         <span
           className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)]

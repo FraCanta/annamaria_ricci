@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "../layout/Button";
 import FadeInSection from "../layout/FadeInSection";
+import { Icon } from "@iconify/react";
 
 // Struttura percorsi divisa per tab
 const percorsiPerTab = {
@@ -14,7 +15,7 @@ const percorsiPerTab = {
     {
       id: 1,
       title: "Trova la tua direzione",
-      image: "/assets/trova_la_tua_direzione.avif",
+      image: "/assets/trova_la_tua_direzione2.webp",
       link: "/tutti-i-percorsi/privati/trova-la-tua-direzione",
     },
     {
@@ -60,19 +61,26 @@ const PercorsiCarousel = () => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const percorsi = percorsiPerTab[activeTab] || [];
 
+  const [showPrev, setShowPrev] = useState(false);
+  const [showNext, setShowNext] = useState(percorsi.length > 1);
+
   return (
-    <div className="w-full my-10 lg:my-20">
+    <div className="w-full my-10">
       {/* Tabs */}
       <FadeInSection delay={50}>
-        <div className="flex gap-10 overflow-x-auto whitespace-nowrap mb-10">
+        <div className="flex gap-y-4 gap-x-6 lg:gap-10 flex-wrap mb-10">
           {tabs.map((tab) => (
             <button
               key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={`uppercase text-lg rounded-sm border transition  font-abhaya ${
+              onClick={() => {
+                setActiveTab(tab);
+                setShowPrev(false);
+                setShowNext((percorsiPerTab[tab] || []).length > 1);
+              }}
+              className={`uppercase text-lg rounded-sm border transition font-abhaya ${
                 activeTab === tab
                   ? "underline underline-offset-4 underline-purple100 text-purple100 "
-                  : "bg-transparent  text-gray70 hover:text-purple100 hover:underline hover:underline-offset-4"
+                  : "bg-transparent text-gray70 hover:text-purple100 hover:underline hover:underline-offset-4"
               }`}
             >
               {tab}
@@ -90,17 +98,29 @@ const PercorsiCarousel = () => {
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
-          modules={[Pagination]}
+          modules={[Pagination, Navigation]}
           grabCursor={true}
-          loop={percorsi.length > 1}
+          loop={false} // disattiviamo il loop così ha senso nascondere le frecce
           breakpoints={{
             640: { slidesPerView: 1.5 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 2.5 },
+            1024: { slidesPerView: 3 },
+          }}
+          navigation={{
+            prevEl: ".prev",
+            nextEl: ".next",
           }}
           pagination={{
             clickable: true,
             el: ".swiper-pagination",
+          }}
+          onSlideChange={(swiper) => {
+            setShowPrev(!swiper.isBeginning);
+            setShowNext(!swiper.isEnd);
+          }}
+          onAfterInit={(swiper) => {
+            setShowPrev(!swiper.isBeginning);
+            setShowNext(!swiper.isEnd);
           }}
           className="!px-0"
         >
@@ -110,7 +130,7 @@ const PercorsiCarousel = () => {
                 className="flex flex-col bg-gray80/30 hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2 p-3"
                 title={post.title}
               >
-                <div className="relative w-full h-[400px] lg:h-[600px]  rounded-sm overflow-hidden">
+                <div className="relative w-full h-[400px] lg:h-[600px] rounded-sm overflow-hidden">
                   <Image
                     src={post.image}
                     alt={post.title}
@@ -130,10 +150,50 @@ const PercorsiCarousel = () => {
               </div>
             </SwiperSlide>
           ))}
+
           <div className="relative flex w-full mt-10">
             <div className="mt-10 swiper-pagination"></div>
           </div>
         </Swiper>
+
+        {/* Navigation Buttons */}
+        {percorsi.length > 1 && (
+          <>
+            <button
+              className={`prev absolute top-1/2 left-2 lg:-left-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+        hover:bg-purple100 hover:text-white 
+        ${
+          showPrev
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+              aria-label="Previous slide"
+            >
+              <Icon
+                icon="prime:chevron-left"
+                width={24}
+                className="text-main"
+              />
+            </button>
+
+            <button
+              className={`next absolute top-1/2 right-2 lg:-right-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+        hover:bg-purple100 hover:text-white 
+        ${
+          showNext
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+              aria-label="Next slide"
+            >
+              <Icon
+                icon="prime:chevron-right"
+                width={24}
+                className="text-main"
+              />
+            </button>
+          </>
+        )}
       </motion.div>
     </div>
   );

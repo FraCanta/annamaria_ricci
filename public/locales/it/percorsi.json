@@ -7,7 +7,7 @@
         "name": "Privati",
         "content": [
           {
-            "img": "/assets/trova_la_tua_direzione.avif",
+            "img": "/assets/trova_la_tua_direzione2.webp",
             "name": "Trova la tua direzione",
             "link": "/tutti-i-percorsi/privati/trova-la-tua-direzione",
             "cat": "privati",
@@ -67,7 +67,7 @@
         "name": "Trova la tua direzione",
         "introTitle": "Ti senti bloccato o confuso in un'area della tua vita?",
         "description": "Che si tratti di lavoro, relazioni, amore o crescita personale, posso aiutarti a fare chiarezza e ritrovare la tua strada.",
-        "img": "/assets/trova_la_tua_direzione2.webp",
+        "img": "/assets/trova_la_tua_direzione3.webp",
         "link": "/tutti-i-percorsi/privati/trova-la-tua-direzione",
         "cat": "privati",
         "type": "Privati",
@@ -85,8 +85,7 @@
             "title": "Il percorso prevede",
             "list": [
               "5 incontri: 2 di counseling + 3 di orientamento e bilancio di competenze",
-              "Attività pratiche tra una sessione e l’altra.",
-              "<strong>Investimento: </strong> 300€ per il percorso completo."
+              "Attività pratiche tra una sessione e l’altra."
             ]
           },
           "step2": {
@@ -95,6 +94,15 @@
               "Per chi desidera ritrovare chiarezza e direzione in un momento di cambiamento."
             ]
           }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di:<br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
         }
       },
       "cambia-e-trova-la-tua-strada-nel-lavoro": {
@@ -123,10 +131,18 @@
             "title": "Il percorso prevede",
             "list": [
               "10 incontri da 1 ora",
-              "Attività pratiche tra una sessione e l’altra.",
-              "<strong>Investimento: </strong> 600€ per il percorso completo."
+              "Attività pratiche tra una sessione e l’altra."
             ]
           }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
         }
       },
       "trova-il-lavoro-che-desideri": {
@@ -156,10 +172,18 @@
             "list": [
               "10 incontri da 1 ora.",
               "Attività pratiche tra una sessione e l’altra.",
-              "Accompagnamento continuativo fino al raggiungimento dell'obiettivo.",
-              "<strong>Investimento: </strong> 1.000€."
+              "Accompagnamento continuativo fino al raggiungimento dell'obiettivo."
             ]
           }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
         }
       },
       "trova-le-tue-radici": {
@@ -185,10 +209,18 @@
             "title": "Il percorso prevede",
             "list": [
               "1 sessione di consuling genealogico della durata di 90 minuti.",
-              "Training per la ricerca genealogica in autonomia.",
-              "<strong>Investimento: </strong> a partire da 150€. Richiedi un preventivo su misura."
+              "Training per la ricerca genealogica in autonomia."
             ]
           }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
         }
       },
       "avvia-la-tua-attività-con-consapevolezza": {
@@ -214,8 +246,7 @@
             "title": "Il percorso prevede",
             "list": [
               "6 incontri individuali: 1 sessione iniziale di counseling + 3 incontri di orientamento + 2 sessioni di business plan.",
-              "Attività pratiche tra una sessione e l’altra.",
-              "<strong>Investimento: </strong> 600€."
+              "Attività pratiche tra una sessione e l’altra."
             ]
           },
           "step2": {

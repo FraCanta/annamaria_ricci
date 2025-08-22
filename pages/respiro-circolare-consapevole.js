@@ -17,31 +17,30 @@ function RespiroCircolareConsapevole() {
 
   return (
     <>
-      <div className="absolute inset-0 lg:aspect-[1920/1200]">
+      <div className="my-10 lg:my-20">
         <h1
-          className={`p-2 text-[12vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[8vw] absolute inset-0 z-10 flex justify-center text-white pt-[30vw] lg:pt-[12vw] font-abhaya font-bold ${
+          className={`p-2 text-[10vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
             animate
               ? "opacity-100 blur-0 translate-y-0"
               : "opacity-0 blur-sm translate-y-4"
           }`}
         >
-          Respiro Circolare Consapevole
+          Il Respiro Circolare Consapevole
         </h1>
         <div
-          className={`absolute inset-0 h-full w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
+          className={`relative aspect-square lg:h-[700px] w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
                 ${animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"}`}
         >
           <Image
             src="/assets/respiro.webp"
             alt="Respiro Circolare Consapevole"
             fill
-            className="absolute w-full h-full object-cover object-top"
+            className="absolute w-full h-full object-cover "
           />
         </div>
-        <div className="absolute inset-0 bg-purple100/20"></div>
       </div>
 
-      <div className="relative z-10 mt-[95vh] md:mt-[90vh] lg:mt-[750px] 2xl:mt-[950px] 2xla:mt-[1000px] ">
+      <div>
         <AnimatedLineView />
         <div className="my-20 flex flex-col gap-10">
           {/* Sezione 1 */}
@@ -143,25 +142,13 @@ function RespiroCircolareConsapevole() {
         </div>
 
         <AnimatedLineView />
-        <div className="lg:min-h-screen my-20 relative lg:mb-10">
-          <h2 className="text-[12vw] font-abhaya font-bold leading-none text-gray-900">
-            <FadeInSection delay={100}>
-              <span
-                className={`block pl-[15%] transition-[padding-left] duration-500 [transition-timing-function:cubic-bezier(0.77,0,0.175,1)]`}
-              >
-                I miei strumenti
-              </span>
-            </FadeInSection>
-            <FadeInSection delay={200}>
-              <span className="flex w-full justify-between items-center gap-2">
-                <span>tra</span> <span>tradizione</span>
-              </span>
-            </FadeInSection>
-
-            <FadeInSection delay={400}>
-              <span className="flex justify-end">e innovazione</span>
-            </FadeInSection>
-          </h2>
+        <div className="my-20 relative ">
+          <FadeInSection delay={100}>
+            <h2 className="font-abhaya font-bold text-[12vw] lg:text-[4vw] leading-none text-gray100 lg:text-center">
+              I miei strumenti <br />
+              tra tradizione e innovazione
+            </h2>
+          </FadeInSection>
 
           <FadeInSection delay={100}>
             <StrumentiSection />

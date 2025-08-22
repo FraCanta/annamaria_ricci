@@ -8,18 +8,12 @@ const items = [
     img: "/assets/logo_collaborazioni/confcommercio_pisa_prato.webp",
     alt: "Confcommercio Pisa Prato",
   },
-  {
-    img: "/assets/logo_collaborazioni/copernico_formazione.webp",
-    alt: "Copernico Formazione",
-  },
+
   {
     img: "/assets/logo_collaborazioni/imofor_toscana.png",
     alt: "Imofor Toscana",
   },
-  {
-    img: "/assets/logo_collaborazioni/logo_formatica.png",
-    alt: "Formatica",
-  },
+
   {
     img: "/assets/logo_collaborazioni/logo_talentform.webp",
     alt: "Talentform",
@@ -39,7 +33,7 @@ const getOrganicItems = (repeat = 2) => {
   const organic = [];
   for (let r = 0; r < repeat; r++) {
     items.forEach((item, index) => {
-      const randomGap = 100 + Math.floor(Math.random() * 60); // spazio 30-50px
+      const randomGap = 60 + Math.floor(Math.random() * 40); // spazio 30-50px
       const opacity = 0.95 + Math.random() * 0.05; // 0.95-1
       organic.push({
         ...item,

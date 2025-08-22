@@ -3,7 +3,7 @@ import percorsiIT from "@/public/locales/it/percorsi.json";
 import Image from "next/image";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
@@ -11,9 +11,12 @@ import FadeInSection from "@/components/layout/FadeInSection";
 import Button from "@/components/layout/Button";
 import ButtonOutline from "@/components/layout/ButtonOutline";
 import Head from "next/head";
+import { Icon } from "@iconify/react";
 
 function SinglePercorso({ percorsi, others }) {
   const [animate, setAnimate] = useState(false);
+  const [showPrev, setShowPrev] = useState(false);
+  const [showNext, setShowNext] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -30,19 +33,19 @@ function SinglePercorso({ percorsi, others }) {
         <meta property="og:description" content={percorsi.description} />
         <meta property="og:image" content={percorsi.img} />
       </Head>
-      <div className="absolute inset-0 lg:aspect-[1920/2000] overflow-hidden">
+      <div className="my-10 lg:my-20">
         <h1
           dangerouslySetInnerHTML={{
             __html: percorsi.name,
           }}
-          className={`p-2 text-[10vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[8vw] absolute inset-0 z-10 flex justify-center text-gray100 pt-[30vw] lg:pt-[12vw] font-abhaya font-bold ${
+          className={`p-2 text-[10vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
             animate
               ? "opacity-100 blur-0 translate-y-0"
               : "opacity-0 blur-sm translate-y-4"
           }`}
         ></h1>
         <div
-          className={`absolute inset-0 h-full w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
+          className={`relative aspect-square lg:h-[800px] w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"}`}
         >
           <Image
@@ -53,16 +56,16 @@ function SinglePercorso({ percorsi, others }) {
           />
         </div>
       </div>
-      <div className="relative z-10 mt-[95vh] md:mt-[90vh] lg:mt-[1300px] 2xl:mt-[1550px] 2xla:mt-[1700px]">
+      <div className="relative z-10 ">
         <AnimatedLineView />
-        <div className="my-20 flex flex-col gap-4">
+        <div className="my-10 lg:my-20 flex flex-col gap-4">
           <FadeInSection delay={100}>
-            <h2 className="font-abhaya font-[400] text-[38px] md:text-[48px] 2xl:text-[4vw] leading-none text-gray100 ">
+            <h2 className="font-abhaya font-[400] text-[25px] md:text-[30px] 2xl:text-[3vw] leading-none text-gray100 ">
               {percorsi.introTitle && percorsi.introTitle}
             </h2>
           </FadeInSection>
           <FadeInSection delay={200}>
-            <p className="font-work font-normal text-base md:text-[1.5vw] text-gray90 leading-snug">
+            <p className="font-work font-normal text-base md:text-[1.2vw] text-gray90 leading-snug">
               {percorsi.description && percorsi.description}
             </p>
           </FadeInSection>
@@ -70,7 +73,7 @@ function SinglePercorso({ percorsi, others }) {
         <AnimatedLineView />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10 lg:my-20">
           <FadeInSection delay={100}>
-            <h2 className="font-abhaya font-[400] text-[38px] md:text-[48px] 2xl:text-[4vw] leading-none text-gray100 ">
+            <h2 className="font-abhaya font-[400] text-[28px] md:text-[30px] 2xl:text-[3vw] leading-none text-gray100 ">
               {percorsi.offro.title}
             </h2>
           </FadeInSection>
@@ -81,7 +84,7 @@ function SinglePercorso({ percorsi, others }) {
                 <li
                   dangerouslySetInnerHTML={{ __html: item }}
                   key={index}
-                  className="text-gray90 text-base lg:text-[24px] leading-snug font-work font-[400]"
+                  className="text-gray90 text-base lg:text-[20px] leading-snug font-work font-[400]"
                 ></li>
               ))}
             </ul>
@@ -90,14 +93,14 @@ function SinglePercorso({ percorsi, others }) {
         <AnimatedLineView />
         {/* Come funziona il percorso */}
 
-        <div className="flex flex-col gap-6 my-10 lg:my-20">
+        <div className="flex flex-col gap-10 my-10 lg:my-20">
           <FadeInSection delay={100}>
-            <h2 className="font-abhaya font-[400] text-[38px] md:text-[48px] 2xl:text-[4vw] leading-none text-gray100 ">
+            <h2 className="font-abhaya font-[400] text-[28px] md:text-[30px] 2xl:text-[3vw] leading-none text-gray100 ">
               {percorsi.howTo.title}
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
             <FadeInSection delay={100}>
               <div className="flex flex-col gap-10 bg-gray80/30 h-auto lg:h-[300px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
                 <div className="h-[30px] w-[30px]">
@@ -207,24 +210,11 @@ function SinglePercorso({ percorsi, others }) {
         </div>
         <AnimatedLineView />
         <div className="flex flex-col gap-4 my-10 lg:my-20">
-          <h2 className="text-[12vw] font-abhaya font-bold leading-none text-gray-900">
-            <FadeInSection delay={100}>
-              <span
-                className={`block pl-[50%] transition-[padding-left] duration-500 [transition-timing-function:cubic-bezier(0.77,0,0.175,1)]`}
-              >
-                Inizia ora
-              </span>
-            </FadeInSection>
-            <FadeInSection delay={100}>
-              <span className="flex w-full justify-between items-center gap-2">
-                <span>il tuo viaggio</span> <span> verso </span>
-              </span>
-            </FadeInSection>
-
-            <FadeInSection delay={100}>
-              <span className="flex justify-end">il cambiamento</span>
-            </FadeInSection>
-          </h2>
+          <FadeInSection delay={100}>
+            <h2 className="font-abhaya font-bold text-[8vw] lg:text-[4vw] leading-none text-gray100 text-center">
+              Inizia ora il tuo viaggio verso il cambiamento
+            </h2>
+          </FadeInSection>
           <div className="flex justify-center">
             <FadeInSection delay={100}>
               <ButtonOutline href="/contatti">
@@ -234,10 +224,56 @@ function SinglePercorso({ percorsi, others }) {
           </div>
         </div>
         <AnimatedLineView />
+        {percorsi.oneshot && percorsi.tailored && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 my-20">
+            <FadeInSection delay={100}>
+              <div className="flex flex-col gap-10 bg-gray80/30 h-auto lg:h-[300px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                <div className="flex flex-col gap-4 h-full justify-between">
+                  <h3 className="font-abhaya font-bold text-[25px] lg:text-[30px] leading-none text-gray100 ">
+                    {percorsi.oneshot.title}
+                  </h3>
+                  <p className="text-gray90 text-base lg:text-[18px] leading-snug font-work">
+                    {percorsi.oneshot.description}
+                  </p>
+                  <p
+                    className="text-gray90 text-base lg:text-[18px] leading-snug font-work"
+                    dangerouslySetInnerHTML={{ __html: percorsi.oneshot.p }}
+                  ></p>
+                  <Button className="mt-4" href="/contatti">
+                    Contattami
+                  </Button>
+                </div>
+              </div>
+            </FadeInSection>
+            <FadeInSection delay={100}>
+              <div className="flex flex-col gap-10 bg-gray80/30 h-auto lg:h-[300px]  p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                <div className="flex flex-col h-full justify-between">
+                  <div className="flex flex-col gap-4">
+                    {" "}
+                    <h3 className="font-abhaya font-bold text-[25px] lg:text-[30px] leading-none text-gray100 ">
+                      {percorsi.tailored.title}
+                    </h3>
+                    <p
+                      className="text-gray90 text-base lg:text-[18px] leading-snug font-work"
+                      dangerouslySetInnerHTML={{
+                        __html: percorsi.tailored.description,
+                      }}
+                    ></p>
+                  </div>
+
+                  <Button className="mt-4" href="/contatti">
+                    Contattami
+                  </Button>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
+        )}
+        <AnimatedLineView />
         <FadeInSection delay={200}>
           <div className="flex justify-between items-center w-full my-10">
-            <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 mb-10">
-              <h2 className="text-[12vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
+            <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 ">
+              <h2 className="text-[8vw] lg:text-[3vw] font-abhaya font-bold leading-none text-gray-900">
                 I miei percorsi
               </h2>
             </div>
@@ -252,13 +288,25 @@ function SinglePercorso({ percorsi, others }) {
             <Swiper
               spaceBetween={10}
               slidesPerView={1}
-              modules={[Pagination]}
+              modules={[Pagination, Navigation]}
               grabCursor={true}
+              navigation={{
+                prevEl: ".prev",
+                nextEl: ".next",
+              }}
+              onSwiper={(swiper) => {
+                setShowPrev(!swiper.isBeginning);
+                setShowNext(!swiper.isEnd);
+              }}
+              onSlideChange={(swiper) => {
+                setShowPrev(!swiper.isBeginning);
+                setShowNext(!swiper.isEnd);
+              }}
               loop={percorsi.length > 1}
               breakpoints={{
                 640: { slidesPerView: 1.5 },
                 768: { slidesPerView: 2 },
-                1024: { slidesPerView: 2.5 },
+                1024: { slidesPerView: 3 },
               }}
               pagination={{
                 clickable: true,
@@ -297,8 +345,43 @@ function SinglePercorso({ percorsi, others }) {
                 <div className="mt-10 swiper-pagination"></div>
               </div>
             </Swiper>
+            {/* Frecce sempre nel DOM */}
+            <button
+              className={`prev absolute top-1/2 left-2 lg:-left-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+                          hover:bg-purple100 hover:text-white
+                          ${
+                            showPrev
+                              ? "opacity-100"
+                              : "opacity-0 pointer-events-none"
+                          }`}
+              aria-label="Previous slide"
+            >
+              <Icon
+                icon="prime:chevron-left"
+                width={30}
+                className="text-main"
+              />
+            </button>
+
+            <button
+              className={`next absolute top-1/2 right-2 lg:-right-6 z-10 p-2 bg-white shadow-md rounded-full transition-all duration-300 
+                          hover:bg-purple100 hover:text-white
+                          ${
+                            showNext
+                              ? "opacity-100"
+                              : "opacity-0 pointer-events-none"
+                          }`}
+              aria-label="Next slide"
+            >
+              <Icon
+                icon="prime:chevron-right"
+                width={30}
+                className="text-main"
+              />
+            </button>
           </motion.div>
         </FadeInSection>
+
         <AnimatedLineView />
       </div>
     </>

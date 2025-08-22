@@ -24,9 +24,9 @@ const ToolsPage = ({ translation }) => {
     <div>
       <FadeInSection delay={50}>
         <div className="w-full my-10 lg:my-20">
-          <div className="w-full my-14 flex flex-col items-center gap-10 z-10 ">
+          <div className="w-full my-14 flex flex-col items-center gap-6 lg:gap-10 z-10 ">
             <h1
-              className={`font-abhaya font-bold text-[12vw] lg:text-[6vw] leading-none text-gray100 lg:text-center 
+              className={`font-abhaya font-bold text-[8vw] lg:text-[5vw] leading-none text-gray100 lg:text-center 
               transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${
                 animate
@@ -40,7 +40,7 @@ const ToolsPage = ({ translation }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 h-full">
               <div className="flex flex-col justify-between h-full gap-6">
                 <p
-                  className={`text-[20px] text-gray90 font-work font-normal leading-snug ${
+                  className={`text-md lg:text-[18px] text-gray90 font-work font-normal leading-snug ${
                     animate
                       ? "opacity-100 blur-0 translate-y-0"
                       : "opacity-0 blur-sm translate-y-4"
@@ -59,7 +59,7 @@ const ToolsPage = ({ translation }) => {
                   <span className="font-[600]">relazionale</span>.
                 </p>
                 <p
-                  className={`text-[20px] text-gray90 font-work font-normal leading-snug ${
+                  className={`text-md lg:text-[18px] text-gray90 font-work font-normal leading-snug ${
                     animate
                       ? "opacity-100 blur-0 translate-y-0"
                       : "opacity-0 blur-sm translate-y-4"
@@ -78,7 +78,7 @@ const ToolsPage = ({ translation }) => {
               </div>
               <div className="flex flex-col gap-6 justify-between h-full">
                 <p
-                  className={`text-[20px] text-gray90 font-work font-normal leading-snug ${
+                  className={`text-md lg:text-[18px] text-gray90 font-work font-normal leading-snug ${
                     animate
                       ? "opacity-100 blur-0 translate-y-0"
                       : "opacity-0 blur-sm translate-y-4"
@@ -101,7 +101,7 @@ const ToolsPage = ({ translation }) => {
                   <span className="font-[600]">futuro che desideri</span>.
                 </p>
                 <p
-                  className={`text-[20px] text-gray90 font-work font-normal leading-snug ${
+                  className={`text-md lg:text-[18px] text-gray90 font-work font-normal leading-snug ${
                     animate
                       ? "opacity-100 blur-0 translate-y-0"
                       : "opacity-0 blur-sm translate-y-4"
@@ -123,8 +123,8 @@ const ToolsPage = ({ translation }) => {
       <AnimatedLineView />
       <FadeInSection delay={100}>
         <div className="flex justify-between items-center w-full my-10">
-          <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 mb-10">
-            <h2 className="text-[12vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
+          <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 ">
+            <h2 className="text-[8vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
               I miei percorsi
             </h2>
             <Button href="/tutti-i-percorsi">Vedi tutti i percorsi</Button>

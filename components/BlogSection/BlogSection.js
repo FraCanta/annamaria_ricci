@@ -49,12 +49,6 @@ function BlogSection() {
             Semi di cambiamento, <br />
             tracce di crescita
           </h2>
-          <p className="font-work font-regular text-base md:text-[18px] text-gray90 flex-grow flex items-center">
-            Nel mio blog condivido consigli pratici, aggiornamenti sulle novità
-            e gli eventi a cui partecipo, offrendo spunti su tematiche legate
-            alla crescita personale, al benessere e al mondo del lavoro. Un
-            luogo dove trovare ispirazione e risorse utili per il tuo percorso.
-          </p>
         </div>
         <Button href="/">Leggi le altre notizie</Button>
       </div>

@@ -28,7 +28,7 @@ function TuttiIPercorsi({ translation }) {
   return (
     <div className="my-20">
       <h1
-        className={`font-abhaya font-bold text-[10vw] lg:text-[5.5vw] leading-none text-gray100 
+        className={`font-abhaya font-bold text-[8vw] lg:text-[4vw] leading-none text-gray100 
               transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${
                 animate
@@ -45,7 +45,7 @@ function TuttiIPercorsi({ translation }) {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`uppercase text-lg px-4 py-2 rounded font-abhaya font-regular text-[18px] md:text-[22px] leading-tight text-gray90 
+            className={`uppercase text-lg px-4 py-2 rounded font-abhaya font-regular text-[18px] md:text-[20px] leading-tight text-gray90 
         transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 
         ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}
         ${
@@ -92,7 +92,7 @@ function TuttiIPercorsi({ translation }) {
       </div>
 
       <AnimatedLineView />
-      <div className="flex justify-center my-10 lg:my-20">
+      <div className="my-10 lg:my-20">
         <Banner />
       </div>
       <AnimatedLineView />

@@ -43,7 +43,7 @@ function HeroAbout() {
         <div className="w-full my-10 lg:my-20">
           <div className="w-full my-14 flex flex-col items-center gap-4 z-10 ">
             <h1
-              className={`font-abhaya font-bold text-[12vw] lg:text-[6vw] leading-none text-gray100 text-center 
+              className={`font-abhaya font-bold text-[11vw] lg:text-[4vw] leading-none text-gray100 text-center 
               transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${
                 animate
@@ -51,21 +51,22 @@ function HeroAbout() {
                   : "opacity-0 blur-sm translate-y-4"
               }`}
             >
-              Ciao, mi chiamo Anna Maria Ricci! <br />
+              Ciao, mi chiamo Anna Maria Ricci!
             </h1>
             <p
-              className={`text-[6vw] lg:text-[2vw] text-gray90 text-center font-abhaya font-normal leading-none ${
+              className={`text-[4vw] lg:text-[1.4vw] text-gray90 text-center font-abhaya font-normal leading-none ${
                 animate
                   ? "opacity-100 blur-0 translate-y-0"
                   : "opacity-0 blur-sm translate-y-4"
               }`}
             >
-              Counselor Professionista, Rebirther, Orientatrice, Trainer,
-              Facilitatrice in Mindfulness.
+              Professional Counselor, Orientatrice Professionale e Scolastica,
+              Rebirther, Facilitatrice di Respiro Circolare
+              Consapevole e Mindfulness
             </p>
           </div>
           <div
-            className={`relative h-[50vh] lg:h-screen w-full ${
+            className={`relative aspect-square lg:h-[700px] w-full ${
               animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"
             }`}
           >
