@@ -40,72 +40,72 @@ export default function PostPage({ post, otherPosts }) {
   if (router.isFallback) return <div>Loading...</div>;
   if (!post) return <div>Post non trovato</div>;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErrors({ name: "", email: "", comment: "" });
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     setErrors({ name: "", email: "", comment: "" });
 
-    let hasError = false;
-    const newErrors = { name: "", email: "", comment: "" };
+  //     let hasError = false;
+  //     const newErrors = { name: "", email: "", comment: "" };
 
-    if (!authorName.trim()) {
-      newErrors.name = "Il nome è obbligatorio";
-      hasError = true;
-    }
+  //     if (!authorName.trim()) {
+  //       newErrors.name = "Il nome è obbligatorio";
+  //       hasError = true;
+  //     }
 
-    if (!authorEmail.trim()) {
-      newErrors.email = "L'email è obbligatoria";
-      hasError = true;
-    } else if (!/\S+@\S+\.\S+/.test(authorEmail)) {
-      newErrors.email = "Email non valida";
-      hasError = true;
-    }
+  //     if (!authorEmail.trim()) {
+  //       newErrors.email = "L'email è obbligatoria";
+  //       hasError = true;
+  //     } else if (!/\S+@\S+\.\S+/.test(authorEmail)) {
+  //       newErrors.email = "Email non valida";
+  //       hasError = true;
+  //     }
 
-    if (!newComment.trim()) {
-      newErrors.comment = "Il commento non può essere vuoto";
-      hasError = true;
-    }
+  //     if (!newComment.trim()) {
+  //       newErrors.comment = "Il commento non può essere vuoto";
+  //       hasError = true;
+  //     }
 
-    if (hasError) {
-      setErrors(newErrors);
-      return;
-    }
+  //     if (hasError) {
+  //       setErrors(newErrors);
+  //       return;
+  //     }
 
-    setIsSubmitting(true);
+  //     setIsSubmitting(true);
 
-    try {
-      const res = await fetch("/api/add-comment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          postId: post.id,
-          content: newComment,
-          authorName,
-          authorEmail,
-        }),
-      });
+  //     try {
+  //       const res = await fetch("/api/add-comment", {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({
+  //           postId: post.id,
+  //           content: newComment,
+  //           authorName,
+  //           authorEmail,
+  //         }),
+  //       });
 
-      const savedComment = await res.json();
-      console.log("Commento salvato:", savedComment);
+  //       const savedComment = await res.json();
+  //       console.log("Commento salvato:", savedComment);
 
-      if (!res.ok) {
-        setErrors((prev) => ({ ...prev, comment: savedComment.message }));
-        return;
-      }
+  //       if (!res.ok) {
+  //         setErrors((prev) => ({ ...prev, comment: savedComment.message }));
+  //         return;
+  //       }
 
-      setComments([...comments, savedComment]);
-      setNewComment("");
-      setAuthorName("");
-      setAuthorEmail("");
-    } catch (err) {
-      console.error(err);
-      setErrors((prev) => ({
-        ...prev,
-        comment: "Errore nell'invio del commento",
-      }));
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //       setComments([...comments, savedComment]);
+  //       setNewComment("");
+  //       setAuthorName("");
+  //       setAuthorEmail("");
+  //     } catch (err) {
+  //       console.error(err);
+  //       setErrors((prev) => ({
+  //         ...prev,
+  //         comment: "Errore nell'invio del commento",
+  //       }));
+  //     } finally {
+  //       setIsSubmitting(false);
+  //     }
+  //   };
 
   const readingTime = Math.max(
     1,
@@ -171,8 +171,8 @@ export default function PostPage({ post, otherPosts }) {
           <div>share socials</div>
         </div>
 
-        {/* <div className="mt-12 max-w-4xl">
-          <h2 className="text-2xl font-semibold mb-4">
+        <div className="mt-12 max-w-4xl">
+          {/* <h2 className="text-2xl font-semibold mb-4">
             Commenti ({comments.length})
           </h2>
 
@@ -213,9 +213,9 @@ export default function PostPage({ post, otherPosts }) {
             </ul>
           ) : (
             <p className="mb-6">Nessun commento per questo post.</p>
-          )}
+          )} */}
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          {/* <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <input
               type="text"
               value={authorName}
@@ -256,8 +256,8 @@ export default function PostPage({ post, otherPosts }) {
             >
               {isSubmitting ? "Invio..." : "Invia commento"}
             </button>
-          </form>
-        </div> */}
+          </form> */}
+        </div>
       </article>
       <AnimatedLineView />
       {otherPosts.length > 0 && (
