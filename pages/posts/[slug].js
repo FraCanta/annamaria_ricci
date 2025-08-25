@@ -171,7 +171,7 @@ export default function PostPage({ post, otherPosts }) {
           <div>share socials</div>
         </div>
 
-        <div className="mt-12 max-w-4xl">
+        {/* <div className="mt-12 max-w-4xl">
           <h2 className="text-2xl font-semibold mb-4">
             Commenti ({comments.length})
           </h2>
@@ -257,7 +257,7 @@ export default function PostPage({ post, otherPosts }) {
               {isSubmitting ? "Invio..." : "Invia commento"}
             </button>
           </form>
-        </div>
+        </div> */}
       </article>
       <AnimatedLineView />
       {otherPosts.length > 0 && (
