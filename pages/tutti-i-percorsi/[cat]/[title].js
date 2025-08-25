@@ -38,14 +38,14 @@ function SinglePercorso({ percorsi, others }) {
           dangerouslySetInnerHTML={{
             __html: percorsi.name,
           }}
-          className={`p-2 text-[10vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
+          className={`lg:absolute lg:inset-0 lg:pt-[16vw] z-10 p-2 text-[9vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
             animate
               ? "opacity-100 blur-0 translate-y-0"
               : "opacity-0 blur-sm translate-y-4"
           }`}
         ></h1>
         <div
-          className={`relative aspect-square lg:h-[800px] w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
+          className={`relative lg:inset-0 lg:absolute aspect-square lg:h-[800px] w-full transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
               ${animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"}`}
         >
           <Image
@@ -56,7 +56,7 @@ function SinglePercorso({ percorsi, others }) {
           />
         </div>
       </div>
-      <div className="relative z-10 ">
+      <div className="relative z-10 lg:mt-[750px]">
         <AnimatedLineView />
         <div className="my-10 lg:my-20 flex flex-col gap-4">
           <FadeInSection delay={100}>
@@ -240,7 +240,7 @@ function SinglePercorso({ percorsi, others }) {
                     dangerouslySetInnerHTML={{ __html: percorsi.oneshot.p }}
                   ></p>
                   <Button className="mt-4" href="/contatti">
-                    Contattami
+                    Prenota la tua consulenza
                   </Button>
                 </div>
               </div>

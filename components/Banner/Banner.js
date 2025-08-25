@@ -20,15 +20,15 @@ const Banner = ({ title, text, address, book, contact }) => {
         </div>
         <div className="flex flex-col gap-6 w-[90%] lg:w-[80%] mx-auto py-10 ">
           <div>
-            <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] leading-none text-gray100 ">
+            <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] leading-none text-gray100 ">
               Vuoi lavorare con me?
             </h2>
           </div>
-          <p className="font-work font-regular text-base md:text-[18px] text-gray90 flex-grow flex items-center">
+          <p className="font-work font-regular text-md md:text-[18px] text-gray90 flex-grow flex items-center">
             Se cerchi una collaborazione autentica e trasformativa, sei nel
             posto giusto.
           </p>
-          <ul className="list-disc pl-6 font-work font-regular text-base md:text-[18px] text-gray90">
+          <ul className="list-disc pl-6 font-work font-regular text-md md:text-[18px] text-gray90">
             <li>Uno spazio di ascolto sincero e non giudicante</li>
             <li>Un percorso di cambiamento ed evoluzione consapevole</li>
             <li>Un’esperienza professionale che valorizza chi sei</li>
@@ -68,7 +68,7 @@ const Banner = ({ title, text, address, book, contact }) => {
               title="Contattami e parliamo insieme del tuo progetto"
               className="button-main"
             >
-              Scrivimi
+              Scrivimi una email
             </ButtonOutline>
           </div>
         </div>

@@ -71,7 +71,7 @@ function HeroAbout() {
             }`}
           >
             <Image
-              src="/assets/al_mare.jpg"
+              src="/assets/chi_sono2.webp"
               alt="Hero"
               fill
               className="object-cover "

@@ -1,50 +1,11 @@
-import { useEffect, useState } from "react";
-import { Howl } from "howler";
-import { Icon } from "@iconify/react";
+import { useAudio } from "@/context/AudioContext";
 
 const AudioPlayer = () => {
-  const [sound, setSound] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false); // Parte da "off"
-
-  useEffect(() => {
-    const newSound = new Howl({
-      src: ["/audio/nuvole_bianche.mp3"],
-      loop: true,
-      volume: 0.02,
-    });
-
-    newSound.once("play", () => {
-      console.log("🎵 Autoplay riuscito");
-      setIsPlaying(true);
-    });
-
-    newSound.once("playerror", (id, err) => {
-      console.warn("🚫 Autoplay bloccato", err);
-    });
-
-    newSound.play(); // Non è async, ma triggera gli eventi sopra
-    setSound(newSound);
-
-    return () => {
-      newSound.unload();
-    };
-  }, []);
-
-  const toggleSound = () => {
-    if (!sound) return;
-
-    if (isPlaying) {
-      sound.pause();
-      setIsPlaying(false);
-    } else {
-      sound.play();
-      setIsPlaying(true);
-    }
-  };
+  const { isPlaying, toggle } = useAudio();
 
   return (
     <div
-      onClick={toggleSound}
+      onClick={toggle}
       className="fixed bottom-8 left-8 lg:bottom-10 lg:left-10 flex items-center cursor-pointer z-50 select-none"
     >
       <div className="flex items-end space-x-1 w-5 h-5 mr-2">

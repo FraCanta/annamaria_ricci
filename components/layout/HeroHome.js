@@ -29,11 +29,11 @@ const HeroHome = () => {
             </h1>
 
             <p
-              className={`font-abhaya font-regular text-[18px] md:text-[1.4vw]  leading-tight text-gray90 
+              className={`font-abhaya font-regular text-[20px] md:text-[30px]   leading-tight text-gray90 
     transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 
     ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
             >
-              Consulenze e Servizi di Orientamento, miglioramento, evoluzione.
+              Consulenze e Servizi di Orientamento, Miglioramento, Evoluzione.
             </p>
           </div>
 
@@ -58,10 +58,10 @@ const HeroHome = () => {
                   : "opacity-0 blur-sm translate-y-4"
               }`}
           >
-            <h2 className="font-abhaya font-regular text-[22px] md:text-[30px]  leading-none text-gray90 ">
+            <h2 className="font-abhaya font-regular text-[18px] md:text-[1.4vw]  leading-none text-gray90 ">
               “Ogni orientamento presuppone un disorientamento”
             </h2>
-            <p className="font-abhaya font-bold text-base md:text-[20px] leading-none text-gray100 ">
+            <p className="font-abhaya font-bold text-base md:text-[20px] leading-none text-gray100/80 ">
               Hans Magnus Enzensberger
             </p>
           </div>

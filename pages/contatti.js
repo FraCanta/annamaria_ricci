@@ -19,7 +19,7 @@ function Contatti() {
   return (
     <div>
       <h1
-        className={`text-[14vw] w-full leading-none lg:text-[5vw] flex flex-col text-gray100 my-14 font-abhaya font-bold`}
+        className={`text-[9vw] w-full leading-none lg:text-[4vw] flex flex-col text-gray100 my-8 lg:my-14 font-abhaya font-bold`}
       >
         <span
           className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)]
@@ -45,7 +45,7 @@ function Contatti() {
       </h1>
 
       <AnimatedLineView />
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 my-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 my-10 lg:my-20">
         <div className="flex flex-col gap-8">
           <FadeInSection delay={100}>
             <h2 className="text-[6vw] md:text-[8vw] lg:text-[2vw] font-abhaya font-bold leading-none text-gray100">

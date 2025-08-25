@@ -138,11 +138,11 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
-          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
         }
       },
       "trova-il-lavoro-che-desideri": {
@@ -179,11 +179,11 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
-          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
         }
       },
       "trova-le-tue-radici": {
@@ -216,11 +216,11 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: Professional Counseling o Orientamento - 1h30min | 150€"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
-          "description": "Contattami per una call gratuita di 15 minuti, per conoscerci e capire insieme da dove partire."
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
         }
       },
       "avvia-la-tua-attività-con-consapevolezza": {

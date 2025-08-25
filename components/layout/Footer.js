@@ -64,6 +64,9 @@ function Footer() {
               <Link href="/">Home</Link>
             </li>
             <li>
+              <Link href="/chi-sono">Chi sono</Link>
+            </li>
+            <li>
               <Link href="/">Strumenti</Link>
             </li>
             <li>
@@ -72,12 +75,10 @@ function Footer() {
             <li>
               <Link href="/">Respiro</Link>
             </li>
-            {/* <li>
-              <Link href="/blog">Blog</Link>
-            </li> */}
             <li>
-              <Link href="/chi-sono">Chi sono</Link>
+              <Link href="/blog">Blog</Link>
             </li>
+
             <li>
               <Link href="/contatti">Contatti</Link>
             </li>
@@ -154,28 +155,29 @@ function Footer() {
 
         {/* Pagine */}
         <div className="flex flex-col gap-3">
-          <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+          <h3 className="font-[600] font-work mb-2 text-gray100 uppercase">
             Pagine
-          </h4>
+          </h3>
           <ul className="flex flex-col gap-3">
             <li>
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/">Strumenti</Link>
+              <Link href="/chi-sono">Chi sono</Link>
+            </li>
+            <li>
+              <Link href="/i-miei-strumenti">Strumenti</Link>
             </li>
             <li>
               <Link href="/tutti-i-percorsi">Percorsi</Link>
             </li>
             <li>
-              <Link href="/">Respiro</Link>
+              <Link href="/respiro-circolare-consapevole">Respiro</Link>
             </li>
-            {/* <li>
-              <Link href="/blog">Blog</Link>
-            </li> */}
             <li>
-              <Link href="/chi-sono">Chi sono</Link>
+              <Link href="/blog">Blog</Link>
             </li>
+
             <li>
               <Link href="/contatti">Contatti</Link>
             </li>
@@ -188,9 +190,9 @@ function Footer() {
         {/* Orari e Socials */}
         <div className="flex flex-col justify-between">
           <div className="flex flex-col gap-3">
-            <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+            <h3 className="font-[600] font-work mb-2 text-gray100 uppercase">
               Contatti
-            </h4>
+            </h3>
             <ul className="flex flex-col gap-2 text-gray100">
               <li>
                 <Link href="tel:+393515991968">Mobile: +39 351 599 1968</Link>
@@ -203,9 +205,9 @@ function Footer() {
             </ul>
           </div>
           <div className="flex flex-col gap-3">
-            <h4 className="font-[600] font-work mb-2 text-gray100 uppercase">
+            <h3 className="font-[600] font-work mb-2 text-gray100 uppercase">
               Socials
-            </h4>
+            </h3>
             <div className="flex flex-col gap-2">
               <Link href="https://www.facebook.com">Facebook</Link>
               <Link href="https://www.instagram.com">Instagram</Link>

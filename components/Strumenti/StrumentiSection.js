@@ -73,27 +73,29 @@ const StrumentiSection = () => {
             }}
             className="!mt-10 lg:!pb-6 !px-0"
           >
-            {items.map((item, i) => (
-              <SwiperSlide key={i}>
-                <div className="flex flex-col gap-14 bg-gray80/30 h-[350px] lg:h-[320px] p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
-                  <div className="h-[50px] w-[50px]">
-                    <Image
-                      src={item.icon}
-                      alt={item.title}
-                      width={100}
-                      height={100}
-                      className="w-full h-full"
-                    />
+            <FadeInSection delay={100}>
+              {items.map((item, i) => (
+                <SwiperSlide key={i}>
+                  <div className="flex flex-col gap-14 bg-gray80/30 h-[350px] lg:h-[320px] p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500">
+                    <div className="h-[50px] w-[50px]">
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={100}
+                        height={100}
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <h3 className="font-abhaya font-bold text-[25px] lg:text-[30px] leading-none text-gray100 ">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray90">{item.text}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col gap-4">
-                    <h3 className="font-abhaya font-bold text-[25px] lg:text-[30px] leading-none text-gray100 ">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray90">{item.text}</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
+                </SwiperSlide>
+              ))}
+            </FadeInSection>
 
             {/* Slide extra per il bottone */}
             <SwiperSlide>

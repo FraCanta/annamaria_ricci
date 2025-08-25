@@ -77,7 +77,7 @@ const PercorsiCarousel = () => {
                 setShowPrev(false);
                 setShowNext((percorsiPerTab[tab] || []).length > 1);
               }}
-              className={`uppercase text-lg rounded-sm border transition font-abhaya ${
+              className={`uppercase lg:text-lg rounded-sm border transition font-work ${
                 activeTab === tab
                   ? "underline underline-offset-4 underline-purple100 text-purple100 "
                   : "bg-transparent text-gray70 hover:text-purple100 hover:underline hover:underline-offset-4"
@@ -130,23 +130,25 @@ const PercorsiCarousel = () => {
                 className="flex flex-col bg-gray80/30 hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2 p-3"
                 title={post.title}
               >
-                <div className="relative w-full h-[400px] lg:h-[600px] rounded-sm overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>
-                  <div className="absolute bottom-4 left-4 right-4 lg:bottom-10 lg:left-10 lg:right-10 ">
-                    <h3 className="font-abhaya font-bold text-[8vw] md:text-[4vw] lg:text-[2.6vw] leading-none text-white">
-                      {post.title}
-                    </h3>
-                    <Button className="mt-4" href={post.link}>
-                      Scopri di più
-                    </Button>
+                <FadeInSection delay={100}>
+                  <div className="relative w-full h-[400px] lg:h-[600px] rounded-sm overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>
+                    <div className="absolute bottom-4 left-4 right-4 lg:bottom-10 lg:left-10 lg:right-10 ">
+                      <h3 className="font-abhaya font-bold text-[8vw] md:text-[4vw] lg:text-[2.6vw] leading-none text-white">
+                        {post.title}
+                      </h3>
+                      <Button className="mt-4" href={post.link}>
+                        Scopri di più
+                      </Button>
+                    </div>
                   </div>
-                </div>
+                </FadeInSection>
               </div>
             </SwiperSlide>
           ))}

@@ -1,4 +1,4 @@
-const BASE_URL = "https://mithablog.mithacreative.it/wp-json/wp/v2";
+const BASE_URL = "https://blogannamaria.annamariaricci.eu/wp-json/wp/v2";
 
 export async function getPosts(lang) {
   const postsRes = await fetch(BASE_URL + "/posts?_embed&per_page=50", {
@@ -6,14 +6,14 @@ export async function getPosts(lang) {
     revalidate: 900,
   });
   const posts = await postsRes.json();
-  const lngPost = posts.filter((p) => {
-    if (!!lang) {
-      return p?.tags?.includes(lang);
-    } else {
-      return p;
-    }
-  });
-  const mainKeys = lngPost?.map((el) => {
+  // const lngPost = posts.filter((p) => {
+  //   if (!!lang) {
+  //     return p?.tags?.includes(lang);
+  //   } else {
+  //     return p;
+  //   }
+  // });
+  const mainKeys = posts?.map((el) => {
     return {
       categories: el?.categories,
       content: { rendered: el?.content?.rendered },
@@ -61,8 +61,8 @@ export async function getTags() {
 // ricerca codice di un tag
 export async function getTagId(tagName) {
   const tags = await getTags();
-  const idLocale = (tags?.filter((el) => el?.name === tagName))[0]?.id; //prendo l'id che corrisponde ad it nel database di wp
-  return idLocale;
+  // const idLocale = (tags?.filter((el) => el?.name === tagName))[0]?.id; //prendo l'id che corrisponde ad it nel database di wp
+  return tags;
 }
 
 // Restituisce un array con tutti i tags relativi ad un post

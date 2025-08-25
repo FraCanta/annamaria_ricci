@@ -136,6 +136,13 @@ const Mobile = () => {
             Home
           </Link>
           <Link
+            href="/chi-sono"
+            className="menu-item"
+            onClick={() => setMenuOpen(false)}
+          >
+            Chi sono
+          </Link>
+          <Link
             href="/i-miei-strumenti"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -148,12 +155,12 @@ const Mobile = () => {
          `}
           >
             {/* Titolo con px condizionale */}
-            <h4
+            <h3
               className={`font-work   my-2 leading-none text-gray100 transition-all duration-300 
           `}
             >
               <span>Percorsi</span>
-            </h4>
+            </h3>
 
             {/* Icona + che ruota in X */}
             <span
@@ -181,20 +188,14 @@ const Mobile = () => {
           >
             Respiro
           </Link>
-          {/* <Link
+          <Link
             href="/blog"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
           >
             Blog
-          </Link> */}
-          <Link
-            href="/chi-sono"
-            className="menu-item"
-            onClick={() => setMenuOpen(false)}
-          >
-            Chi sono
           </Link>
+
           <Link
             href="/contatti"
             className="menu-item"

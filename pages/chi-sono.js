@@ -72,55 +72,61 @@ function ChiSono() {
       <div className="my-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex flex-col gap-6">
-            <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
-              Il mio percorso lavorativo
-            </h2>
+            <FadeInSection delay={100}>
+              <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+                Il mio percorso lavorativo
+              </h2>
+            </FadeInSection>
           </div>
           <div>
-            <AccordionItem title="La mia esperienza nelle aziende">
-              <ul className="flex flex-col gap-4 font-work font-normal text-base text-gray90 leading-snug list-disc list-inside">
-                <li>
-                  Ho firmato il mio primo contratto nel 1988 in un’azienda di
-                  Peschiera Borromeo, città in provincia di Milano.
-                </li>
-                <li>
-                  Prima di approdare al Counseling, ho lavorato per 23 anni in
-                  piccole, medie e grandi aziende (anche multinazionali), tutte
-                  esperienze che porto nel mio cuore e nel mio bagaglio
-                  professionale.
-                </li>
-                <li>
-                  Ho spaziato dalle vendite al commerciale, al miglioramento
-                  processi, alla formazione, fino a gestire +500 persone avendo
-                  la responsabilità del loro percorso di carriera e dei
-                  risultati operativi di area.
-                </li>
-              </ul>
-            </AccordionItem>
+            <FadeInSection delay={100}>
+              <AccordionItem title="La mia esperienza nelle aziende">
+                <ul className="flex flex-col gap-4 font-work font-normal text-base text-gray90 leading-snug list-disc list-inside">
+                  <li>
+                    Ho firmato il mio primo contratto nel 1988 in un’azienda di
+                    Peschiera Borromeo, città in provincia di Milano.
+                  </li>
+                  <li>
+                    Prima di approdare al Counseling, ho lavorato per 23 anni in
+                    piccole, medie e grandi aziende (anche multinazionali),
+                    tutte esperienze che porto nel mio cuore e nel mio bagaglio
+                    professionale.
+                  </li>
+                  <li>
+                    Ho spaziato dalle vendite al commerciale, al miglioramento
+                    processi, alla formazione, fino a gestire +500 persone
+                    avendo la responsabilità del loro percorso di carriera e dei
+                    risultati operativi di area.
+                  </li>
+                </ul>
+              </AccordionItem>
+            </FadeInSection>
             <AnimatedLineView />
-            <AccordionItem title="La mia libera professione">
-              <ul className="flex flex-col gap-4 font-work font-normal text-base text-gray90 leading-snug list-disc list-inside">
-                <li>Da ottobre 2012 sono una libera professionista.</li>
-                <li>
-                  Mi rivolgo a persone singole, liberi professionisti e
-                  organizzazioni.
-                </li>
-                <li>
-                  Offro consulenze e servizi di orientamento, miglioramento,
-                  training ed evoluzione personale e professionale, sia online
-                  che in presenza.
-                </li>
-                <li>
-                  Dal 2023 sono iscritta ad ASNOR – Associazione Nazionale
-                  Orientatori Italiani, con credenziale 1200-2025 ai sensi della
-                  Legge 04/2013.
-                </li>
-                <li>
-                  Da gennaio 2025 sono socia di Confcommercio di Pistoia e
-                  Prato.
-                </li>
-              </ul>
-            </AccordionItem>
+            <FadeInSection delay={100}>
+              <AccordionItem title="La mia libera professione">
+                <ul className="flex flex-col gap-4 font-work font-normal text-base text-gray90 leading-snug list-disc list-inside">
+                  <li>Da ottobre 2012 sono una libera professionista.</li>
+                  <li>
+                    Mi rivolgo a persone singole, liberi professionisti e
+                    organizzazioni.
+                  </li>
+                  <li>
+                    Offro consulenze e servizi di orientamento, miglioramento,
+                    training ed evoluzione personale e professionale, sia online
+                    che in presenza.
+                  </li>
+                  <li>
+                    Dal 2023 sono iscritta ad ASNOR – Associazione Nazionale
+                    Orientatori Italiani, con credenziale 1200-2025 ai sensi
+                    della Legge 04/2013.
+                  </li>
+                  <li>
+                    Da gennaio 2025 sono socia di Confcommercio di Pistoia e
+                    Prato.
+                  </li>
+                </ul>
+              </AccordionItem>
+            </FadeInSection>
           </div>
         </div>
       </div>
@@ -351,43 +357,47 @@ function ChiSono() {
       </FadeInSection>{" "}
       <InfiniteTextScroll />
       <AnimatedLineView />
-      <div className="my-20">
+      <div className="my-10 lg:my-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="relative h-[50vh] lg:h-[80vh]">
-            <Image
-              src="/assets/annamaria_chisono.jpg"
-              alt="Formazione Professionale"
-              fill
-              className="w-full h-full object-cover aspect-square"
-            />
-          </div>
-          <div className="flex flex-col gap-4">
-            <h2 className="font-abhaya font-bold text-[38px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
-              Un paio di cose che non dico a tutti
-            </h2>
-            <p className="font-abhaya font-[500] text-[22px] my-2 text-gray100 mb-4">
-              ( ma per il mio primo e nuovissimo sito faccio un’eccezione )
-            </p>
-            <ul className="flex flex-col gap-4 font-work font-normal text-xl  text-gray90 leading-snug list-disc list-inside">
-              <li>
-                Amo la politica… del fare e tutte le forme d’arte, infatti la
-                “uso” quando lavoro.
-              </li>
-              <p>Come?</p>
-              <li>
-                Con la scrittura, con i mandala, con la poesia, i collages,
-                fotografia, caviardage, visualboard, brainstorming e molti altri
-                strumenti che decido di volta in volta in base alle esigenze
-                (insomma non posso spoilerare tutto).
-              </li>
-              <li>
-                Mi sono occupata di Diritti, Doveri e Pari Opportunità per tutti
-                per 16 anni, ricoprendo anche il ruolo di Presidente del
-                Consiglio per le Pari Opportunità di San Giuliano Terme (PI).
-              </li>
-              <li>Mi piace guidare e viaggiare.</li>
-            </ul>
-          </div>
+          <FadeInSection delay={100}>
+            <div className="relative h-[50vh] lg:h-[90vh]">
+              <Image
+                src="/assets/chi_sono3.webp"
+                alt="Formazione Professionale"
+                fill
+                className="w-full h-full object-cover aspect-square"
+              />
+            </div>
+          </FadeInSection>
+          <FadeInSection delay={100}>
+            <div className="flex flex-col gap-4">
+              <h2 className="font-abhaya font-bold text-[8vw] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+                Un paio di cose che non dico a tutti
+              </h2>
+              <p className="font-abhaya font-[500] text-[22px] my-1 text-gray100 mb-4">
+                ( ma per il mio primo e nuovissimo sito faccio un’eccezione )
+              </p>
+              <ul className="flex flex-col gap-4 font-work font-normal text-md lg:text-lg  text-gray90 leading-snug list-disc list-inside">
+                <li>
+                  Amo la politica… del fare e tutte le forme d’arte, infatti la
+                  “uso” quando lavoro.
+                </li>
+                <p>Come?</p>
+                <li>
+                  Con la scrittura, con i mandala, con la poesia, i collages,
+                  fotografia, caviardage, visualboard, brainstorming e molti
+                  altri strumenti che decido di volta in volta in base alle
+                  esigenze (insomma non posso spoilerare tutto).
+                </li>
+                <li>
+                  Mi sono occupata di Diritti, Doveri e Pari Opportunità per
+                  tutti per 16 anni, ricoprendo anche il ruolo di Presidente del
+                  Consiglio per le Pari Opportunità di San Giuliano Terme (PI).
+                </li>
+                <li>Mi piace guidare e viaggiare.</li>
+              </ul>
+            </div>
+          </FadeInSection>
         </div>
       </div>
       <AnimatedLineView />
@@ -396,9 +406,9 @@ function ChiSono() {
         {" "}
         <div className="flex justify-between items-center w-full my-10">
           {" "}
-          <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 mb-10">
+          <div className="flex flex-col lg:flex-row w-full justify-between lg:items-center gap-6 ">
             {" "}
-            <h2 className="text-[12vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
+            <h2 className="text-[8vw] lg:text-[4vw] font-abhaya font-bold leading-none text-gray-900">
               {" "}
               I miei percorsi{" "}
             </h2>{" "}

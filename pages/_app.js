@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { AudioProvider } from "@/context/AudioContext";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -12,7 +13,6 @@ export default function App({ Component, pageProps }) {
   const [currentRoute, setCurrentRoute] = useState(router.pathname);
 
   const transitionColor = "#E0DCE2";
-
   const transitionSpringPhysics = {
     type: "tween",
     duration: 0.8,
@@ -30,7 +30,7 @@ export default function App({ Component, pageProps }) {
       setTimeout(() => {
         setIsTransitioning(false);
         setCurrentRoute(router.pathname);
-      }, 800); // deve coincidere con la durata dell'animazione
+      }, 800);
     };
 
     router.events.on("routeChangeStart", handleStart);
@@ -45,7 +45,7 @@ export default function App({ Component, pageProps }) {
   }, [router]);
 
   return (
-    <>
+    <AudioProvider>
       <AnimatePresence mode="wait">
         {isTransitioning && (
           <motion.div
@@ -53,21 +53,21 @@ export default function App({ Component, pageProps }) {
             initial={{
               scaleY: 0.2,
               scaleX: 0.8,
-              bottom: "50px", // Offset dal basso di 50px
-              top: 0, // Inizia dalla parte superiore
+              bottom: "50px",
+              top: 0,
               transformOrigin: "bottom center",
             }}
             animate={{
               scaleY: 1,
               scaleX: 1,
-              bottom: 0, // Il pannello si espande fino a coprire tutta la pagina
+              bottom: 0,
               top: 0,
               transformOrigin: "bottom center",
             }}
             exit={{
               scaleY: 0,
               scaleX: 1,
-              bottom: "50px", // Torna a 50px dal basso durante la chiusura
+              bottom: "50px",
               top: 0,
               transformOrigin: "top center",
             }}
@@ -85,13 +85,12 @@ export default function App({ Component, pageProps }) {
         )}
       </AnimatePresence>
 
-      {/* Mostra contenuto solo quando la transizione è terminata */}
       {!isTransitioning && (
         <Layout>
-          {/* <AudioPlayer /> */}
+          <AudioPlayer />
           <Component key={currentRoute} {...pageProps} />
         </Layout>
       )}
-    </>
+    </AudioProvider>
   );
 }

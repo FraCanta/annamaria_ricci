@@ -86,14 +86,22 @@ p {
 .nav__burger__line {
   height: 2px;
   width: 0; /* inizialmente */
-  background-color: black;
+  background-color: #1e211e;
   transition: all 0.5s ease;
   transform-origin: center;
   opacity: 0;
 }
 
+.nav__burger__line:first-child {
+  transition-delay: 0.2s;
+}
+
+.nav__burger__line:last-child {
+  transition-delay: 0.22s;
+}
+
 .nav__burger__line__fill {
-  background-color: black;
+  background-color: #1e211e;
   width: 100%;
   height: 100%;
 }
