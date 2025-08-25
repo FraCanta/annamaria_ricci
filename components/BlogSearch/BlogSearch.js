@@ -137,7 +137,7 @@ export default function BlogSearch() {
             <li
               key={post.id}
               className="flex gap-3 p-3 border-b cursor-pointer border-gray100 hover:bg-gray50"
-              onMouseDown={() => router.push(post.slug)}
+              onMouseDown={() => router.push(`/posts/${post.slug}`)}
             >
               {post.featuredImage?.node?.sourceUrl && (
                 <img

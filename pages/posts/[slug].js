@@ -12,12 +12,12 @@ import Link from "next/link";
 export default function PostPage({ post, otherPosts }) {
   console.log(otherPosts);
   const router = useRouter();
-  const [comments, setComments] = useState(post.comments.nodes || []);
-  const [newComment, setNewComment] = useState("");
-  const [authorName, setAuthorName] = useState("");
-  const [authorEmail, setAuthorEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState({ name: "", email: "", comment: "" });
+  //   const [comments, setComments] = useState(post.comments.nodes || []);
+  //   const [newComment, setNewComment] = useState("");
+  //   const [authorName, setAuthorName] = useState("");
+  //   const [authorEmail, setAuthorEmail] = useState("");
+  //   const [isSubmitting, setIsSubmitting] = useState(false);
+  //   const [errors, setErrors] = useState({ name: "", email: "", comment: "" });
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
 
