@@ -24,7 +24,7 @@ const Blog = ({ posts }) => {
   return (
     <>
       <FadeInSection delay={50}>
-        <div className="w-full my-10 lg:my-20 flex flex-col gap-4 justify-center items-center">
+        <div className="w-full my-10 lg:my-20 flex flex-col gap-4 justify-center items-center relative">
           <div>
             <h1
               className={`font-abhaya font-bold text-[11vw] lg:text-[4vw] leading-none text-gray100 text-center 
@@ -38,7 +38,7 @@ const Blog = ({ posts }) => {
               Blog
             </h1>
           </div>
-          <BlogSearch />
+          {/* <BlogSearch /> */}
         </div>
       </FadeInSection>
       {/* Passiamo i post a BlogSection */}

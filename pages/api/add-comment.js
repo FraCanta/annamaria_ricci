@@ -39,13 +39,18 @@ export default async function handler(req, res) {
 
     const variables = {
       input: {
-        commentOn: postId, // Deve essere ID GraphQL
+        commentOn: postId, // Deve essere l'ID globale (GID) del post
         content,
-        authorName,
-        authorEmail,
+        author: {
+          // ATTENZIONE: author qui, non authorName/Email
+          name: authorName,
+          email: authorEmail,
+        },
         status: "PUBLISH",
       },
     };
+
+    console.log("Invio commento:", variables.input);
 
     const response = await client.request(mutation, variables);
 
@@ -55,11 +60,9 @@ export default async function handler(req, res) {
         .json({ message: "Errore nella creazione del commento" });
     }
 
-    const savedComment = response.createComment.comment;
-
-    return res.status(200).json(savedComment);
+    return res.status(200).json(response.createComment.comment);
   } catch (err) {
-    console.error("Errore add-comment.js:", err.response || err);
+    console.error("Errore add-comment.js:", err.response?.errors || err);
     return res
       .status(500)
       .json({ message: "Errore server", error: err.message });

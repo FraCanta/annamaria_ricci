@@ -83,7 +83,7 @@ function RespiroCircolareConsapevole() {
             <FadeInSection delay={100}>
               <div className="relative aspect-square">
                 <Image
-                  src="/assets/respiro2.webp"
+                  src="/assets/respiro4.jpg"
                   alt="Respiro consapevole"
                   fill
                   className="object-cover "

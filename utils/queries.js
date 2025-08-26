@@ -6,6 +6,7 @@ export const GET_ALL_POSTS = gql`
     posts {
       edges {
         node {
+          id
           title
           uri
           excerpt
