@@ -39,16 +39,14 @@ export default async function handler(req, res) {
 
     const variables = {
       input: {
-        commentOn: postId, // Deve essere l'ID globale (GID) del post
         content,
-        author: {
-          // ATTENZIONE: author qui, non authorName/Email
-          name: authorName,
-          email: authorEmail,
-        },
-        status: "PUBLISH",
+        author: authorName, // nome dell'autore
+        authorEmail,
+        status: "APPROVE",
       },
     };
+
+    console.log("Invio commento:", variables.input);
 
     console.log("Invio commento:", variables.input);
 

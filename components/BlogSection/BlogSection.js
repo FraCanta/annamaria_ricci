@@ -77,10 +77,10 @@ function BlogSection({ posts }) {
               </p>
 
               {/* Numero commenti */}
-              <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
+              {/* <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
                 <Icon icon="mdi:comment-outline" width="15" height="15" />
                 {posts[0].commentCount || 0} commenti
-              </p>
+              </p> */}
             </div>
           </div>
         </Link>
@@ -134,10 +134,10 @@ function BlogSection({ posts }) {
                   </p>
 
                   {/* Numero commenti */}
-                  <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
+                  {/* <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
                     <Icon icon="mdi:comment-outline" width="15" height="15" />
                     {post.commentCount || 0} commenti
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </Link>
