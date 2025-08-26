@@ -54,7 +54,12 @@ function Contatti() {
             </h2>
           </FadeInSection>
           <FadeInSection delay={100}>
-            <Button href="/prenota">Prenota una consulenza</Button>
+            <Button
+              target="_blank"
+              href="https://calendly.com/welcome-annamariaricci/30min"
+            >
+              Prenota una consulenza
+            </Button>
           </FadeInSection>
           <FadeInSection delay={100}>
             <div className="flex flex-wrap gap-2">

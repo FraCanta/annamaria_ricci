@@ -33,7 +33,7 @@ const HeroHome = () => {
     transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 
     ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
             >
-              Consulenze e Servizi di Orientamento, Miglioramento, Evoluzione.
+              Consulenze e Servizi di Orientamento, Miglioramento, Evoluzione
             </p>
           </div>
 
@@ -48,7 +48,9 @@ const HeroHome = () => {
               }`}
           >
             <Button href="/tutti-i-percorsi">Scopri i miei percorsi</Button>
-            <ButtonOutline href="/">Chiedi una consulenza</ButtonOutline>
+            <ButtonOutline href="https://calendly.com/welcome-annamariaricci/30min">
+              Chiedi una consulenza
+            </ButtonOutline>
           </div>
           <div
             className={`flex flex-col gap-2  transition-all duration-1000 ease-in-out delay-600

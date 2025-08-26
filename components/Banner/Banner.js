@@ -59,12 +59,11 @@ const Banner = ({ title, text, address, book, contact }) => {
                 </div>
               </div>
             </Link> */}
-            <Button href="https://calendly.com/thallion-dev-info/call">
+            <Button href="https://calendly.com/welcome-annamariaricci/30min">
               Prenota una call
             </Button>
             <ButtonOutline
-              href="mailto:info@thallion-dev.it"
-              target="_blank"
+              href="/contatti"
               title="Contattami e parliamo insieme del tuo progetto"
               className="button-main"
             >

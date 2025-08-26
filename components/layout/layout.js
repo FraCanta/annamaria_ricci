@@ -8,6 +8,7 @@ const Layout = (props) => {
   return (
     <>
       <LenisScroll />
+
       <Navbar />
       <Mobile />
       <main>{props.children}</main>

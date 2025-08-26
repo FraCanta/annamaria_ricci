@@ -83,7 +83,12 @@ function Footer() {
               <Link href="/contatti">Contatti</Link>
             </li>
             <li>
-              <Link href="/">Prenota una consulenza</Link>
+              <Link
+                target="_blank"
+                href="https://calendly.com/welcome-annamariaricci/30min"
+              >
+                Prenota una consulenza
+              </Link>
             </li>
           </ul>
         </AccordionSection>
@@ -107,9 +112,30 @@ function Footer() {
         {/* Accordion Socials */}
         <AccordionSection title="Socials">
           <div className="flex flex-col gap-2">
-            <Link href="https://www.facebook.com">Facebook</Link>
-            <Link href="https://www.instagram.com">Instagram</Link>
-            <Link href="https://www.linkedin.com">Linkedin</Link>
+            <Link
+              target="_blank"
+              href="https://www.facebook.com/annamariaricciofficial"
+            >
+              Facebook
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/lariccigiontella/"
+            >
+              Instagram
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/ricerche_genealogiche/"
+            >
+              Ricerche genealogiche (Instagram)
+            </Link>
+            <Link
+              target="_blank"
+              href="https://www.linkedin.com/in/annamariaricci/"
+            >
+              Linkedin
+            </Link>
           </div>
         </AccordionSection>
         <AnimatedLineView />
@@ -182,7 +208,12 @@ function Footer() {
               <Link href="/contatti">Contatti</Link>
             </li>
             <li>
-              <Link href="/">Prenota una consulenza</Link>
+              <Link
+                target="_blank"
+                href="https://calendly.com/welcome-annamariaricci/30min"
+              >
+                Prenota una consulenza
+              </Link>
             </li>
           </ul>
         </div>
@@ -209,9 +240,30 @@ function Footer() {
               Socials
             </h3>
             <div className="flex flex-col gap-2">
-              <Link href="https://www.facebook.com">Facebook</Link>
-              <Link href="https://www.instagram.com">Instagram</Link>
-              <Link href="https://www.linkedin.com">Linkedin</Link>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/annamariaricciofficial"
+              >
+                Facebook
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/lariccigiontella/"
+              >
+                Instagram
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/ricerche_genealogiche/"
+              >
+                Ricerche genealogiche (Instagram)
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.linkedin.com/in/annamariaricci/"
+              >
+                Linkedin
+              </Link>
             </div>
           </div>
         </div>

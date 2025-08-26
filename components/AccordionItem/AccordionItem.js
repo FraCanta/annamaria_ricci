@@ -13,7 +13,7 @@ export default function AccordionItem({ title, children }) {
       >
         {/* Titolo con px condizionale */}
         <h4
-          className={`font-abhaya font-[500] text-base lg:text-[22px] my-2 leading-none text-gray100 transition-all duration-300 
+          className={`font-work font-[600] text-lg lg:text-[22px] my-2 leading-none text-gray100 transition-all duration-300 
             ${open ? "px-6" : "px-0 group-hover:px-6"}`}
         >
           <span className="uppercase">{title}</span>

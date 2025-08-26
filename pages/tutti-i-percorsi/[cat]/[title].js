@@ -217,7 +217,10 @@ function SinglePercorso({ percorsi, others }) {
           </FadeInSection>
           <div className="flex justify-center">
             <FadeInSection delay={100}>
-              <ButtonOutline href="/contatti">
+              <ButtonOutline
+                target="_blank"
+                href="https://calendly.com/welcome-annamariaricci/30min"
+              >
                 Prenota una consulenza
               </ButtonOutline>
             </FadeInSection>
@@ -239,8 +242,11 @@ function SinglePercorso({ percorsi, others }) {
                     className="text-gray90 text-base lg:text-[18px] leading-snug font-work"
                     dangerouslySetInnerHTML={{ __html: percorsi.oneshot.p }}
                   ></p>
-                  <Button className="mt-4" href="/contatti">
-                    Prenota la tua consulenza
+                  <Button
+                    className="mt-4"
+                    href="https://calendly.com/welcome-annamariaricci/30min"
+                  >
+                    Prenota una consulenza
                   </Button>
                 </div>
               </div>

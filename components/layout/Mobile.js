@@ -1,22 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import Link from "next/link";
 import gsap from "gsap/dist/gsap";
+import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
+import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import AccordionItem from "../AccordionItem/AccordionItem";
 const Mobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [open, setOpen] = useState(false);
-
   const navbarRef = useRef(null);
+  const [percorsiOpen, setPercorsiOpen] = useState(false);
 
+  // Animazione all'entrata del navbar
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           const items = document.querySelectorAll(".logo, .nav__burger");
-
           items.forEach((item, index) => {
             setTimeout(() => {
               item.classList.remove("opacity-0", "translate-y-4");
@@ -41,23 +41,19 @@ const Mobile = () => {
     };
   }, []);
 
+  // Animazione entrata voci menu con GSAP
   useEffect(() => {
     if (menuOpen) {
-      // Animazione di entrata delle voci del menu
       const menuItems = document.querySelectorAll(".menu-item");
       gsap.fromTo(
         menuItems,
-        {
-          opacity: 0,
-          y: 30,
-          filter: "blur(8px)",
-        },
+        { opacity: 0, y: 30, filter: "blur(8px)" },
         {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
           duration: 0.3,
-          stagger: 0.1, // Ogni voce si anima con un piccolo ritardo
+          stagger: 0.1,
           ease: "power2.out",
         }
       );
@@ -66,17 +62,16 @@ const Mobile = () => {
 
   return (
     <>
+      {/* Navbar */}
       <nav
-        className="py-4 flex items-center  justify-between lg:hidden relative z-50"
+        className="py-4 flex items-center justify-between lg:hidden relative z-50"
         ref={navbarRef}
       >
-        {/* Logo con animazione */}
+        {/* Logo */}
         <Link
-          href={"/"}
+          href="/"
           className="flex items-center logo opacity-0 translate-y-4 transition-all duration-500"
-          style={{
-            transitionDelay: `calc(0.05s * 0 + 0.3s)`,
-          }}
+          style={{ transitionDelay: `calc(0.05s * 0 + 0.3s)` }}
         >
           <Image
             src="/assets/logo_annamaria.svg"
@@ -87,7 +82,7 @@ const Mobile = () => {
           />
         </Link>
 
-        {/* Burger menu con trasformazione in X */}
+        {/* Burger menu */}
         <button
           className="nav__burger"
           style={{ "--length": 2 }}
@@ -101,7 +96,7 @@ const Mobile = () => {
             }`}
             style={{ "--index": 0 }}
           >
-            <div className="nav__burger__line__fill"></div>
+            <div className="nav__burger__line__fill" />
           </div>
           <div
             className={`nav__burger__line transition-all duration-500 ${
@@ -111,23 +106,24 @@ const Mobile = () => {
             }`}
             style={{ "--index": 1 }}
           >
-            <div className="nav__burger__line__fill"></div>
+            <div className="nav__burger__line__fill" />
           </div>
         </button>
       </nav>
 
       {/* Animated line */}
-      <div className="flex lg:hidden ">
+      <div className="flex lg:hidden">
         <AnimatedLineView />
       </div>
 
-      {/* Menu a sipario */}
+      {/* Menu mobile */}
       <div
-        className={`fixed lg:hidden top-0 left-0 w-full h-dvh bg-gray80 overflow-hidden z-20 transition-transform duration-500 ease-in-out ${
+        className={`fixed lg:hidden top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-[100vh]"
         }`}
       >
-        <div className="flex flex-col mt-32 md:mt-48 w-[95%] mx-auto h-full gap-4 text-[8vw]  font-work ">
+        <div className="flex flex-col mt-32 uppercase md:mt-48 w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
+          {/* Voci principali */}
           <Link
             href="/"
             className="menu-item"
@@ -149,40 +145,19 @@ const Mobile = () => {
           >
             Strumenti
           </Link>
-          <button
-            onClick={() => setOpen(!open)}
-            className={`menu-item group w-full flex justify-between items-center py-2 text-left duration-300 transition-all 
-         `}
-          >
-            {/* Titolo con px condizionale */}
-            <h3
-              className={`font-work   my-2 leading-none text-gray100 transition-all duration-300 
-          `}
-            >
-              <span>Percorsi</span>
-            </h3>
 
-            {/* Icona + che ruota in X */}
-            <span
-              className={`relative w-5 h-5 flex items-center justify-center transition-transform duration-300 mr-6 ${
-                open ? "rotate-45" : "rotate-0"
-              }`}
-            >
-              {/* Linea verticale */}
-              <span className="absolute h-5 w-[2px] bg-gray100" />
-              {/* Linea orizzontale */}
-              <span className="absolute w-5 h-[2px] bg-gray100" />
-            </span>
-          </button>
-          <div
-            className={`overflow-hidden transition-all duration-300 
-              
-            `}
+          {/* Bottone Percorsi */}
+          <button
+            onClick={() => setPercorsiOpen(true)}
+            className="menu-item flex justify-between items-center uppercase  w-full"
           >
-            {/* <div className="py-10">sottomenu</div> */}
-          </div>
+            Percorsi
+            <Icon icon="ei:chevron-right" className="w-8 h-8" />
+          </button>
+
+          {/* Altre voci */}
           <Link
-            href="#contatti"
+            href="/respiro-circolare-consapevole"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
           >
@@ -195,7 +170,6 @@ const Mobile = () => {
           >
             Blog
           </Link>
-
           <Link
             href="/contatti"
             className="menu-item"
@@ -204,6 +178,106 @@ const Mobile = () => {
             Contatti
           </Link>
         </div>
+        {/* Sottomenu Percorsi a slide completa */}
+        <AnimatePresence>
+          {percorsiOpen && (
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 200, damping: 30 }}
+              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20"
+            >
+              {/* Header sottomenu */}
+              <div className="w-[90%] mx-auto flex items-center justify-between my-6">
+                <button onClick={() => setPercorsiOpen(false)}>
+                  <Icon icon="ei:chevron-left" className="w-10 h-10" />
+                </button>
+              </div>
+
+              {/* Lista percorsi */}
+              <div className="w-[90%] mx-auto flex flex-col gap-6">
+                {/* Privati */}
+                <div>
+                  <AccordionItem
+                    title="Privati"
+                    className="uppercase text-lg mb-2"
+                  >
+                    <Link
+                      href="/tutti-i-percorsi/privati/trova-la-tua-direzione"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Trova la tua direzione
+                    </Link>
+                    <Link
+                      href="/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Cambia e trova la tua strada nel lavoro
+                    </Link>
+                    <Link
+                      href="/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Trova il lavoro che desideri
+                    </Link>
+                    <Link
+                      href="/tutti-i-percorsi/privati/trova-le-tue-radici"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Trova le tue radici
+                    </Link>
+                  </AccordionItem>
+                </div>
+
+                {/* Libera professione */}
+                <div>
+                  <AccordionItem
+                    title="Libera professione"
+                    className="font-medium uppercase text-lg mb-2"
+                  >
+                    <Link
+                      href="/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Avvia la tua attività con consapevolezza
+                    </Link>
+                  </AccordionItem>
+                </div>
+
+                {/* Organizzazioni */}
+                <div>
+                  <AccordionItem
+                    title="Organizzazioni"
+                    className="font-medium uppercase text-lg mb-2"
+                  >
+                    <Link
+                      href="/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere"
+                      onClick={() => setMenuOpen(false)}
+                      className="block py-2 text-xl"
+                    >
+                      Soluzioni su misura per crescere
+                    </Link>
+                  </AccordionItem>
+                </div>
+                <div>
+                  <Link
+                    href="/tutti-i-percorsi"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-lg uppercase font-[600]"
+                  >
+                    Tutti i percorsi
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
