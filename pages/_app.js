@@ -94,7 +94,17 @@ export default function App({ Component, pageProps }) {
           </Layout>
         )}
       </AudioProvider>
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-BL0G9HLEHG"
+      ></Script>
+      <Script id="google-analytics" strategy="afterInteractive" defer>
+        {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-BL0G9HLEHG', { 'debug_mode':true });`}
+      </Script>
       <Script
         type="text/javascript"
         src="https://embeds.iubenda.com/widgets/d8c1bfb4-11d1-4a04-9f3d-f8cd684ad753.js"
