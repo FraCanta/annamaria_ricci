@@ -74,6 +74,21 @@ export const GET_ALL_POSTS = gql`
   }
 `;
 
+// Query minimale per la sitemap
+export const GET_POSTS_FOR_SITEMAP = gql`
+  query getPostsForSitemap {
+    posts(first: 1000) {
+      edges {
+        node {
+          uri
+          date
+          modified
+        }
+      }
+    }
+  }
+`;
+
 // Recupera solo i commenti di un singolo post, con eventuali reply
 export const GET_POST_COMMENTS = gql`
   query GetPostComments($postId: ID!) {

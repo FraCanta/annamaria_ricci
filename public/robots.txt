@@ -1,0 +1,11 @@
+# *
+User-agent: *
+Allow: /
+
+
+# Host
+Host: https://annamariaricci.eu
+
+# Sitemaps
+Sitemap: https://annamariaricci.eu/sitemap.xml
+

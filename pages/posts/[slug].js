@@ -115,7 +115,7 @@ export default function PostPage({ post, otherPosts }) {
             <div className="flex-grow"></div>
             <ShareButtons
               title={post.title}
-              link={`https://annamaria-ricci.vercel.app/posts/${post.uri.replace(
+              link={`https://annamariaricci.eu/posts/${post.uri.replace(
                 /^\/|\/$/g,
                 ""
               )}`}
