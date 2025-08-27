@@ -69,6 +69,7 @@ const Mobile = () => {
       >
         {/* Logo */}
         <Link
+          title="Torna alla homepage"
           href="/"
           className="flex items-center logo opacity-0 translate-y-4 transition-all duration-500"
           style={{ transitionDelay: `calc(0.05s * 0 + 0.3s)` }}
@@ -126,12 +127,14 @@ const Mobile = () => {
           {/* Voci principali */}
           <Link
             href="/"
+            title="Torna alla homepage"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
           >
             Home
           </Link>
           <Link
+            title="Scopri chi sono"
             href="/chi-sono"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -139,6 +142,7 @@ const Mobile = () => {
             Chi sono
           </Link>
           <Link
+            title="I miei strumenti"
             href="/i-miei-strumenti"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -157,6 +161,7 @@ const Mobile = () => {
 
           {/* Altre voci */}
           <Link
+            title="Respiro Circolare Consapevole"
             href="/respiro-circolare-consapevole"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -164,6 +169,7 @@ const Mobile = () => {
             Respiro
           </Link>
           <Link
+            title="Blog"
             href="/blog"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -171,6 +177,7 @@ const Mobile = () => {
             Blog
           </Link>
           <Link
+            title="Contatti"
             href="/contatti"
             className="menu-item"
             onClick={() => setMenuOpen(false)}
@@ -204,6 +211,7 @@ const Mobile = () => {
                     className="uppercase text-lg mb-2"
                   >
                     <Link
+                      title="Trova la tua direzione"
                       href="/tutti-i-percorsi/privati/trova-la-tua-direzione"
                       onClick={() => setMenuOpen(false)}
                       className="block py-2 text-xl"
@@ -218,6 +226,7 @@ const Mobile = () => {
                       Cambia e trova la tua strada nel lavoro
                     </Link>
                     <Link
+                      title="Trova il lavoro che desideri"
                       href="/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri"
                       onClick={() => setMenuOpen(false)}
                       className="block py-2 text-xl"
@@ -225,6 +234,7 @@ const Mobile = () => {
                       Trova il lavoro che desideri
                     </Link>
                     <Link
+                      title="Trova le tue radici"
                       href="/tutti-i-percorsi/privati/trova-le-tue-radici"
                       onClick={() => setMenuOpen(false)}
                       className="block py-2 text-xl"
@@ -241,6 +251,7 @@ const Mobile = () => {
                     className="font-medium uppercase text-lg mb-2"
                   >
                     <Link
+                      title="Avvia la tua attività con consapevolezza"
                       href="/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza"
                       onClick={() => setMenuOpen(false)}
                       className="block py-2 text-xl"
@@ -257,6 +268,7 @@ const Mobile = () => {
                     className="font-medium uppercase text-lg mb-2"
                   >
                     <Link
+                      title="Soluzioni su misura per crescere"
                       href="/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere"
                       onClick={() => setMenuOpen(false)}
                       className="block py-2 text-xl"
@@ -267,6 +279,7 @@ const Mobile = () => {
                 </div>
                 <div>
                   <Link
+                    title="Tutti i percorsi"
                     href="/tutti-i-percorsi"
                     onClick={() => setMenuOpen(false)}
                     className="block py-2 text-lg uppercase font-[600]"

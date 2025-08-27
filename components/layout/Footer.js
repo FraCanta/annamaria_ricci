@@ -44,7 +44,7 @@ function Footer() {
       <footer className="block md:hidden py-10 text-[15px]">
         {/* Logo + copyright */}
         <div className="mb-6">
-          <Link href="/">
+          <Link href="/" title="Torna alla home">
             <Image
               src="/assets/logo_annamaria.svg"
               alt="Logo"
@@ -52,6 +52,9 @@ function Footer() {
               height={113}
             />
           </Link>
+          <p className="text-gray100 mt-4">
+            Partita IVA 02068280508 <br /> Professionista ai sensi L. 04-2013
+          </p>
           <p className="text-gray100 mt-4">
             Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
           </p>
@@ -61,31 +64,46 @@ function Footer() {
         <AccordionSection title="Pagine">
           <ul className="flex flex-col gap-3">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" title="Torna alla home">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/chi-sono">Chi sono</Link>
+              <Link href="/chi-sono" title="Scopri chi sono">
+                Chi sono
+              </Link>
             </li>
             <li>
-              <Link href="/">Strumenti</Link>
+              <Link href="/" title="Scopri gli strumenti">
+                Strumenti
+              </Link>
             </li>
             <li>
-              <Link href="/tutti-i-percorsi">Percorsi</Link>
+              <Link href="/tutti-i-percorsi" title="Scopri tutti i percorsi">
+                Percorsi
+              </Link>
             </li>
             <li>
-              <Link href="/">Respiro</Link>
+              <Link href="/" title="Scopri il percorso Respiro">
+                Respiro
+              </Link>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link href="/blog" title="Leggi il blog">
+                Blog
+              </Link>
             </li>
 
             <li>
-              <Link href="/contatti">Contatti</Link>
+              <Link href="/contatti" title="Contatti">
+                Contatti
+              </Link>
             </li>
             <li>
               <Link
                 target="_blank"
-                href="https://calendly.com/welcome-annamariaricci/30min"
+                title="Prenota una consulenza"
+                href="https://calendly.com/welcome-annamariaricci/15min"
               >
                 Prenota una consulenza
               </Link>
@@ -97,12 +115,15 @@ function Footer() {
         <AccordionSection title="Contatti">
           <ul className="flex flex-col gap-3 text-gray100">
             <li>
-              <Link href="tel:+393515991968">
+              <Link href="tel:+393515991968" title="Chiama il numero">
                 <strong>Mobile:</strong> +39 351 599 1968
               </Link>
             </li>
             <li>
-              <Link href="mailto:welcome@annamariaricci.eu">
+              <Link
+                href="mailto:welcome@annamariaricci.eu"
+                title="Invia un'email"
+              >
                 <strong>Email:</strong> welcome@annamariaricci.eu
               </Link>
             </li>
@@ -110,28 +131,32 @@ function Footer() {
         </AccordionSection>
 
         {/* Accordion Socials */}
-        <AccordionSection title="Socials">
+        <AccordionSection title="Social">
           <div className="flex flex-col gap-2">
             <Link
               target="_blank"
+              title="Visita la pagina Facebook"
               href="https://www.facebook.com/annamariaricciofficial"
             >
               Facebook
             </Link>
             <Link
               target="_blank"
+              title="Visita la pagina Instagram"
               href="https://www.instagram.com/lariccigiontella/"
             >
               Instagram
             </Link>
             <Link
               target="_blank"
+              title="Visita la pagina Ricerche genealogiche"
               href="https://www.instagram.com/ricerche_genealogiche/"
             >
               Ricerche genealogiche (Instagram)
             </Link>
             <Link
               target="_blank"
+              title="Visita la pagina Linkedin"
               href="https://www.linkedin.com/in/annamariaricci/"
             >
               Linkedin
@@ -144,13 +169,21 @@ function Footer() {
           <div className="flex flex-col gap-2 mb-6">
             <p>
               Made with ❤️ by{" "}
-              <Link href="https://www.thallion-dev.it/" target="_blank">
+              <Link
+                title="Visita il sito di Thallion dev"
+                href="https://www.thallion-dev.it/"
+                target="_blank"
+              >
                 Thallion dev -
               </Link>
             </p>
             <p>
               brand by{" "}
-              <Link href="https://www.miaographics.it/" target="_blank">
+              <Link
+                title="Visita il sito di Miao graphics"
+                href="https://www.miaographics.it/"
+                target="_blank"
+              >
                 Miao graphics
               </Link>
             </p>
@@ -166,7 +199,7 @@ function Footer() {
       <footer className="hidden md:grid my-14 grid-cols-3 gap-[120px] p-4 lg:p-0 text-[14px]">
         {/* Logo + copyright */}
         <div className="flex flex-col">
-          <Link href="/">
+          <Link href="/" title="Torna alla home">
             <Image
               src="/assets/logo_annamaria.svg"
               alt="Logo"
@@ -174,6 +207,9 @@ function Footer() {
               height={113}
             />
           </Link>
+          <p className="text-gray100 mt-4">
+            Partita IVA 02068280508 <br /> Professionista ai sensi L. 04-2013
+          </p>
           <p className="text-gray100 mt-4">
             Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
           </p>
@@ -186,31 +222,49 @@ function Footer() {
           </h3>
           <ul className="flex flex-col gap-3">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="/" title="Torna alla home">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/chi-sono">Chi sono</Link>
+              <Link href="/chi-sono" title="Scopri chi sono">
+                Chi sono
+              </Link>
             </li>
             <li>
-              <Link href="/i-miei-strumenti">Strumenti</Link>
+              <Link href="/i-miei-strumenti" title="Scopri i miei strumenti">
+                Strumenti
+              </Link>
             </li>
             <li>
-              <Link href="/tutti-i-percorsi">Percorsi</Link>
+              <Link href="/tutti-i-percorsi" title="Scopri tutti i percorsi">
+                Percorsi
+              </Link>
             </li>
             <li>
-              <Link href="/respiro-circolare-consapevole">Respiro</Link>
+              <Link
+                href="/respiro-circolare-consapevole"
+                title="Scopri il percorso di Respiro"
+              >
+                Respiro
+              </Link>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link href="/blog" title="Leggi il nostro blog">
+                Blog
+              </Link>
             </li>
 
             <li>
-              <Link href="/contatti">Contatti</Link>
+              <Link href="/contatti" title="Contatti">
+                Contatti
+              </Link>
             </li>
             <li>
               <Link
                 target="_blank"
-                href="https://calendly.com/welcome-annamariaricci/30min"
+                title="Prenota una consulenza"
+                href="https://calendly.com/welcome-annamariaricci/15min"
               >
                 Prenota una consulenza
               </Link>
@@ -226,10 +280,15 @@ function Footer() {
             </h3>
             <ul className="flex flex-col gap-2 text-gray100">
               <li>
-                <Link href="tel:+393515991968">Mobile: +39 351 599 1968</Link>
+                <Link title="Chiama il numero" href="tel:+393515991968">
+                  Mobile: +39 351 599 1968
+                </Link>
               </li>
               <li>
-                <Link href="mailto:welcome@annamariaricci.eu">
+                <Link
+                  title="Invia un'email"
+                  href="mailto:welcome@annamariaricci.eu"
+                >
                   Email: welcome@annamariaricci.eu
                 </Link>
               </li>
@@ -237,29 +296,33 @@ function Footer() {
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-[600] font-work mb-2 text-gray100 uppercase">
-              Socials
+              Social
             </h3>
             <div className="flex flex-col gap-2">
               <Link
                 target="_blank"
+                title="Visita la pagina Facebook"
                 href="https://www.facebook.com/annamariaricciofficial"
               >
                 Facebook
               </Link>
               <Link
                 target="_blank"
+                title="Visita la pagina Instagram"
                 href="https://www.instagram.com/lariccigiontella/"
               >
                 Instagram
               </Link>
               <Link
                 target="_blank"
+                title="Visita la pagina Ricerche genealogiche"
                 href="https://www.instagram.com/ricerche_genealogiche/"
               >
                 Ricerche genealogiche (Instagram)
               </Link>
               <Link
                 target="_blank"
+                title="Visita la pagina Linkedin"
                 href="https://www.linkedin.com/in/annamariaricci/"
               >
                 Linkedin
@@ -277,13 +340,21 @@ function Footer() {
         <div className="flex gap-2">
           <p>
             Made with ❤️ by{" "}
-            <Link href="https://www.thallion-dev.it/" target="_blank">
+            <Link
+              title="Visita il sito di Thallion dev"
+              href="https://www.thallion-dev.it/"
+              target="_blank"
+            >
               Thallion dev -
             </Link>
           </p>
           <p>
             brand by{" "}
-            <Link href="https://www.miaographics.it/" target="_blank">
+            <Link
+              title="Visita il sito di Miao graphics"
+              href="https://www.miaographics.it/"
+              target="_blank"
+            >
               Miao graphics
             </Link>
           </p>

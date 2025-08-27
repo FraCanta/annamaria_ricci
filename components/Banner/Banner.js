@@ -59,7 +59,7 @@ const Banner = ({ title, text, address, book, contact }) => {
                 </div>
               </div>
             </Link> */}
-            <Button href="https://calendly.com/welcome-annamariaricci/30min">
+            <Button href="https://calendly.com/welcome-annamariaricci/15min">
               Prenota una call
             </Button>
             <ButtonOutline

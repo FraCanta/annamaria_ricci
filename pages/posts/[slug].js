@@ -145,6 +145,7 @@ export default function PostPage({ post, otherPosts }) {
               <li key={p.id} className="border-b pb-2">
                 <FadeInSection delay={100} key={p.uri}>
                   <Link
+                    title={p.title}
                     href={`/posts/${p.uri.replace(/^\/|\/$/g, "")}`}
                     className="flex flex-col bg-gray80/30 overflow-hidden hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
                   >

@@ -98,7 +98,7 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di:<br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
+          "p": "Puoi prenotare una singola consulenza di:<br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
@@ -138,7 +138,7 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
@@ -179,7 +179,7 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",
@@ -190,7 +190,6 @@
         "seoTitle": "Trova le tue radici - Percorsi",
         "name": "Trova le tue<br/> radici",
         "introTitle": "Sei curioso di scoprire la storia della tua famiglia e dare un senso profondo alla tua identità?",
-        "description": "Con questo percorso (continua questa frase).",
         "img": "/assets/cerca_le_tue_radici.jpg",
         "link": "/tutti-i-percorsi/privati/trova-le-tue-radici",
         "cat": "privati",
@@ -216,7 +215,7 @@
         "oneshot": {
           "title": "Consulenza singola",
           "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
-          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min | 150€</span>"
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
         },
         "tailored": {
           "title": "Vuoi un percorso su misura?",

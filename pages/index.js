@@ -21,20 +21,52 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>
-          Anna Maria Ricci - Consulenze e Servizi di Orientamento,
-          miglioramento, evoluzione
-        </title>
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <>
+          <title>Anna Maria Ricci - Home</title>
+          <meta name="author" content="Anna Maria Ricci" />
+          <meta
+            name="description"
+            content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          />
+          <meta
+            name="keywords"
+            content="consulenza, orientamento, evoluzione"
+          />
+
+          <meta property="og:url" content="https://www.annamariaricci.eu/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Anna Maria Ricci - Home" />
+          <meta
+            property="og:description"
+            content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          />
+          <meta
+            property="og:image"
+            content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="annamariaricci.eu" />
+          <meta
+            property="twitter:url"
+            content="https://www.annamariaricci.eu/"
+          />
+          <meta name="twitter:title" content="Anna Maria Ricci - Home" />
+          <meta
+            name="twitter:description"
+            content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          />
+
+          <link rel="icon" type="image/png" href="/favicon-96x96.png" />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <link rel="shortcut icon" href="/favicon.ico" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
+          <link rel="manifest" href="/site.webmanifest" />
+        </>
       </Head>
 
       <main className="content">

@@ -33,6 +33,7 @@ function BlogSection({ posts }) {
       {/* Primo post grande */}
       <FadeInSection delay={100}>
         <Link
+          title={posts[0].title}
           href={`/posts/${posts[0].uri}`}
           className="flex flex-col lg:flex-row gap-6 bg-gray80/30 h-[450px] md:h-[600px] hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
         >
@@ -91,6 +92,7 @@ function BlogSection({ posts }) {
         {posts.slice(1).map((post) => (
           <FadeInSection delay={100} key={post.uri}>
             <Link
+              title={post.title}
               href={`/posts${post.uri}`}
               className="flex flex-col bg-gray80/30 overflow-hidden hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
             >

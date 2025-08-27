@@ -56,7 +56,7 @@ function Contatti() {
           <FadeInSection delay={100}>
             <Button
               target="_blank"
-              href="https://calendly.com/welcome-annamariaricci/30min"
+              href="https://calendly.com/welcome-annamariaricci/15min"
             >
               Prenota una consulenza
             </Button>

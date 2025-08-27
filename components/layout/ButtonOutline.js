@@ -13,6 +13,7 @@ function ButtonOutline({
   return (
     <Link
       href={href}
+      title={children}
       className={clsx(
         `group border text-${color} border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md  rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2
          hover:bg-purple100 hover:text-white`,

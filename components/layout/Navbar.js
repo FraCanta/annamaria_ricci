@@ -119,7 +119,7 @@ const Navbar = () => {
           className="flex items-center space-x-2 logo opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)]"
           style={{ transitionDelay: `calc(0.02s * 0 + 0.3s)` }}
         >
-          <Link href="/">
+          <Link href="/" title="Torna alla homepage">
             <Image
               src="/assets/logo_annamaria.svg"
               alt="Logo"
@@ -134,19 +134,25 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 1 + 0.3s)` }}
           >
-            <Link href="/">Home</Link>
+            <Link href="/" title="Torna alla homepage">
+              Home
+            </Link>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 6 + 0.3s)` }}
           >
-            <Link href="/chi-sono">Chi sono</Link>
+            <Link title="Chi sono" href="/chi-sono">
+              Chi sono
+            </Link>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 2 + 0.3s)` }}
           >
-            <Link href="/i-miei-strumenti">Strumenti</Link>
+            <Link href="/i-miei-strumenti" title="Strumenti">
+              Strumenti
+            </Link>
           </li>
           <li
             onMouseEnter={handleEnter}
@@ -160,27 +166,37 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 4 + 0.3s)` }}
           >
-            <Link href="/respiro-circolare-consapevole">Respiro</Link>
+            <Link
+              href="/respiro-circolare-consapevole"
+              title="Respiro Circolare Consapevole"
+            >
+              Respiro
+            </Link>
           </li>
 
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 5 + 0.3s)` }}
           >
-            <Link href="/blog">Blog</Link>
+            <Link href="/blog" title="Blog">
+              Blog
+            </Link>
           </li>
 
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 7 + 0.3s)` }}
           >
-            <Link href="/contatti">Contatti</Link>
+            <Link href="/contatti" title="Contatti">
+              Contatti
+            </Link>
           </li>
         </ul>
 
         <Link
-          href="https://calendly.com/welcome-annamariaricci/30min"
+          href="https://calendly.com/welcome-annamariaricci/15min"
           target="_blank"
+          title="Prenota una consulenza"
           className="group bg-red text-md md:text-xl lg:text-lg xl:text-sm 2xl:text-md text-white px-[18px] py-[14px] opacity-0 translate-y-2 rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110"
           style={{ transitionDelay: `calc(0.02s * 8 + 0.3s)` }}
         >
@@ -286,6 +302,7 @@ const Navbar = () => {
                         className="menu-item relative translate-y-4"
                       >
                         <Link
+                          title={item.label}
                           href={item.href}
                           className={`inline-block relative text-[1.5vw] w-full z-10 text-gray100/80 transition-opacity duration-300 ease-in-out ${
                             hoveredItemIndex !== null &&

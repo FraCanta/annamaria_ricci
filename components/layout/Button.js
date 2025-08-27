@@ -12,6 +12,7 @@ function Button({
   return (
     <Link
       href={href}
+      title={children}
       className={clsx(
         "group bg-purple100 text-sm md:text-xl lg:text-lg xl:text-md  text-white px-[18px] py-[14px] rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple110",
         className

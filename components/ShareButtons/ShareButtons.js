@@ -60,6 +60,7 @@ export default function ShareButtons({ title, link }) {
         {socials.map((s) => (
           <Link
             key={s.name}
+            title={`Condividi su ${s.name}`}
             href={s.url(title, link)}
             target="_blank"
             rel="noopener noreferrer"
@@ -79,6 +80,7 @@ export default function ShareButtons({ title, link }) {
         <button
           onClick={copyLink}
           aria-label="Copia link"
+          title="Copia link"
           className="p-3 border border-gray100/30 hover:border-gray100 transition"
         >
           <Icon

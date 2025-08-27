@@ -48,7 +48,7 @@ const HeroHome = () => {
               }`}
           >
             <Button href="/tutti-i-percorsi">Scopri i miei percorsi</Button>
-            <ButtonOutline href="https://calendly.com/welcome-annamariaricci/30min">
+            <ButtonOutline href="https://calendly.com/welcome-annamariaricci/15min">
               Chiedi una consulenza
             </ButtonOutline>
           </div>
