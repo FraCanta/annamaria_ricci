@@ -50,6 +50,10 @@ export default function Home({ posts }) {
             property="twitter:url"
             content="https://www.annamariaricci.eu/"
           />
+          <meta
+            name="twitter:image"
+            content="https://annamaria-ricci.vercel.app/assets/annamaria_cover.png"
+          />
           <meta name="twitter:title" content="Anna Maria Ricci - Home" />
           <meta
             name="twitter:description"
