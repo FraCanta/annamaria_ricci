@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AudioProvider } from "@/context/AudioContext";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -45,52 +46,59 @@ export default function App({ Component, pageProps }) {
   }, [router]);
 
   return (
-    <AudioProvider>
-      <AnimatePresence mode="wait">
-        {isTransitioning && (
-          <motion.div
-            key="transition"
-            initial={{
-              scaleY: 0.2,
-              scaleX: 0.8,
-              bottom: "50px",
-              top: 0,
-              transformOrigin: "bottom center",
-            }}
-            animate={{
-              scaleY: 1,
-              scaleX: 1,
-              bottom: 0,
-              top: 0,
-              transformOrigin: "bottom center",
-            }}
-            exit={{
-              scaleY: 0,
-              scaleX: 1,
-              bottom: "50px",
-              top: 0,
-              transformOrigin: "top center",
-            }}
-            transition={transitionSpringPhysics}
-            style={{
-              position: "fixed",
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              backgroundColor: transitionColor,
-              zIndex: 9999,
-              pointerEvents: "none",
-            }}
-          />
-        )}
-      </AnimatePresence>
+    <>
+      <AudioProvider>
+        <AnimatePresence mode="wait">
+          {isTransitioning && (
+            <motion.div
+              key="transition"
+              initial={{
+                scaleY: 0.2,
+                scaleX: 0.8,
+                bottom: "50px",
+                top: 0,
+                transformOrigin: "bottom center",
+              }}
+              animate={{
+                scaleY: 1,
+                scaleX: 1,
+                bottom: 0,
+                top: 0,
+                transformOrigin: "bottom center",
+              }}
+              exit={{
+                scaleY: 0,
+                scaleX: 1,
+                bottom: "50px",
+                top: 0,
+                transformOrigin: "top center",
+              }}
+              transition={transitionSpringPhysics}
+              style={{
+                position: "fixed",
+                left: 0,
+                width: "100vw",
+                height: "100vh",
+                backgroundColor: transitionColor,
+                zIndex: 9999,
+                pointerEvents: "none",
+              }}
+            />
+          )}
+        </AnimatePresence>
 
-      {!isTransitioning && (
-        <Layout>
-          <AudioPlayer />
-          <Component key={currentRoute} {...pageProps} />
-        </Layout>
-      )}
-    </AudioProvider>
+        {!isTransitioning && (
+          <Layout>
+            <AudioPlayer />
+            <Component key={currentRoute} {...pageProps} />
+          </Layout>
+        )}
+      </AudioProvider>
+
+      <Script
+        type="text/javascript"
+        src="https://embeds.iubenda.com/widgets/d8c1bfb4-11d1-4a04-9f3d-f8cd684ad753.js"
+      ></Script>
+    </>
   );
 }
