@@ -2,6 +2,7 @@ import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import Banner from "@/components/Banner/Banner";
 import FadeInSection from "@/components/layout/FadeInSection";
 import StrumentiSection from "@/components/Strumenti/StrumentiSection";
+import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -17,6 +18,62 @@ function RespiroCircolareConsapevole() {
 
   return (
     <>
+      <Head>
+        <title>Anna Maria Ricci - Il Respiro Circolare Consapevole</title>
+        <meta name="author" content="Anna Maria Ricci" />
+        <meta
+          name="description"
+          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+        />
+        <meta name="keywords" content="consulenza, orientamento, evoluzione" />
+
+        <meta
+          property="og:url"
+          content="https://www.annamariaricci.eu/respiro-circolare-consapevole"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Anna Maria Ricci - Il Respiro Circolare Consapevole"
+        />
+        <meta
+          property="og:description"
+          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+        />
+        <meta
+          property="og:image"
+          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="annamariaricci.eu" />
+        <meta
+          property="twitter:url"
+          content="https://www.annamariaricci.eu/respiro-circolare-consapevole"
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+        />
+        <meta
+          name="twitter:title"
+          content="Anna Maria Ricci - Il Respiro Circolare Consapevole"
+        />
+        <meta
+          name="twitter:description"
+          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+        />
+
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Head>
       <div className="my-10 lg:my-20">
         <h1
           className={`p-2 text-[9vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
