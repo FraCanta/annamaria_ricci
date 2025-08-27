@@ -42,7 +42,7 @@ export default function Home({ posts }) {
           />
           <meta
             property="og:image"
-            content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+            content="https://annamaria-ricci.vercel.app/assets/annamaria_cover.png"
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="annamariaricci.eu" />
