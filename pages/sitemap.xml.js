@@ -70,20 +70,20 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res }) {
-  const data = await client.request(GET_POSTS_FOR_SITEMAP);
-  const posts = data?.posts?.edges || [];
+// export async function getServerSideProps({ res }) {
+//   const data = await client.request(GET_POSTS_FOR_SITEMAP);
+//   const posts = data?.posts?.edges || [];
 
-  const sitemap = generateSiteMap(posts);
+//   const sitemap = generateSiteMap(posts);
 
-  res.setHeader("Content-Type", "application/xml");
-  res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
-  res.write(sitemap);
-  res.end();
+//   res.setHeader("Content-Type", "application/xml");
+//   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+//   res.write(sitemap);
+//   res.end();
 
-  return {
-    props: {},
-  };
-}
+//   return {
+//     props: {},
+//   };
+// }
 
 export default SiteMap;
