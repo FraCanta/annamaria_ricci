@@ -11,7 +11,7 @@ Disallow: /private/
 Disallow: /temp/
 
 # Host
-Host: https://annamariaricci.eu
+Host: annamariaricci.eu
 
 # Sitemap
-Sitemap: https://annamariaricci.eu/sitemap.xml
+Sitemap: https://www.annamariaricci.eu/sitemap.xml

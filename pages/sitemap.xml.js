@@ -2,7 +2,7 @@
 import { client } from "@/utils/graphql";
 import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
 
-const siteUrl = "https://annamariaricci.eu";
+const siteUrl = "https://www.annamariaricci.eu";
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
