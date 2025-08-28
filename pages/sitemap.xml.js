@@ -2,9 +2,9 @@
 import { client } from "@/utils/graphql";
 import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
 
-const url = "https://annamariaricci.eu";
+const siteUrl = "https://annamariaricci.eu";
 
-// Lista pagine statiche
+// Pagine statiche
 const staticPages = [
   "/",
   "/chi-sono",
@@ -17,32 +17,31 @@ const staticPages = [
 
 function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${staticPages
-        .map(
-          (path) => `
-        <url>
-          <loc>${url}${path}</loc>
-          <changefreq>weekly</changefreq>
-          <priority>1.0</priority>
-        </url>`
-        )
-        .join("")}
-      ${posts
-        .map(({ node }) => {
-          return `
-        <url>
-          <loc>${url}${node.uri}</loc>
-          <lastmod>${new Date(
-            node.modified || node.date
-          ).toISOString()}</lastmod>
-          <changefreq>weekly</changefreq>
-          <priority>0.8</priority>
-        </url>`;
-        })
-        .join("")}
-    </urlset>
-  `;
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${staticPages
+    .map(
+      (path) => `
+    <url>
+      <loc>${siteUrl}${path}</loc>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+    </url>`
+    )
+    .join("")}
+
+  ${posts
+    .map(({ node }) => {
+      const lastMod = new Date(node.modified || node.date).toISOString();
+      return `
+    <url>
+      <loc>${siteUrl}${node.uri}</loc>
+      <lastmod>${lastMod}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>`;
+    })
+    .join("")}
+</urlset>`;
 }
 
 export async function getServerSideProps({ res }) {
@@ -50,10 +49,9 @@ export async function getServerSideProps({ res }) {
   const data = await client.request(GET_POSTS_FOR_SITEMAP);
   const posts = data?.posts?.edges || [];
 
-  // Genera la sitemap con statiche + post dinamici
   const sitemap = generateSiteMap(posts);
 
-  res.setHeader("Content-Type", "text/xml");
+  res.setHeader("Content-Type", "application/xml"); // 👈 più sicuro di text/xml
   res.write(sitemap);
   res.end();
 
