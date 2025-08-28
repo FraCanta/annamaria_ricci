@@ -76,7 +76,7 @@ export async function getServerSideProps({ res }) {
 
   const sitemap = generateSiteMap(posts);
 
-  res.setHeader("Content-Type", "application/xml");
+  res.setHeader("Content-Type", "text/xml");
   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
   res.write(sitemap);
   res.end();
