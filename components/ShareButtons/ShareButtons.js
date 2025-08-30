@@ -52,7 +52,7 @@ export default function ShareButtons({ title, link }) {
   };
 
   return (
-    <div className="px-6 lg:px-10 py-5 border bg-gray80 w-full lg:w-[60%] lg:min-w-[280px] flex flex-col gap-4">
+    <div className="px-4 lg:px-10 py-5 border bg-gray80 w-full lg:w-[60%] lg:min-w-[280px] flex flex-col gap-4">
       <h3 className="text-lg font-semibold text-gray-800">
         Condividi Articolo
       </h3>
