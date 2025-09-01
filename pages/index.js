@@ -18,6 +18,7 @@ import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS } from "@/utils/queries";
 
 export default function Home({ posts }) {
+  console.log(posts);
   return (
     <>
       <Head>

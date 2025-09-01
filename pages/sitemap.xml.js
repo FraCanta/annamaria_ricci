@@ -1,7 +1,10 @@
 // pages/sitemap.xml.js
+import { client } from "@/utils/graphql";
+import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
+
 const siteUrl = "https://www.annamariaricci.eu";
 
-function generateSiteMap() {
+function generateSiteMap(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -47,17 +50,34 @@ function generateSiteMap() {
     <priority>1.0</priority>
   </url>
 
+  ${posts
+    .map(({ node }) => {
+      const lastMod = new Date(node.modified || node.date).toISOString();
+      return `
+  <url>
+    <loc>${siteUrl}${node.uri}</loc>
+    <lastmod>${lastMod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+    })
+    .join("")}
+
 </urlset>`;
 }
 
 function SiteMap() {
-  // getServerSideProps gestisce tutto
+  // getServerSideProps will do the heavy lifting
 }
 
 export async function getServerSideProps({ res }) {
-  const sitemap = generateSiteMap();
+  const data = await client.request(GET_POSTS_FOR_SITEMAP);
+  console.log(data);
+  const posts = data?.posts?.edges || [];
 
-  res.setHeader("Content-Type", "text/xml");
+  const sitemap = generateSiteMap(posts);
+
+  res.setHeader("Content-Type", "application/xml");
   res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
   res.write(sitemap);
   res.end();

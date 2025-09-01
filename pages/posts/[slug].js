@@ -16,7 +16,6 @@ import Banner from "@/components/Banner/Banner";
 import Comments from "@/components/Comments/Comments";
 
 export default function PostPage({ post, otherPosts }) {
-  console.log(post);
   const router = useRouter();
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
