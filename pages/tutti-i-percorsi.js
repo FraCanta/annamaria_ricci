@@ -27,7 +27,7 @@ function TuttiIPercorsi({ translation }) {
       : translation.tabs.find((t) => t.name === activeTab)?.content || [];
 
   return (
-    <>
+    <div className="content">
       <Head>
         <title>Anna Maria Ricci - Tutti i Percorsi</title>
         <meta name="author" content="Anna Maria Ricci" />
@@ -155,7 +155,7 @@ function TuttiIPercorsi({ translation }) {
         </div>
         <AnimatedLineView />
       </div>
-    </>
+    </div>
   );
 }
 

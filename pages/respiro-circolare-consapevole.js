@@ -74,7 +74,7 @@ function RespiroCircolareConsapevole() {
         <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <div className="my-10 lg:my-20">
+      <div className="my-10 lg:my-20 content">
         <h1
           className={`p-2 text-[9vw] text-center w-full transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] leading-none lg:text-[4.5vw] flex justify-center text-gray100 my-10 font-abhaya font-bold ${
             animate

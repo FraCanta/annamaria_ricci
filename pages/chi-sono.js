@@ -13,7 +13,7 @@ import React from "react";
 
 function ChiSono() {
   return (
-    <>
+    <div className="content">
       <Head>
         <title>Anna Maria Ricci - Chi Sono</title>
         <meta name="author" content="Anna Maria Ricci" />
@@ -478,7 +478,7 @@ function ChiSono() {
         <Banner />
       </FadeInSection>
       <AnimatedLineView />
-    </>
+    </div>
   );
 }
 

@@ -79,7 +79,7 @@ const ToolsPage = ({ translation }) => {
         <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <div>
+      <div className="content">
         <FadeInSection delay={50}>
           <div className="w-full my-10 lg:my-20">
             <div className="w-full my-14 flex flex-col items-center gap-6 lg:gap-10 z-10 ">

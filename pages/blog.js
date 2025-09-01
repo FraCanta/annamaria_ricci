@@ -23,7 +23,7 @@ const Blog = ({ posts }) => {
   }, [controls]);
 
   return (
-    <>
+    <div className="content">
       <Head>
         <title>Anna Maria Ricci - Blog</title>
         <meta name="author" content="Anna Maria Ricci" />
@@ -95,7 +95,7 @@ const Blog = ({ posts }) => {
       <AnimatedLineView />
       <Banner />
       <AnimatedLineView />
-    </>
+    </div>
   );
 };
 

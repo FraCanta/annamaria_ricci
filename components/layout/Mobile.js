@@ -64,7 +64,7 @@ const Mobile = () => {
     <>
       {/* Navbar */}
       <nav
-        className="py-4 flex items-center justify-between lg:hidden relative z-50"
+        className="content py-4 flex items-center justify-between lg:hidden relative z-50"
         ref={navbarRef}
       >
         {/* Logo */}
@@ -119,7 +119,7 @@ const Mobile = () => {
 
       {/* Menu mobile */}
       <div
-        className={`fixed lg:hidden top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
+        className={`fixed lg:hidden top-24 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-[100vh]"
         }`}
       >

@@ -25,7 +25,7 @@ function SinglePercorso({ percorsi, others }) {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <>
+    <div className="content">
       <Head>
         <title>{percorsi.seoTitle}</title>
         <meta name="description" content={percorsi.description} />
@@ -387,7 +387,7 @@ function SinglePercorso({ percorsi, others }) {
 
         <AnimatedLineView />
       </div>
-    </>
+    </div>
   );
 }
 

@@ -70,7 +70,7 @@ function Contatti() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div>
+      <div className="content">
         <h1
           className={`text-[9vw] w-full leading-none lg:text-[4vw] flex flex-col text-gray100 my-8 lg:my-14 font-abhaya font-bold`}
         >

@@ -56,7 +56,7 @@ export default function PostPage({ post, otherPosts }) {
           content={post.featuredImage?.node?.sourceUrl}
         />
       </Head>
-      <article className="my-8 lg:my-14">
+      <article className="my-8 lg:my-14 content">
         <div className=" my-10 flex flex-col gap-4">
           <p className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full w-fit">
             {post.categories?.nodes[0]?.name || "Blog"}
