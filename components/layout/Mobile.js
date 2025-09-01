@@ -6,6 +6,7 @@ import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import AccordionItem from "../AccordionItem/AccordionItem";
+
 const Mobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
@@ -119,11 +120,12 @@ const Mobile = () => {
 
       {/* Menu mobile */}
       <div
-        className={`absolute lg:hidden top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
+        className={`fixed lg:hidden pt-[15rem] top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-[100vh]"
         }`}
       >
-        <div className="flex flex-col uppercase mt-52 w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
+        {/* Container interno con padding-top invece di mt */}
+        <div className="flex flex-col  uppercase  w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
           {/* Voci principali */}
           <Link
             href="/"
@@ -185,18 +187,20 @@ const Mobile = () => {
             Contatti
           </Link>
         </div>
+
         {/* Sottomenu Percorsi a slide completa */}
         <AnimatePresence>
+          {" "}
           {percorsiOpen && (
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20 mt-24"
+              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20"
             >
               {/* Header sottomenu */}
-              <div className="w-[90%] mx-auto flex items-center justify-between my-6">
+              <div className="w-[90%] pt-32 mx-auto flex items-center justify-between my-6">
                 <button onClick={() => setPercorsiOpen(false)}>
                   <Icon icon="ei:chevron-left" className="w-10 h-10" />
                 </button>
@@ -277,6 +281,7 @@ const Mobile = () => {
                     </Link>
                   </AccordionItem>
                 </div>
+
                 <div>
                   <Link
                     title="Tutti i percorsi"
