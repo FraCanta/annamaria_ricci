@@ -97,7 +97,7 @@ function RespiroCircolareConsapevole() {
         </div>
       </div>
 
-      <div>
+      <div className="content">
         <AnimatedLineView />
         <div className="my-10 lg:my-20 flex flex-col gap-8 lg:gap-10">
           {/* Sezione 1 */}
