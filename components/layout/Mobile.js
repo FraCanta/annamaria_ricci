@@ -119,11 +119,11 @@ const Mobile = () => {
 
       {/* Menu mobile */}
       <div
-        className={`fixed lg:hidden top-24 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
+        className={`absolute lg:hidden top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-[100vh]"
         }`}
       >
-        <div className="flex flex-col mt-32 uppercase md:mt-48 w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
+        <div className="flex flex-col uppercase mt-52 w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
           {/* Voci principali */}
           <Link
             href="/"

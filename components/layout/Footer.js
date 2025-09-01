@@ -39,9 +39,9 @@ function AccordionSection({ title, children }) {
 
 function Footer() {
   return (
-    <>
+    <div className="content">
       {/* FOOTER MOBILE */}
-      <footer className="block md:hidden py-10 text-[15px]">
+      <footer className="block md:hidden py-10 text-[15px] ">
         {/* Logo + copyright */}
         <div className="mb-6">
           <Link href="/" title="Torna alla home">
@@ -196,7 +196,7 @@ function Footer() {
       </footer>
 
       {/* FOOTER DESKTOP (3 colonne) */}
-      <footer className="hidden md:grid my-14 grid-cols-3 gap-[120px] p-4 lg:p-0 text-[14px]">
+      <footer className="hidden md:grid my-14 grid-cols-3 gap-[120px] p-4 lg:p-0 text-[14px] ">
         {/* Logo + copyright */}
         <div className="flex flex-col">
           <Link href="/" title="Torna alla home">
@@ -382,7 +382,7 @@ function Footer() {
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
