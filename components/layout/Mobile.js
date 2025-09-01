@@ -193,7 +193,7 @@ const Mobile = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20"
+              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20 mt-24"
             >
               {/* Header sottomenu */}
               <div className="w-[90%] mx-auto flex items-center justify-between my-6">
