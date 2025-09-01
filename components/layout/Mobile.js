@@ -65,7 +65,7 @@ const Mobile = () => {
     <>
       {/* Navbar */}
       <nav
-        className="content py-4 flex items-center justify-between lg:hidden relative z-50"
+        className="content py-4  flex items-center justify-between lg:hidden relative z-50"
         ref={navbarRef}
       >
         {/* Logo */}
@@ -190,108 +190,94 @@ const Mobile = () => {
 
         {/* Sottomenu Percorsi a slide completa */}
         <AnimatePresence>
-          {" "}
           {percorsiOpen && (
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 overflow-auto py-20"
+              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 z-30"
             >
-              {/* Header sottomenu */}
-              <div className="w-[90%] pt-32 mx-auto flex items-center justify-between my-6">
+              {/* Chevron fisso */}
+              <div className="absolute top-0 left-0 w-full flex items-center justify-start p-4 z-40 bg-gray80">
                 <button onClick={() => setPercorsiOpen(false)}>
                   <Icon icon="ei:chevron-left" className="w-10 h-10" />
                 </button>
               </div>
 
-              {/* Lista percorsi */}
-              <div className="w-[90%] mx-auto flex flex-col gap-6">
+              {/* Contenuto scrollabile sotto lo chevron */}
+              <div className="pt-20 h-full overflow-auto px-[5%] flex flex-col gap-6">
                 {/* Privati */}
-                <div>
-                  <AccordionItem
-                    title="Privati"
-                    className="uppercase text-lg mb-2"
+                <AccordionItem
+                  title="Privati"
+                  className="uppercase text-lg mb-2"
+                >
+                  <Link
+                    href="/tutti-i-percorsi/privati/trova-la-tua-direzione"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-xl"
                   >
-                    <Link
-                      title="Trova la tua direzione"
-                      href="/tutti-i-percorsi/privati/trova-la-tua-direzione"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Trova la tua direzione
-                    </Link>
-                    <Link
-                      href="/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Cambia e trova la tua strada nel lavoro
-                    </Link>
-                    <Link
-                      title="Trova il lavoro che desideri"
-                      href="/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Trova il lavoro che desideri
-                    </Link>
-                    <Link
-                      title="Trova le tue radici"
-                      href="/tutti-i-percorsi/privati/trova-le-tue-radici"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Trova le tue radici
-                    </Link>
-                  </AccordionItem>
-                </div>
+                    Trova la tua direzione
+                  </Link>
+                  <Link
+                    href="/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-xl"
+                  >
+                    Cambia e trova la tua strada nel lavoro
+                  </Link>
+                  <Link
+                    href="/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-xl"
+                  >
+                    Trova il lavoro che desideri
+                  </Link>
+                  <Link
+                    href="/tutti-i-percorsi/privati/trova-le-tue-radici"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-xl"
+                  >
+                    Trova le tue radici
+                  </Link>
+                </AccordionItem>
 
                 {/* Libera professione */}
-                <div>
-                  <AccordionItem
-                    title="Libera professione"
-                    className="font-medium uppercase text-lg mb-2"
+                <AccordionItem
+                  title="Libera professione"
+                  className="font-medium uppercase text-lg mb-2"
+                >
+                  <Link
+                    href="/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza"
+                    onClick={() => setMenuOpen(false)}
+                    className="block py-2 text-xl"
                   >
-                    <Link
-                      title="Avvia la tua attività con consapevolezza"
-                      href="/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Avvia la tua attività con consapevolezza
-                    </Link>
-                  </AccordionItem>
-                </div>
+                    Avvia la tua attività con consapevolezza
+                  </Link>
+                </AccordionItem>
 
                 {/* Organizzazioni */}
-                <div>
-                  <AccordionItem
-                    title="Organizzazioni"
-                    className="font-medium uppercase text-lg mb-2"
-                  >
-                    <Link
-                      title="Soluzioni su misura per crescere"
-                      href="/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere"
-                      onClick={() => setMenuOpen(false)}
-                      className="block py-2 text-xl"
-                    >
-                      Soluzioni su misura per crescere
-                    </Link>
-                  </AccordionItem>
-                </div>
-
-                <div>
+                <AccordionItem
+                  title="Organizzazioni"
+                  className="font-medium uppercase text-lg mb-2"
+                >
                   <Link
-                    title="Tutti i percorsi"
-                    href="/tutti-i-percorsi"
+                    href="/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere"
                     onClick={() => setMenuOpen(false)}
-                    className="block py-2 text-lg uppercase font-[600]"
+                    className="block py-2 text-xl"
                   >
-                    Tutti i percorsi
+                    Soluzioni su misura per crescere
                   </Link>
-                </div>
+                </AccordionItem>
+
+                {/* Tutti i percorsi */}
+                <Link
+                  href="/tutti-i-percorsi"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 text-lg uppercase font-[600]"
+                >
+                  Tutti i percorsi
+                </Link>
               </div>
             </motion.div>
           )}
