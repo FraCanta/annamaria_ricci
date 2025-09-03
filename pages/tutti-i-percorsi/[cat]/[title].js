@@ -14,6 +14,7 @@ import Head from "next/head";
 import { Icon } from "@iconify/react";
 
 function SinglePercorso({ percorsi, others }) {
+  console.log(percorsi);
   const [animate, setAnimate] = useState(false);
   const [showPrev, setShowPrev] = useState(false);
   const [showNext, setShowNext] = useState(false);
@@ -394,16 +395,16 @@ function SinglePercorso({ percorsi, others }) {
 export default SinglePercorso;
 
 export async function getStaticProps({ params, locale }) {
-  let obj;
+  let obj = percorsiIT;
 
-  switch (locale) {
-    case "it":
-      obj = percorsiIT;
-      break;
-    default:
-      obj = percorsiIT;
-      break;
-  }
+  // switch (locale) {
+  //   case "it":
+  //     obj = percorsiIT;
+  //     break;
+  //   default:
+  //     obj = percorsiIT;
+  //     break;
+  // }
 
   const { cat, title } = params;
 
@@ -422,23 +423,23 @@ export async function getStaticProps({ params, locale }) {
 }
 
 export async function getStaticPaths({ locale }) {
-  let obj;
+  let obj = percorsiIT;
 
-  switch (locale) {
-    case "it":
-      obj = percorsiIT;
-      break;
-    default:
-      obj = percorsiIT;
-      break;
-  }
+  // switch (locale) {
+  //   case "it":
+  //     obj = percorsiIT;
+  //     break;
+  //   default:
+  //     obj = percorsiIT;
+  //     break;
+  // }
 
   const paths = Object.values(obj.percorsi.singlePercorsi).map((el) => ({
     params: {
       cat: el.cat,
       title: el.title,
     },
-    locale: "it",
+    // locale: "it",
   }));
 
   return {

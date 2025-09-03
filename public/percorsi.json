@@ -1,0 +1,296 @@
+{
+  "percorsi": {
+    "title": "I miei percorsi",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacus diam, aliquet sed sapien ac, semper rhoncus urna.",
+    "tabs": [
+      {
+        "name": "Privati",
+        "content": [
+          {
+            "img": "/assets/trova_la_tua_direzione2.webp",
+            "name": "Trova la tua direzione",
+            "link": "/tutti-i-percorsi/privati/trova-la-tua-direzione",
+            "cat": "privati",
+            "type": "Privati"
+          },
+          {
+            "img": "/assets/cambia_e_trova_la_tua_strada_nel_lavoro_2.jpg",
+            "name": "Cambia e trova la tua strada nel lavoro",
+            "link": "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
+            "cat": "privati",
+            "type": "Privati"
+          },
+          {
+            "img": "/assets/trova_il_lavoro_che_desideri.jpg",
+            "name": "Trova il lavoro che desideri",
+            "link": "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
+            "cat": "privati",
+            "type": "Privati"
+          },
+          {
+            "img": "/assets/cerca_le_tue_radici.jpg",
+            "name": "Trova le tue radici",
+            "link": "/tutti-i-percorsi/privati/trova-le-tue-radici",
+            "cat": "privati",
+            "type": "Privati"
+          }
+        ]
+      },
+      {
+        "name": "Libera Professione",
+        "content": [
+          {
+            "img": "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
+            "name": "Avvia la tua attività con consapevolezza",
+            "link": "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
+            "cat": "libera-professione",
+            "type": "Libera Professione"
+          }
+        ]
+      },
+      {
+        "name": "Organizzazioni",
+        "content": [
+          {
+            "img": "/assets/soluzioni_su_misura_per_crescere.jpg",
+            "name": "Soluzioni su misura per crescere",
+            "link": "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
+            "cat": "organizzazioni",
+            "type": "Organizzazioni"
+          }
+        ]
+      }
+    ],
+    "singlePercorsi": {
+      "trova-la-tua-direzione": {
+        "seoTitle": "Trova la tua direzione - Percorsi",
+        "name": "Trova la tua direzione",
+        "introTitle": "Ti senti bloccato o confuso in un'area della tua vita?",
+        "description": "Che si tratti di lavoro, relazioni, amore o crescita personale, posso aiutarti a fare chiarezza e ritrovare la tua strada.",
+        "img": "/assets/trova_la_tua_direzione3.webp",
+        "link": "/tutti-i-percorsi/privati/trova-la-tua-direzione",
+        "cat": "privati",
+        "type": "Privati",
+        "title": "trova-la-tua-direzione",
+        "offro": {
+          "title": "Cosa ti offro",
+          "items": [
+            "<strong>Professional Counseling:</strong> ascolto attivo e strumenti pratici per superare ostacoli interiori.",
+            "<strong>Orientamento e Bilancio di Competenze:</strong> un percorso concreto per conoscere meglio te stesso, fissare obiettivi e valorizzare i tuoi punti di forza."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "5 incontri: 2 di counseling + 3 di orientamento e bilancio di competenze",
+              "Attività pratiche tra una sessione e l’altra."
+            ]
+          },
+          "step2": {
+            "title": "Per chi è pensato",
+            "target": [
+              "Per chi desidera ritrovare chiarezza e direzione in un momento di cambiamento."
+            ]
+          }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di:<br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
+        }
+      },
+      "cambia-e-trova-la-tua-strada-nel-lavoro": {
+        "seoTitle": "Cambia e trova la tua strada nel lavoro - Percorsi",
+        "name": "Cambia e trova<br/> la tua strada nel lavoro",
+        "introTitle": "Vuoi cercare lavoro in autonomia, con strumenti efficaci e il giusto supporto?",
+        "description": "Questo percorso ti guida passo dopo passo nella costruzione della tua nuova carriera.",
+        "img": "/assets/cambia_e_trova_la_tua_strada_nel_lavoro_2.jpg",
+        "link": "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
+        "cat": "privati",
+        "title": "cambia-e-trova-la-tua-strada-nel-lavoro",
+        "offro": {
+          "title": "Cosa ti offro",
+          "items": [
+            "Career Counseling personalizzato.",
+            "Bilancio di competenze completo.",
+            "Due versioni aggiornabili del tuo CV",
+            "Revisione o creazione del tuo profilo Linkedin.",
+            "Tecniche per la ricerca attivita del lavoro e simulazione del colloquio.",
+            "Pratiche olistiche (facoltative): respirazione, meditazione, Ikigai..."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "10 incontri da 1 ora",
+              "Attività pratiche tra una sessione e l’altra."
+            ]
+          }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
+        }
+      },
+      "trova-il-lavoro-che-desideri": {
+        "seoTitle": "Trova il lavoro che desideri - Percorsi",
+        "name": "Trova il lavoro<br/> che desideri",
+        "introTitle": "Cerchi un supporto completo e continuativo per realizzare il tuo obiettivo professionale?",
+        "description": "Con questo percorso ti accompagno fino al traguardo.",
+        "img": "/assets/trova_il_lavoro_che_desideri.jpg",
+        "link": "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
+        "cat": "privati",
+        "title": "trova-il-lavoro-che-desideri",
+        "offro": {
+          "title": "Cosa ti offro",
+          "items": [
+            "Career Counseling e bilancio di competenze.",
+            "Due CV professionali realizzati per te.",
+            "Profilo Linkedin.",
+            "Tecniche di ricerca attiva e simulazione colloquio.",
+            "Job scouting: ti invio opportunità selezionate.",
+            "Pratiche olistiche (facoltative)."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "10 incontri da 1 ora.",
+              "Attività pratiche tra una sessione e l’altra.",
+              "Accompagnamento continuativo fino al raggiungimento dell'obiettivo."
+            ]
+          }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
+        }
+      },
+      "trova-le-tue-radici": {
+        "seoTitle": "Trova le tue radici - Percorsi",
+        "name": "Trova le tue<br/> radici",
+        "introTitle": "Sei curioso di scoprire la storia della tua famiglia e dare un senso profondo alla tua identità?",
+        "img": "/assets/cerca_le_tue_radici.jpg",
+        "link": "/tutti-i-percorsi/privati/trova-le-tue-radici",
+        "cat": "privati",
+        "title": "trova-le-tue-radici",
+        "offro": {
+          "title": "Cosa ti offro",
+          "items": [
+            "Counseling genealogico per raccogliere e organizzare tutte le informazioni sulla tua famiglia già in tuo possesso.",
+            "Training per la ricerca genealogica: ti fornirò gli strumenti e le competenze necessarie per condurre autonomamente la tua ricerca genealogica.",
+            "Creazione albero genealogico: ti supporto nella costruzione del tuo albero genealogico."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "1 sessione di counseling genealogico della durata di 90 minuti.",
+              "Training per la ricerca genealogica in autonomia."
+            ]
+          }
+        },
+        "oneshot": {
+          "title": "Consulenza singola",
+          "description": "Hai bisogno di un confronto puntuale o di una sessione di orientamento?",
+          "p": "Puoi prenotare una singola consulenza di: <br/><span class='font-[600]'>Professional Counseling o Orientamento - 1h30min </span>"
+        },
+        "tailored": {
+          "title": "Vuoi un percorso su misura?",
+          "description": "Contattami per una <span class='font-[600]'>call gratuita di 15 minuti</span>, per conoscerci <br/>e capire insieme da dove partire."
+        }
+      },
+      "avvia-la-tua-attività-con-consapevolezza": {
+        "seoTitle": "Avvia la tua attività con consapevolezza - Percorsi",
+        "name": "Avvia la tua attività con consapevolezza",
+        "introTitle": "Hai già un’idea chiara e vuoi trasformarla in un’attività autonoma?",
+        "description": "Ti affianco in modo pratico e strategico per costruire le basi della tua libera professione con serenità e fiducia.",
+        "img": "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
+        "link": "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
+        "cat": "libera-professione",
+        "title": "avvia-la-tua-attività-con-consapevolezza",
+        "offro": {
+          "title": "Cosa prevede il percorso",
+          "items": [
+            "<strong>Professional Counseling:</strong>per definire una strategia su misura.",
+            "<strong>Orientamento e Bilancio di Competenze:</strong> per fare emergere il tuo potenziale e fissare obiettivi realistici.",
+            "<strong>Business Plan Sostenibile:</strong> costruzione di un piano d'azione concreto e realizzabile."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "6 incontri individuali: 1 sessione iniziale di counseling + 3 incontri di orientamento + 2 sessioni di business plan.",
+              "Attività pratiche tra una sessione e l’altra."
+            ]
+          },
+          "step2": {
+            "title": "Per chi è pensato",
+            "target": [
+              "Ha esperienza come dipendente e vuol fare il salto nella libera professione.",
+              "Cerca un approccio concreto, strutturato e personalizzato."
+            ]
+          }
+        }
+      },
+      "soluzioni-su-misura-per-crescere": {
+        "seoTitle": "Soluzioni su misura per crescere - Percorsi",
+        "name": "Soluzioni su misura per crescere",
+        "introTitle": "Con oltre 20 anni da libera professionista e 23 da dipendente in aziende di ogni dimensione, conosco da vicino le sfide organizzative e il valore delle persone nei contesti di lavoro.",
+        "img": "/assets/soluzioni_su_misura_per_crescere.jpg",
+        "link": "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
+        "cat": "organizzazioni",
+        "title": "soluzioni-su-misura-per-crescere",
+        "offro": {
+          "title": "Cosa posso offrire alla tua realtà",
+          "items": [
+            "<strong>Respiro Consapevole di Gruppo:</strong> tecniche per migliorare l'equilibrio e la collaborazione.",
+            "<strong>Professional Counseling:</strong> ascolto attivo come leva per la comunicazione interna.",
+            "<strong>Orientamento Professionale e Politiche Attive:</strong> supporto nei momenti di transizione e riorganizzazione.",
+            "<strong>Formazione su misura:</strong> gestione dello stress, problem solving, team building, recruiting.",
+            "<strong>Selezione del personale:</strong> supporto in progetti di ricerca mirati."
+          ]
+        },
+        "howTo": {
+          "title": "Come funziona il percorso",
+          "step1": {
+            "title": "Il percorso prevede",
+            "list": [
+              "Offro consulenze e interventi mirati per valorizzare il capitale umano e migliorare il benessere organizzativo."
+            ]
+          },
+          "step2": {
+            "title": "Hai bisogno di supporto per la tua organizzazione?",
+            "target": [
+              "Contattami per una consulenza personalizzata e ricevere un preventivo su misura per la tua organizzazione."
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "strumenti": {
+    "items": [
+      {
+        "titolo": "Counseling professionale",
+        "descrizione": "Attraverso un ascolto attivo, empatico e non giudicante, offro supporto relazionale nei momenti di crisi, cambiamento o indecisione, sia a livello individuale che di gruppo. Il counseling aiuta a chiarire obiettivi, sviluppare nuove prospettive, superare blocchi e valorizzare le tue competenze, favorendo una maggiore consapevolezza di te stesso e delle tue potenzialità. Favorisce il miglioramento delle relazioni interpersonali, la comunicazione efficace e la gestione dei conflitti, sia nella vita privata che professionale. Non è una terapia, ma un percorso di crescita personale che può essere intrapreso in momenti di difficoltà o semplicemente per conoscersi meglio e prevenire disagi.",
+        "icon": "/assets/couns.svg"
+      },
+      {
+        "titolo": "Orientamento specialistico e bilancio delle competenze",
+        "descrizione": "Partendo da un’analisi approfondita delle tue esperienze, competenze e bisogni, si arriva alla consapevolezza e alla costruzione di un progetto professionale su misura per te. Questo percorso facilita l’ingresso nel mercato del lavoro, il reinserimento dopo periodi di pausa o la crescita professionale, mettendo in luce punti di forza e aree di miglioramento. Serve anche a fare una “fotografia” della tua situazione di vita.",
+        "icon": "/assets/rebirth.svg"
+      },
+      {
+        "titolo": "Accompagnamento al lavoro e consulenza di carriera",
+        "descrizione": "Dedicato a giovani, adulti e professionisti che desiderano orientarsi o cambiare direzione. Attraverso consulenza di carriera, colloqui, esercitazioni pratiche (come simulazioni di colloquio, redazione di CV creativo, europass, dei fallimenti...) e strategie di ricerca attiva, ti supporto nel costruire un percorso lavorativo coerente e soddisfacente.",
+        "icon": "/assets/orient.svg"
+      },
+      {
+        "titolo": "Genealogia & Storia di Famiglia",
+        "descrizione": "È lo studio delle origini e dei legami familiari, un viaggio nel tempo che permette di ricostruire la storia delle proprie radici attraverso l’analisi di documenti storici, registri pubblici, testimonianze e molto altro. La genealogia ha un valore profondo a livello personale: aiuta a sentirsi parte di una continuità, a dare senso alla propria identità e a trovare radici solide su cui costruire la propria strada libera e unica. Questo percorso si traduce spesso nella creazione di un albero genealogico o nella facilitazione alla ricerca genealogica che farai in autonomia.",
+        "icon": "/assets/form.svg"
+      },
+      {
+        "titolo": "Albero genealogico delle professioni",
+        "descrizione": "Conoscere la propria storia familiare aiuta a comprendere meglio le proprie inclinazioni, talenti e anche eventuali blocchi o schemi ripetitivi che possono influenzare le scelte di vita e professionali. Attraverso la ricostruzione dell’albero genealogico delle professioni, si può scoprire come certe attitudini o sfide si siano trasmesse di generazione in generazione, offrendo così una chiave di lettura preziosa per il presente e il futuro.",
+        "icon": "/assets/gene.svg"
+      },
+      {
+        "titolo": "Respiro circolare consapevole (Rebirthing)",
+        "descrizione": "Il Rebirthing è una tecnica di respirazione profonda e continua, senza pause tra inspirazione ed espirazione, che favorisce la liberazione di emozioni represse e la dissoluzione di tensioni fisiche ed emotive. Durante le sessioni, il respiro guidato ti aiuta a migliorare l’ossigenazione, riequilibrare il flusso energetico e accedere a stati emotivi profondi, facilitando la rinascita interiore.",
+        "icon": "/assets/rebirth2.svg"
+      },
+      {
+        "titolo": "Meditazione e Mindfulness",
+        "descrizione": "Attraverso pratiche guidate, ti accompagno a coltivare la consapevolezza del momento presente, a gestire lo stress e a sviluppare una presenza autentica e centrata. Queste tecniche sono strumenti potenti per migliorare la qualità della vita, aumentare la concentrazione e favorire un equilibrio emotivo stabile.",
+        "icon": "/assets/mindfulness.svg"
+      },
+      {
+        "titolo": "Ikigai",
+        "descrizione": "L’ikigai è la tua “ragione d’essere”, il punto d’incontro tra ciò che ami, ciò in cui sei bravo, ciò di cui il mondo ha bisogno e ciò per cui puoi essere ricompensato. Ti guido in un percorso di auto-riflessione e scoperta per identificare il tuo ikigai personale, aiutandoti a trovare uno scopo che ti dia motivazione e gioia ogni giorno.",
+        "icon": "/assets/ikigai.svg"
+      },
+      {
+        "titolo": "Scrittura riflessiva e liberatoria",
+        "descrizione": "Propongo esercizi di scrittura come strumento di esplorazione interiore e di espressione autentica. Scrivere aiuta a mettere ordine nei pensieri, a elaborare emozioni e a scoprire nuove prospettive. È un modo semplice ma efficace per accompagnarti nel tuo percorso di crescita personale e professionale.",
+        "icon": "/assets/scrittura_riflessiva.svg"
+      },
+      {
+        "titolo": "Fattore Aladin",
+        "descrizione": "Imparare a chiedere e ricevere ciò che desideriamo nella vita è un’arte. Jack Canfield ha illustrato le cinque grandi barriere che spesso ci impediscono di esprimere chiaramente i nostri desideri ed aprirci a nuove possibilità.",
+        "icon": "/assets/aladin.svg"
+      },
+      {
+        "titolo": "Comunicazione non violenta",
+        "descrizione": "Sebbene io non sia una formatrice certificata, ho alle spalle diversi anni di studio e pratica individuale, di coppia e in gruppo della comunicazione non violenta di Marshall Rosenberg. Non la uso come strumento diretto, ma il mio approccio personale e professionale è profondamente influenzato da questa disciplina e dal processo OSBR – Osservazioni, Sentimenti, Bisogni, Richieste.",
+        "icon": "/assets/comunicazione_non_violenta.svg"
+      }
+    ]
+  }
+}

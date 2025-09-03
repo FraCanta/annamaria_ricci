@@ -203,20 +203,16 @@ const ToolsPage = ({ translation }) => {
 export default ToolsPage;
 
 export async function getStaticProps(locale, context) {
-  let obj;
-  switch (locale.locale) {
-    case "it":
-      obj = strumentiIT;
-      break;
+  let obj = strumentiIT;
+  // switch (locale.locale) {
+  //   case "it":
+  //     obj = strumentiIT;
+  //     break;
 
-    // case "en":
-    //   obj = percorsiEN;
-    //   break;
-
-    default:
-      obj = strumentiIT;
-      break;
-  }
+  //   default:
+  //     obj = strumentiIT;
+  //     break;
+  // }
 
   return {
     props: {
