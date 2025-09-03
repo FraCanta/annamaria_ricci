@@ -50,11 +50,7 @@ function generateSiteMap(posts) {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-   <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  
   <url>
     <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
     <changefreq>weekly</changefreq>
