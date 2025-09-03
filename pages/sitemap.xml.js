@@ -43,11 +43,7 @@ function generateSiteMap(posts) {
     <priority>1.0</priority>
   </url>
 
-   <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  
 
   <url>
     <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri</loc>
