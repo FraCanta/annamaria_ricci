@@ -94,10 +94,6 @@ export default function App({ Component, pageProps }) {
           </Layout>
         )}
       </AudioProvider>
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-BL0G9HLEHG"
-      ></Script>
       <Script id="google-analytics" strategy="afterInteractive" defer>
         {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
