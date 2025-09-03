@@ -11,6 +11,7 @@ export const GET_ALL_POSTS = gql`
           databaseId # ID numerico utile per commentOn
           title
           uri
+          slug
           excerpt
           date
           content
@@ -80,7 +81,7 @@ export const GET_POSTS_FOR_SITEMAP = gql`
     posts(first: 1000) {
       edges {
         node {
-          uri
+          slug
           date
           modified
         }

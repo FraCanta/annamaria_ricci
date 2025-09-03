@@ -34,7 +34,7 @@ function BlogSection({ posts }) {
       <FadeInSection delay={100}>
         <Link
           title={posts[0].title}
-          href={`/posts/${posts[0].uri}`}
+          href={`/posts/${posts[0].slug}`}
           className="flex flex-col lg:flex-row gap-6 bg-gray80/30 h-[450px] md:h-[600px] hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
         >
           <div className="relative w-full h-full">
@@ -90,10 +90,10 @@ function BlogSection({ posts }) {
       {/* Altri post in griglia */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
         {posts.slice(1).map((post) => (
-          <FadeInSection delay={100} key={post.uri}>
+          <FadeInSection delay={100} key={post.title}>
             <Link
               title={post.title}
-              href={`/posts${post.uri}`}
+              href={`/posts/${post.slug}`}
               className="flex flex-col bg-gray80/30 overflow-hidden hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 hover:p-2"
             >
               <div className="relative w-full h-[200px] md:h-[300px] aspect-square">
