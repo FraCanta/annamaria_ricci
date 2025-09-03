@@ -5,82 +5,89 @@ import { format } from "date-fns";
 
 const siteUrl = "https://annamariaricci.eu";
 
+function escapeXml(string) {
+  // Sostituisce i caratteri speciali con entità XML
+  return string
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function generateSiteMap(posts) {
-  console.log(posts);
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://annamariaricci.eu/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://annamariaricci.eu/chi-sono</loc>
+    <loc>${siteUrl}/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://annamariaricci.eu/i-miei-strumenti</loc>
+    <loc>${siteUrl}/chi-sono</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-la-tua-direzione</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-    <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  
-
-  <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  
-  <url>
-    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
+    <loc>${siteUrl}/i-miei-strumenti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://annamariaricci.eu/blog</loc>
+    <loc>${siteUrl}/tutti-i-percorsi</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://annamariaricci.eu/contatti</loc>
+    <loc>${siteUrl}/tutti-i-percorsi/privati/trova-la-tua-direzione</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${siteUrl}/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${siteUrl}/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${siteUrl}/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${siteUrl}/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>${siteUrl}/contatti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   ${posts
     .map(({ node }) => {
-      const lastMod = node.modified
-        ? new Date(node.modified)
-        : new Date(node.date);
-      const formattedDate = format(lastMod, "dd-MM-yyyy"); // <-- formato standard sitemap
-      console.log(formattedDate);
+      const lastMod = new Date(node.modified || node.date);
+      const isoDate = format(lastMod, "yyyy-MM-dd"); // formato corretto per sitemap
+      const slug = encodeURIComponent(node.slug); // gestisce caratteri speciali
       return `
   <url>
-    <loc>${siteUrl}/posts/${node.slug}</loc>
-    <lastmod>${formattedDate}</lastmod>
+    <loc>${siteUrl}/posts/${slug}</loc>
+    <lastmod>${isoDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>`;
@@ -91,24 +98,20 @@ function generateSiteMap(posts) {
 }
 
 function SiteMap() {
-  // getServerSideProps will do the heavy lifting
+  // getServerSideProps gestisce tutto
 }
 
 export async function getServerSideProps({ res }) {
   const data = await client.request(GET_POSTS_FOR_SITEMAP);
-
   const posts = data?.posts?.edges || [];
 
   const sitemap = generateSiteMap(posts);
 
   res.setHeader("Content-Type", "text/xml");
-  // we send the XML to the browser
   res.write(sitemap);
   res.end();
 
-  return {
-    props: {},
-  };
+  return { props: {} };
 }
 
 export default SiteMap;
