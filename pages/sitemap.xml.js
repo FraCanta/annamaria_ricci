@@ -5,60 +5,62 @@ import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
 const siteUrl = "https://www.annamariaricci.eu";
 
 function generateSiteMap(posts) {
+  console.log(posts);
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>${siteUrl}/</loc>
+    <loc>https://www.annamariaricci.eu/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/chi-sono</loc>
+    <loc>https://www.annamariaricci.eu/chi-sono</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/i-miei-strumenti</loc>
+    <loc>https://www.annamariaricci.eu/i-miei-strumenti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/tutti-i-percorsi</loc>
+    <loc>https://www.annamariaricci.eu/tutti-i-percorsi</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/respiro-circolare-consapevole</loc>
+    <loc>https://www.annamariaricci.eu/respiro-circolare-consapevole</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/blog</loc>
+    <loc>https://www.annamariaricci.eu/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>${siteUrl}/contatti</loc>
+    <loc>https://www.annamariaricci.eu/contatti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   ${posts
     .map(({ node }) => {
-      const lastMod = new Date(node.modified || node.date).toISOString();
+      const lastMod = new Date(node.date);
+      const isoDate = lastMod.toISOString();
       return `
   <url>
-    <loc>${siteUrl}${node.uri}</loc>
-    <lastmod>${lastMod}</lastmod>
+    <loc>${siteUrl}/posts${node.uri}</loc>
+              <lastmod>${`${isoDate}`}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>`;
     })
     .join("")}
@@ -72,13 +74,13 @@ function SiteMap() {
 
 export async function getServerSideProps({ res }) {
   const data = await client.request(GET_POSTS_FOR_SITEMAP);
-  console.log(data);
+
   const posts = data?.posts?.edges || [];
 
   const sitemap = generateSiteMap(posts);
 
-  res.setHeader("Content-Type", "application/xml");
-  res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+  res.setHeader("Content-Type", "text/xml");
+  // we send the XML to the browser
   res.write(sitemap);
   res.end();
 
