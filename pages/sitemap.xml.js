@@ -1,6 +1,7 @@
 // pages/sitemap.xml.js
 import { client } from "@/utils/graphql";
 import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
+import { format } from "date-fns";
 
 const siteUrl = "https://annamariaricci.eu";
 
@@ -71,12 +72,15 @@ function generateSiteMap(posts) {
 
   ${posts
     .map(({ node }) => {
-      const lastMod = new Date(node.date);
-      const isoDate = lastMod.toISOString();
+      const lastMod = node.modified
+        ? new Date(node.modified)
+        : new Date(node.date);
+      const formattedDate = format(lastMod, "dd-MM-yyyy"); // <-- formato standard sitemap
+      console.log(formattedDate);
       return `
   <url>
     <loc>${siteUrl}/posts/${node.slug}</loc>
-              <lastmod>${`${isoDate}`}</lastmod>
+    <lastmod>${formattedDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>`;
