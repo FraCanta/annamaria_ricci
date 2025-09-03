@@ -87,10 +87,6 @@ function generateSiteMap(posts) {
 </urlset>`;
 }
 
-function SiteMap() {
-  // getServerSideProps gestisce tutto
-}
-
 export async function getServerSideProps({ res }) {
   const data = await client.request(GET_POSTS_FOR_SITEMAP);
   const posts = data?.posts?.edges || [];
@@ -104,4 +100,6 @@ export async function getServerSideProps({ res }) {
   return { props: {} };
 }
 
-export default SiteMap;
+export default function SiteMap() {
+  return null;
+}
