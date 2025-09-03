@@ -2,77 +2,77 @@
 import { client } from "@/utils/graphql";
 import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
 
-const siteUrl = "https://www.annamariaricci.eu";
+const siteUrl = "https://annamariaricci.eu";
 
 function generateSiteMap(posts) {
   console.log(posts);
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.annamariaricci.eu/</loc>
+    <loc>https://annamariaricci.eu/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.annamariaricci.eu/chi-sono</loc>
+    <loc>https://annamariaricci.eu/chi-sono</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.annamariaricci.eu/i-miei-strumenti</loc>
+    <loc>https://annamariaricci.eu/i-miei-strumenti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/trova-la-tua-direzione</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-la-tua-direzione</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
     <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
    <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
    <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.annamariaricci.eu/blog</loc>
+    <loc>https://annamariaricci.eu/tutti-i-percorsi/privati/trova-le-tue-radici</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.annamariaricci.eu/contatti</loc>
+    <loc>https://annamariaricci.eu/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://annamariaricci.eu/contatti</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

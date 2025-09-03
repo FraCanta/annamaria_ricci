@@ -4,7 +4,7 @@ Allow: /
 
 Disallow: /blogannamaria/
 Disallow: /blog/
-Allow: /blog/posts/
+Allow: /posts/
 
 # Specificità per un bot specifico (ad esempio, Googlebot)
 User-agent: Googlebot
@@ -13,8 +13,6 @@ Disallow: /private/
 Disallow: /temp/
 
 
-# Host
-Host: annamariaricci.eu
 
 # Sitemap
-Sitemap: https://www.annamariaricci.eu/sitemap.xml
+Sitemap: https://annamariaricci.eu/sitemap.xml
