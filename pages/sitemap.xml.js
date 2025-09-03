@@ -73,7 +73,6 @@ function generateSiteMap(posts) {
     .map(({ node }) => {
       const lastMod = new Date(node.date);
       const isoDate = lastMod.toISOString();
-      console.log(node.slug);
       return `
   <url>
     <loc>${siteUrl}/posts/${node.slug}</loc>
