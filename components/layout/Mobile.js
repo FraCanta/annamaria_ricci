@@ -196,17 +196,17 @@ const Mobile = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 200, damping: 30 }}
-              className="fixed top-0 left-0 w-full h-screen bg-gray80 text-gray100 z-30"
+              className="absolute top-0 left-0 w-full h-screen bg-gray80 text-gray100 z-30"
             >
               {/* Chevron fisso */}
-              <div className="absolute top-0 left-0 w-full flex items-center justify-start p-4 z-40 bg-gray80">
+              <div className="absolute top-[12rem] left-0 w-full flex items-center justify-start p-4 z-40 bg-gray80">
                 <button onClick={() => setPercorsiOpen(false)}>
                   <Icon icon="ei:chevron-left" className="w-10 h-10" />
                 </button>
               </div>
 
               {/* Contenuto scrollabile sotto lo chevron */}
-              <div className="pt-20 h-full overflow-auto px-[5%] flex flex-col gap-6">
+              <div className="mt-[260px] h-full overflow-scroll px-[5%] flex flex-col gap-6">
                 {/* Privati */}
                 <AccordionItem
                   title="Privati"
