@@ -5,7 +5,7 @@ import PercorsiCarousel from "@/components/Percorsi/PercorsiSection";
 import React, { useEffect, useState } from "react";
 import { useAnimation } from "framer-motion";
 import Banner from "@/components/Banner/Banner";
-import strumentiIT from "@/public/locales/it/strumenti.json";
+import strumentiIT from "@/public/strumenti.json";
 import StrumentiLayout from "@/components/Strumenti/StrumentiLayout";
 import Head from "next/head";
 
