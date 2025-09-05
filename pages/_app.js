@@ -1,6 +1,7 @@
 import AudioPlayer from "@/components/layout/AudioPlayer";
 import Layout from "@/components/layout/layout";
 import "@/styles/globals.css";
+import "@/styles/contact.css";
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -45,6 +46,8 @@ export default function App({ Component, pageProps }) {
     };
   }, [router]);
 
+  const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
+
   return (
     <>
       <AudioProvider>
@@ -88,12 +91,14 @@ export default function App({ Component, pageProps }) {
         </AnimatePresence>
 
         {!isTransitioning && (
-          <Layout>
+          <>
             <AudioPlayer />
-            <Component key={currentRoute} {...pageProps} />
-          </Layout>
+            {getLayout(<Component key={currentRoute} {...pageProps} />)}
+          </>
         )}
       </AudioProvider>
+
+      {/* Analytics */}
       <Script id="google-analytics" strategy="afterInteractive" defer>
         {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -101,10 +106,11 @@ export default function App({ Component, pageProps }) {
 
   gtag('config', 'G-BL0G9HLEHG', { 'debug_mode':true });`}
       </Script>
+
       <Script
         type="text/javascript"
         src="https://embeds.iubenda.com/widgets/d8c1bfb4-11d1-4a04-9f3d-f8cd684ad753.js"
-      ></Script>
+      />
     </>
   );
 }

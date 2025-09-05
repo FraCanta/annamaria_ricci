@@ -65,7 +65,7 @@ const Mobile = () => {
     <>
       {/* Navbar */}
       <nav
-        className="content py-4  flex items-center justify-between lg:hidden relative z-50"
+        className="w-[95%] mx-auto py-4  flex items-center justify-between lg:hidden relative z-50"
         ref={navbarRef}
       >
         {/* Logo */}

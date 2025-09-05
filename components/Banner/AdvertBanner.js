@@ -7,7 +7,7 @@ function AdvertBanner() {
     <div className="py-4 relative bg-purple100  text-white font-[500] font-work z-[100]">
       <Link
         href="/contatti"
-        className="content text-sm md:text-base uppercase text-center  flex flex-wrap justify-center lg:justify-between gap-2 "
+        className="w-[95%] mx-auto text-sm md:text-base uppercase text-center  flex flex-wrap justify-center lg:justify-between gap-2 "
       >
         <p className="text-center">
           bilancio di COMPETENZE : Il primo passo per cambiare lavoro - webinar

@@ -190,3 +190,18 @@ p {
   left: 100%;
   top: 0;
 }
+
+.progress-bar-container {
+  width: 100%;
+  background-color: rgba(137, 115, 146, 0.2); /* bg-pink/20 */
+  border-radius: 2px;
+  height: 5px; /* altezza della barra di progresso */
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #897392; /* bg-second */
+  border-radius: 9999px;
+  transition: width 0.5s ease; /* Durata e tipo di transizione */
+}
