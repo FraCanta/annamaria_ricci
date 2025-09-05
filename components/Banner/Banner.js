@@ -35,33 +35,7 @@ const Banner = ({ title, text, address, book, contact }) => {
           </ul>
 
           <div className="flex flex-wrap gap-6">
-            {/* <Link
-              href="https://calendly.com/thallion-dev-info/call"
-              target="_blank"
-              title="Prenota una call con me e parliamo insieme del tuo progetto"
-              className="button-main"
-            >
-              <div className="button-circ-wrap">
-                <div className="button-content">
-                  <div
-                    className="button-circ-bg"
-                    style={{
-                      height: "42px",
-                      width: "2.625rem",
-                    }}
-                  >
-                    <Icon
-                      icon="guidance:left-arrow"
-                      className="text-[1.5rem] text-first"
-                    />
-                  </div>
-                  <span className="px-2">{book}</span>
-                </div>
-              </div>
-            </Link> */}
-            <Button href="https://calendly.com/welcome-annamariaricci/15min">
-              Prenota una call
-            </Button>
+            <Button href="/prenota-la-tua-consulenza">Prenota una call</Button>
             <ButtonOutline
               href="/contatti"
               title="Contattami e parliamo insieme del tuo progetto"

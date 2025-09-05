@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import percorsiIT from "@/public/locales/it/percorsi.json";
+import percorsiIT from "@/public/percorsi.json";
 import Image from "next/image";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -264,7 +264,8 @@ function SinglePercorso({ percorsi, others }) {
 
                   <Button
                     className="mt-4"
-                    href="https://calendly.com/welcome-annamariaricci/15min"
+                    href="/prenota-la-tua-consulenza"
+                    title="Prenota una consulenza"
                   >
                     Prenota una consulenza
                   </Button>
