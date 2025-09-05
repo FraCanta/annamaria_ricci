@@ -28,9 +28,7 @@ export default async function mailer(req, res) {
       </head>
       <body>
         <div class="container">
-          <div class="section">
-            <img src="https://i.ibb.co/Cvq40Hs/logo-new.webp" alt="Logo dell'azienda" style="width: 100px;"/>
-          </div>
+          
           <div class="section">
             <div class="bold">Motivo del contatto:</div>
             <p>${goal.join(", ")}</p>
