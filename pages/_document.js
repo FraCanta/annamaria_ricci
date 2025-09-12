@@ -17,6 +17,10 @@ export default function Document() {
           title="Sitemap"
           href="/sitemap.xml"
         />
+        <meta
+          name="google-site-verification"
+          content="nrHV2MQ_ziMHOzgrljTK-sECIJk0ydVLb1GPPYIpQ_w"
+        />
       </Head>
       <body className="antialiased">
         <Main />

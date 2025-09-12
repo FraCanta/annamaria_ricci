@@ -62,7 +62,7 @@ export default function PostPage({ post, otherPosts }) {
             {post.categories?.nodes[0]?.name || "Blog"}
           </p>
           <h1
-            className={`text-[9vw] lg:max-w-[50vw] transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] w-full leading-none lg:text-[4vw] flex flex-col text-gray100  font-abhaya font-bold  ${
+            className={`text-[9vw] md:text-[8vw] lg:max-w-[50vw] transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] w-full leading-none lg:text-[4vw] flex flex-col text-gray100  font-abhaya font-bold  ${
               animate
                 ? "opacity-100 blur-0 translate-y-0 delay-[0ms]"
                 : "opacity-0 blur-sm translate-y-4 delay-[0ms]"
@@ -72,15 +72,15 @@ export default function PostPage({ post, otherPosts }) {
           </h1>
 
           <div className="flex flex-wrap items-center gap-4 ">
-            <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
+            <p className="text-sm md:text-lg lg:text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
               <Icon icon="solar:user-linear" width="15" height="15" />{" "}
               {post.author?.node?.name || "Sconosciuto"}
             </p>
-            <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
+            <p className="ttext-sm md:text-lg lg:text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
               <Icon icon="clarity:date-line" width="15" height="15" />
               {formatDate(post.date)}
             </p>
-            <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
+            <p className="ttext-sm md:text-lg lg:text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
               <Icon
                 icon="material-symbols:timer-outline-rounded"
                 width="15"
@@ -107,7 +107,7 @@ export default function PostPage({ post, otherPosts }) {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 py-10 justify-between w-full">
           <div
-            className="font-work text-gray90 mb-6"
+            className="font-work text-gray90 mb-6 md:text-2xl lg:text-base"
             dangerouslySetInnerHTML={{ __html: post.content }}
           ></div>
           <div className="flex flex-row items-start">

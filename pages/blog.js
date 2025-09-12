@@ -5,14 +5,19 @@ import BlogSearch from "@/components/BlogSearch/BlogSearch";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import Banner from "@/components/Banner/Banner";
+import router, { useRouter } from "next/router";
 
 import { client } from "@/utils/graphql";
-import { GET_ALL_POSTS } from "@/utils/queries";
+import { GET_ALL_POSTS, GET_ALL_CATEGORIES } from "@/utils/queries";
 import Head from "next/head";
 
-const Blog = ({ posts }) => {
+const Blog = ({ posts, categories }) => {
+  console.log("Posts data:", posts);
+  console.log("Categories data:", categories);
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
+  const [filterObj, setFilterObj] = useState({});
+  const myRouter = useRouter();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -87,6 +92,43 @@ const Blog = ({ posts }) => {
             </h1>
           </div>
           {/* <BlogSearch /> */}
+          {/* <div className="flex flex-wrap items-center justify-center gap-4 mx-auto">
+            <h3 className="pr-4 text-sm font-medium text-second">TOPICS</h3>
+            <div className="flex flex-wrap gap-4">
+              {categories?.map((el, i) => {
+                const isActive = filterObj?.categories === el?.slug;
+                const newCategoryId = isActive ? 0 : el?.slug;
+
+                return (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setFilterObj((prevData) => ({
+                        currentPage: 1,
+                        categories: newCategoryId,
+                      }));
+
+                      router.push({
+                        pathname: "/blog",
+                        query: {
+                          categories: newCategoryId,
+                          page: 1,
+                        },
+                      });
+                    }}
+                    className={`relative text-sm uppercase font-medium transition-all duration-200
+            ${
+              isActive
+                ? "text-gray100 border-purple100 bg-purple100/40 border-2 p-2 rounded-md"
+                : "text-pink border-gray90/50 border px-[12px] py-[7px] rounded-md hover:bg-purple100/40 hover:text-gray100 hover:border-purple100"
+            }`}
+                  >
+                    {el?.name}
+                  </button>
+                );
+              })}
+            </div>
+          </div> */}
         </div>
       </FadeInSection>
       {/* Passiamo i post a BlogSection */}
@@ -104,10 +146,12 @@ export default Blog;
 // Static Site Generation (ISR incluso)
 export async function getStaticProps() {
   const data = await client.request(GET_ALL_POSTS);
+  const categoriesData = await client.request(GET_ALL_CATEGORIES);
 
   return {
     props: {
       posts: data.posts.edges.map(({ node }) => node),
+      categories: categoriesData.categories.nodes,
     },
     revalidate: 60, // ISR: rigenera ogni 60 secondi
   };

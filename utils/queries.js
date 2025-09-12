@@ -75,6 +75,18 @@ export const GET_ALL_POSTS = gql`
   }
 `;
 
+export const GET_ALL_CATEGORIES = gql`
+  query GetAllCategories {
+    categories {
+      nodes {
+        id
+        name
+        slug
+      }
+    }
+  }
+`;
+
 // Query minimale per la sitemap
 export const GET_POSTS_FOR_SITEMAP = gql`
   query getPostsForSitemap {
@@ -91,18 +103,41 @@ export const GET_POSTS_FOR_SITEMAP = gql`
 `;
 
 // Recupera solo i commenti di un singolo post, con eventuali reply
+// lib/queries.js
 export const GET_POST_COMMENTS = gql`
   query GetPostComments($postId: ID!) {
     post(id: $postId, idType: DATABASE_ID) {
-      comments {
+      databaseId
+      comments(where: { parent: null }) {
         nodes {
           id
+          databaseId
           content
           dateGmt
           author {
             node {
               name
               email
+              avatar {
+                url
+              }
+            }
+          }
+          replies {
+            nodes {
+              id
+              databaseId
+              content
+              dateGmt
+              author {
+                node {
+                  name
+                  email
+                  avatar {
+                    url
+                  }
+                }
+              }
             }
           }
         }
