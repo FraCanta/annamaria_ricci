@@ -4,6 +4,13 @@ export default async function handler(req, res) {
   }
 
   const { postId, content, authorName, authorEmail, parent } = req.body;
+  console.log("📩 Dati ricevuti dal client:", {
+    postId,
+    content,
+    authorName,
+    authorEmail,
+    parent,
+  });
 
   if (!postId || !content || !authorName || !authorEmail) {
     return res.status(400).json({ message: "Missing required fields" });
@@ -43,16 +50,17 @@ export default async function handler(req, res) {
   };
 
   try {
-    const response = await fetch(process.env.WORDPRESS_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        // ⚠️ Se i commenti devono essere pubblici non serve token.
-        // Se invece usi JWT o Application Password, mantieni l'Authorization.
-        Authorization: `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`,
-      },
-      body: JSON.stringify({ query: mutation, variables }),
-    });
+    const response = await fetch(
+      "https://blogannamaria.annamariaricci.eu/graphql",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // ⚠️ Se i commenti devono essere pubblici non serve token.
+        },
+        body: JSON.stringify({ query: mutation, variables }),
+      }
+    );
 
     const result = await response.json();
     console.log("GraphQL response:", result);

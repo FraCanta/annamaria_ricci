@@ -143,15 +143,6 @@ export default function StepsContact() {
         },
       ],
     },
-    {
-      items: [
-        {
-          id: "respiro",
-          value: "Sessione di respiro circolare consapevole",
-          label: "Sessione di respiro circolare consapevole",
-        },
-      ],
-    },
   ];
 
   return (
@@ -174,7 +165,7 @@ export default function StepsContact() {
           },
         }}
       />
-      <div className="flex justify-center w-[90%] mx-auto pb-10 lg:pb-32">
+      <div className="flex justify-center w-full lg:w-[90%] mx-auto pb-10 lg:pb-32">
         <div className="w-full lg:w-[500px] bg-purple100/20 h-1.5 mb-4">
           <div
             className="progress-bar"
@@ -183,16 +174,18 @@ export default function StepsContact() {
         </div>
       </div>
 
-      <div className="w-[90%] mx-auto">
+      <div className="w-full lg:w-[90%] mx-auto">
         {/* STEP 0 */}
         {step === 0 && (
-          <div className="flex flex-col max-w-2xl gap-4 mx-auto lg:items-center lg:text-center lg:justify-center">
+          <div className="flex flex-col lg:max-w-3xl gap-4 mx-auto lg:items-center lg:text-center lg:justify-center">
             <h1 className="mb-4 text-3xl font-bold lg:text-5xl text-gray100 font-abhaya">
-              20 minuti per conoscerci <br />e sapere come posso aiutarti
+              Prenota la tua consulenza
             </h1>
             <p className="mb-6 text-lg text-gray90 font-work">
-              Dedicato a privati, liberi professionisti o aspiranti tali,
-              aziende
+              Compila il form in pochi passaggi e ottieni subito la tua
+              consulenza personalizzata. Dedicata a privati, liberi
+              professionisti, aspiranti tali e aziende che vogliono crescere e
+              raggiungere i propri obiettivi con maggiore sicurezza.
             </p>
             <button
               onClick={nextStep}
@@ -314,10 +307,10 @@ export default function StepsContact() {
                   <label
                     key={goal.id}
                     htmlFor={goal.id}
-                    className={`cursor-pointer goal-label flex items-center justify-center py-3 px-4 border rounded-full hover:border-second ${
+                    className={`cursor-pointer goal-label flex items-center justify-center py-3 px-3 border rounded-sm hover:border-second ${
                       formData.goal.includes(goal.value)
-                        ? "border-purple100"
-                        : "border-gray100"
+                        ? "border-purple100 bg-purple100"
+                        : "border-gray100 hover:border-purple100 hover:bg-purple100 hover:text-white transition-all duration-300"
                     }`}
                   >
                     <input
@@ -330,10 +323,10 @@ export default function StepsContact() {
                       className="hidden"
                     />
                     <p
-                      className={`flex items-center gap-2 ${
+                      className={`flex items-center text-center text-base ${
                         formData.goal.includes(goal.value)
-                          ? "text-purple100"
-                          : "text-gray100"
+                          ? "text-white font-semibold"
+                          : "text-gray100 hover:text-white"
                       }`}
                     >
                       {goal.label}
@@ -448,8 +441,7 @@ export default function StepsContact() {
               una mail di conferma.
             </p>
             <p className="mb-5 text-lg text-gray90 font-work">
-              Entro 72 ore ti risponderò per pianificare la tua call da 30
-              minuti e capire insieme cosa posso fare per te.
+              Entro 72 ore ti risponderò per pianificare la tua consulenza.
             </p>
 
             <Button

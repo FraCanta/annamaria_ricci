@@ -77,7 +77,7 @@ export default async function mailer(req, res) {
   <body>
     <div class="container">
       <p>Ciao ${name},</p>
-      <p>Grazie per avermi contattata. Ho ricevuto la tua richiesta e sono felice di offrirti un incontro per discutere ulteriormente.</p>
+      <p>Grazie per avermi contattata. Ho ricevuto la tua richiesta e sono felice di iniziare insieme a te questo percorso.</p>
       <p>Entro 72 ore riceverai una mia risposta.</p>
 
       <p>Saluti,<br>Anna Maria Ricci</p>

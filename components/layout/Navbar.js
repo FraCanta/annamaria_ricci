@@ -4,7 +4,7 @@ import Link from "next/link";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import gsap from "gsap";
 import { Icon } from "@iconify/react";
-import AdvertBanner from "../Banner/AdvertBanner";
+// import AdvertBanner from "../Banner/AdvertBanner";
 
 const Navbar = () => {
   const navbarRef = useRef(null);
@@ -112,7 +112,6 @@ const Navbar = () => {
 
   return (
     <>
-      <AdvertBanner />
       <nav
         className="content h-[90px] lg:flex items-center justify-between hidden py-10 relative z-[100]"
         ref={navbarRef}
