@@ -31,7 +31,7 @@ export default function ContactForm() {
       if (res.ok) {
         toast.success("Messaggio inviato con successo!");
         // reset campi form
-        setFormData({ nome: "", email: "", messaggio: "" });
+        setFormData({ nome: "", email: "", messaggio: "", subject: "" });
       } else {
         toast.error(data.message || "Errore nell'invio del messaggio");
       }
@@ -93,7 +93,7 @@ export default function ContactForm() {
         >
           <option value="">Seleziona un argomento</option>
           <option value="Informazioni">Informazioni</option>
-          <option value="Richiesta di consulenza">
+          <option value="Richiesta di call gratuita di 20 minuti">
             Richiesta di call gratuita di 20 minuti
           </option>
           <option value="Altro">Altro</option>
