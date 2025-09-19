@@ -39,6 +39,55 @@ export default async function handler(req, res) {
       `,
     });
 
+    const thankHtml = `
+   <html lang="it">
+  <head>
+    <style>
+      .container {
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+      }
+      .heading {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Ciao ${nome},</p>
+      <p>Grazie per avermi contattata.</p>
+      <p>Entro 72 ore riceverai una mia risposta.</p>
+
+      <p>Saluti,<br>Anna Maria Ricci</p>
+    </div>
+    
+  </body>
+</html>
+
+  `;
+
+    // Invia l'email di ringraziamento all'utente
+    await transporter.sendMail({
+      from: `Anna Maria Ricci <welcome@annamariaricci.eu>`,
+      to: email,
+      subject: "Grazie per avermi contattata",
+      html: thankHtml,
+    });
+
     return res.status(200).json({ message: "Messaggio inviato con successo!" });
   } catch (error) {
     console.error("Errore invio email:", error);
