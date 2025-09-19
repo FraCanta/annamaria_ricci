@@ -7,6 +7,7 @@ export default function ContactForm() {
     nome: "",
     email: "",
     messaggio: "",
+    subject: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -84,6 +85,19 @@ export default function ContactForm() {
             className="flex-1 rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-1 focus:ring-purple100"
           />
         </div>
+        <select
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-1 focus:ring-purple100"
+        >
+          <option value="">Seleziona un argomento</option>
+          <option value="Informazioni">Informazioni</option>
+          <option value="Richiesta di consulenza">
+            Richiesta di call gratuita di 20 minuti
+          </option>
+          <option value="Altro">Altro</option>
+        </select>
 
         <textarea
           name="messaggio"
