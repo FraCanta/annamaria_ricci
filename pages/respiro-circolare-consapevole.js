@@ -1,5 +1,6 @@
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import Banner from "@/components/Banner/Banner";
+import ContactButton from "@/components/ContactButton/ContactButton";
 import FadeInSection from "@/components/layout/FadeInSection";
 import StrumentiSection from "@/components/Strumenti/StrumentiSection";
 import Head from "next/head";
@@ -187,6 +188,8 @@ function RespiroCircolareConsapevole() {
             </div>
           </FadeInSection> */}
         </div>
+        <AnimatedLineView />
+        <ContactButton />
 
         <AnimatedLineView />
         <div className="my-10 lg:my-20 relative ">
