@@ -28,7 +28,7 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Anna Maria Ricci" <welcome@annamariaricci.eu>`,
       to: ["welcome@annamariaricci.eu"], // la tua mail destinataria
-      subject: `${subject}`,
+      subject: `Form contatti: ${subject}`,
       replyTo: `${email}`,
 
       html: `
