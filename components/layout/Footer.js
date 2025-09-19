@@ -262,9 +262,8 @@ function Footer() {
             </li>
             <li>
               <Link
-                target="_blank"
                 title="Prenota una consulenza"
-                href="https://calendly.com/welcome-annamariaricci/15min"
+                href="/prenota-la-tua-consulenza"
               >
                 Prenota una consulenza
               </Link>

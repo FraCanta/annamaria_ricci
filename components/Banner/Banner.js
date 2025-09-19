@@ -35,7 +35,9 @@ const Banner = ({ title, text, address, book, contact }) => {
           </ul>
 
           <div className="flex flex-wrap gap-6">
-            <Button href="/prenota-la-tua-consulenza">Prenota una call</Button>
+            <Button href="/prenota-la-tua-consulenza">
+              Prenota una consulenza
+            </Button>
             <ButtonOutline
               href="/contatti"
               title="Contattami e parliamo insieme del tuo progetto"

@@ -264,10 +264,10 @@ function SinglePercorso({ percorsi, others }) {
 
                   <Button
                     className="mt-4"
-                    href="/prenota-la-tua-consulenza"
+                    href="/contatti"
                     title="Prenota una consulenza"
                   >
-                    Prenota una consulenza
+                    Prenota una call gratuita di 20 minuti
                   </Button>
                 </div>
               </div>
