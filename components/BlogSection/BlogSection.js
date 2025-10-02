@@ -51,9 +51,23 @@ function BlogSection({ posts }) {
 
           <div className="flex flex-col gap-8 justify-between p-4 lg:p-[60px] lg:w-[60%]">
             <div className="flex flex-col gap-4">
-              <p className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full w-fit">
-                {posts[0].categories?.nodes[0]?.name || "Blog"}
-              </p>
+              {/* categorie multiple */}
+              <div className="flex flex-wrap gap-2">
+                {posts[0].categories?.nodes?.length > 0 ? (
+                  posts[0].categories.nodes.map((cat, i) => (
+                    <span
+                      key={i}
+                      className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full"
+                    >
+                      {cat.name}
+                    </span>
+                  ))
+                ) : (
+                  <span className="text-xs uppercase font-medium tracking-wide bg-gray80 text-gray100 py-1 px-3 rounded-full">
+                    Blog
+                  </span>
+                )}
+              </div>
 
               <h3 className="font-abhaya font-bold text-[28px] lg:text-[48px] 2xl:text-[48px] leading-none text-gray100 ">
                 {posts[0].title}
@@ -76,12 +90,6 @@ function BlogSection({ posts }) {
                 />
                 {calculateReadingTime(posts[0].content)} min
               </p>
-
-              {/* Numero commenti */}
-              {/* <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
-                <Icon icon="mdi:comment-outline" width="15" height="15" />
-                {posts[0].commentCount || 0} commenti
-              </p> */}
             </div>
           </div>
         </Link>
@@ -109,9 +117,23 @@ function BlogSection({ posts }) {
               </div>
               <div className="p-[20px] flex flex-col justify-between min-h-[150px] gap-6 ">
                 <div className="flex flex-col gap-4">
-                  <p className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full w-fit">
-                    {post.categories?.nodes[0]?.name || "Blog"}
-                  </p>
+                  {/* categorie multiple */}
+                  <div className="flex flex-wrap gap-2">
+                    {post.categories?.nodes?.length > 0 ? (
+                      post.categories.nodes.map((cat, i) => (
+                        <span
+                          key={i}
+                          className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full"
+                        >
+                          {cat.name}
+                        </span>
+                      ))
+                    ) : (
+                      <span className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full">
+                        Blog
+                      </span>
+                    )}
+                  </div>
 
                   <h3 className="font-abhaya font-bold text-[25px] leading-none text-gray100 ">
                     {post.title}
@@ -134,12 +156,6 @@ function BlogSection({ posts }) {
                     />
                     {calculateReadingTime(post.content)} min
                   </p>
-
-                  {/* Numero commenti */}
-                  {/* <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
-                    <Icon icon="mdi:comment-outline" width="15" height="15" />
-                    {post.commentCount || 0} commenti
-                  </p> */}
                 </div>
               </div>
             </Link>

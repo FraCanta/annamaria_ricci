@@ -3,7 +3,6 @@ import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS } from "@/utils/queries";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import md5 from "md5";
 import { motion, useAnimation } from "framer-motion";
 import { Icon } from "@iconify/react";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
@@ -13,12 +12,12 @@ import Head from "next/head";
 import FadeInSection from "@/components/layout/FadeInSection";
 import Button from "@/components/layout/Button";
 import Banner from "@/components/Banner/Banner";
-import Comments from "@/components/Comments/Comments";
 
 export default function PostPage({ post, otherPosts }) {
   const router = useRouter();
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimate(true);
@@ -55,14 +54,43 @@ export default function PostPage({ post, otherPosts }) {
           property="og:image"
           content={post.featuredImage?.node?.sourceUrl}
         />
+        <meta
+          property="og:url"
+          content={`https://annamariaricci.eu/posts/${post.uri.replace(
+            /^\/|\/$/g,
+            ""
+          )}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta
+          name="twitter:image"
+          content={post.featuredImage?.node?.sourceUrl}
+        />
       </Head>
       <article className="my-8 lg:my-14">
         <div className=" my-10 flex flex-col gap-4">
-          <p className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full w-fit">
-            {post.categories?.nodes[0]?.name || "Blog"}
-          </p>
+          {/* categorie multiple */}
+          <div className="flex flex-wrap gap-2">
+            {post.categories?.nodes?.length > 0 ? (
+              post.categories.nodes.map((cat, i) => (
+                <span
+                  key={i}
+                  className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full"
+                >
+                  {cat.name}
+                </span>
+              ))
+            ) : (
+              <span className="text-xs uppercase font-medium tracking-wide bg-gray80 text-gray100 py-1 px-3 rounded-full">
+                Blog
+              </span>
+            )}
+          </div>
+
           <h1
-            className={`text-[9vw] md:text-[8vw] lg:max-w-[50vw] transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] w-full leading-none lg:text-[4vw] flex flex-col text-gray100  font-abhaya font-bold  ${
+            className={`text-[9vw] md:text-[8vw] lg:max-w-[50vw] transition-all duration-[1200ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] w-full leading-none lg:text-[3.5vw] flex flex-col text-gray100  font-abhaya font-bold  ${
               animate
                 ? "opacity-100 blur-0 translate-y-0 delay-[0ms]"
                 : "opacity-0 blur-sm translate-y-4 delay-[0ms]"
@@ -106,10 +134,23 @@ export default function PostPage({ post, otherPosts }) {
           )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 py-10 justify-between w-full">
-          <div
-            className="font-work text-gray90 mb-6 md:text-2xl lg:text-base"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          ></div>
+          <div>
+            <div
+              className="font-work text-gray90 mb-6 md:text-2xl lg:text-base"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            ></div>
+            <div className="flex flex-row items-start w-full">
+              {/* <div className="flex-grow"></div> */}
+              <ShareButtons
+                title={post.title}
+                link={`https://annamariaricci.eu/posts/${post.uri.replace(
+                  /^\/|\/$/g,
+                  ""
+                )}`}
+              />
+            </div>
+          </div>
+
           <div className="flex flex-row items-start">
             <div className="flex-grow"></div>
             <ShareButtons
@@ -121,8 +162,6 @@ export default function PostPage({ post, otherPosts }) {
             />
           </div>
         </div>
-
-        {/* <Comments post={post} /> */}
       </article>
       <AnimatedLineView />
       {otherPosts.length > 0 && (
@@ -161,9 +200,23 @@ export default function PostPage({ post, otherPosts }) {
                     </div>
                     <div className="p-[20px] flex flex-col justify-between min-h-[150px] gap-6 ">
                       <div className="flex flex-col gap-4">
-                        <p className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full w-fit">
-                          {p.categories?.nodes[0]?.name || "Blog"}
-                        </p>
+                        {/* categorie multiple anche qui */}
+                        <div className="flex flex-wrap gap-2">
+                          {p.categories?.nodes?.length > 0 ? (
+                            p.categories.nodes.map((cat, i) => (
+                              <span
+                                key={i}
+                                className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full"
+                              >
+                                {cat.name}
+                              </span>
+                            ))
+                          ) : (
+                            <span className="text-xs uppercase font-medium tracking-wide bg-purple100 text-white py-1 px-3 rounded-full">
+                              Blog
+                            </span>
+                          )}
+                        </div>
 
                         <h3 className="font-abhaya font-bold text-[25px] leading-none text-gray100 ">
                           {p.title}
@@ -171,34 +224,25 @@ export default function PostPage({ post, otherPosts }) {
                       </div>
 
                       <div className="flex gap-6 items-center flex-wrap">
-                        {/* Data */}
                         <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
                           <Icon
                             icon="clarity:date-line"
                             width="15"
                             height="15"
                           />
-                          {formatDate(post.date)}
+                          {formatDate(p.date)}
                         </p>
-
-                        {/* Tempo di lettura */}
                         <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
                           <Icon
                             icon="material-symbols:timer-outline-rounded"
                             width="15"
                             height="15"
                           />
-                          {readingTime} min
-                        </p>
-
-                        {/* Numero commenti */}
-                        <p className="text-sm text-gray100 flex items-center gap-2 bg-gray80 py-2 px-3 rounded-full">
-                          <Icon
-                            icon="mdi:comment-outline"
-                            width="15"
-                            height="15"
-                          />
-                          {post.commentCount || 0} commenti
+                          {Math.max(
+                            1,
+                            Math.ceil(p.content.split(" ").length / 200)
+                          )}{" "}
+                          min
                         </p>
                       </div>
                     </div>

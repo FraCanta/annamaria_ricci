@@ -23,6 +23,7 @@ export const GET_ALL_POSTS = gql`
           categories {
             nodes {
               name
+              slug
             }
           }
           commentCount

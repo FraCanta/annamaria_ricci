@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import FadeInSection from "@/components/layout/FadeInSection";
-import BlogSearch from "@/components/BlogSearch/BlogSearch";
 import BlogSection from "@/components/BlogSection/BlogSection";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import Banner from "@/components/Banner/Banner";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS, GET_ALL_CATEGORIES } from "@/utils/queries";
 import Head from "next/head";
 
 const Blog = ({ posts, categories }) => {
-  console.log("Posts data:", posts);
-  console.log("Categories data:", categories);
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
-  const [filterObj, setFilterObj] = useState({});
   const myRouter = useRouter();
+
+  // Categoria attiva presa dalla query string
+  const activeCategory = myRouter.query.categories || null;
+
+  // Filtriamo i post lato client
+  const filteredPosts = posts.filter((post) => {
+    if (!activeCategory || activeCategory === "0") return true; // mostra tutti
+    return post.categories?.nodes?.some((cat) => cat.slug === activeCategory);
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -37,45 +42,8 @@ const Blog = ({ posts, categories }) => {
           content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
         />
         <meta name="keywords" content="consulenza, orientamento, evoluzione" />
-
-        <meta property="og:url" content="https://www.annamariaricci.eu/blog" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Anna Maria Ricci - Blog" />
-        <meta
-          property="og:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
-        />
-        <meta
-          property="og:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="annamariaricci.eu" />
-        <meta
-          property="twitter:url"
-          content="https://www.annamariaricci.eu/blog"
-        />
-        <meta
-          name="twitter:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
-        />
-        <meta name="twitter:title" content="Anna Maria Ricci - Blog" />
-        <meta
-          name="twitter:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
-        />
-
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <meta name="apple-mobile-web-app-title" content="Annamaria Ricci" />
-        <link rel="manifest" href="/site.webmanifest" />
       </Head>
+
       <FadeInSection delay={50}>
         <div className="w-full my-10 lg:my-20 flex flex-col gap-4 justify-center items-center relative">
           <div>
@@ -91,24 +59,20 @@ const Blog = ({ posts, categories }) => {
               Blog
             </h1>
           </div>
-          {/* <BlogSearch /> */}
-          {/* <div className="flex flex-wrap items-center justify-center gap-4 mx-auto">
-            <h3 className="pr-4 text-sm font-medium text-second">TOPICS</h3>
-            <div className="flex flex-wrap gap-4">
+
+          {/* Categorie */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mx-auto">
+            <h3 className="pr-4 text-sm font-medium text-gray100">TOPICS</h3>
+            <div className="flex flex-wrap justify-center gap-4">
               {categories?.map((el, i) => {
-                const isActive = filterObj?.categories === el?.slug;
-                const newCategoryId = isActive ? 0 : el?.slug;
+                const isActive = activeCategory === el?.slug;
+                const newCategoryId = isActive ? "0" : el?.slug;
 
                 return (
                   <button
                     key={i}
                     onClick={() => {
-                      setFilterObj((prevData) => ({
-                        currentPage: 1,
-                        categories: newCategoryId,
-                      }));
-
-                      router.push({
+                      myRouter.push({
                         pathname: "/blog",
                         query: {
                           categories: newCategoryId,
@@ -116,23 +80,24 @@ const Blog = ({ posts, categories }) => {
                         },
                       });
                     }}
-                    className={`relative text-sm uppercase font-medium transition-all duration-200
-            ${
-              isActive
-                ? "text-gray100 border-purple100 bg-purple100/40 border-2 p-2 rounded-md"
-                : "text-pink border-gray90/50 border px-[12px] py-[7px] rounded-md hover:bg-purple100/40 hover:text-gray100 hover:border-purple100"
-            }`}
+                    className={`relative text-sm uppercase  transition-all duration-200
+                      ${
+                        isActive
+                          ? "text-gray100 border-purple100 bg-purple100/40 border-2 p-2 rounded-md"
+                          : "text-pink border-gray90/40 border px-[12px] py-[7px] rounded-md hover:bg-purple100/20 hover:text-gray100 hover:border-purple100"
+                      }`}
                   >
                     {el?.name}
                   </button>
                 );
               })}
             </div>
-          </div> */}
+          </div>
         </div>
       </FadeInSection>
-      {/* Passiamo i post a BlogSection */}
-      <BlogSection posts={posts} />
+
+      {/* Sezione dei post filtrati */}
+      <BlogSection posts={filteredPosts} />
 
       <AnimatedLineView />
       <Banner />
