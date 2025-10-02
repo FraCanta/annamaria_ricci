@@ -139,7 +139,7 @@ export default function PostPage({ post, otherPosts }) {
               className="font-work text-gray90 mb-6 md:text-2xl lg:text-base"
               dangerouslySetInnerHTML={{ __html: post.content }}
             ></div>
-            <div className="flex flex-row items-start w-full">
+            <div className="flex-row items-start w-full hidden lg:flex">
               {/* <div className="flex-grow"></div> */}
               <ShareButtons
                 title={post.title}
