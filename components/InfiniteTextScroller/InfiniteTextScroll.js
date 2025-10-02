@@ -33,8 +33,8 @@ const getOrganicItems = (repeat = 2) => {
   const organic = [];
   for (let r = 0; r < repeat; r++) {
     items.forEach((item, index) => {
-      const randomGap = 60 + Math.floor(Math.random() * 40); // spazio 30-50px
-      const opacity = 0.95 + Math.random() * 0.05; // 0.95-1
+      const randomGap = 10 + Math.floor(Math.random() * 5); // spazio 30-35px
+      const opacity = 0.93 + Math.random() * 0.02; // 0.93-0.95
       organic.push({
         ...item,
         key: `${r}-${index}`,
@@ -57,7 +57,7 @@ function InfiniteTextScroll() {
 
     const tl = gsap.to(slider, {
       x: `-=${totalWidth}`,
-      duration: 25,
+      duration: 45,
       ease: "linear",
       repeat: -1,
     });
@@ -71,13 +71,13 @@ function InfiniteTextScroll() {
     <div className="overflow-hidden py-8 lg:py-16">
       <div
         ref={sliderRef}
-        className="flex w-max whitespace-nowrap"
+        className="flex w-max whitespace-nowrap "
         style={{ willChange: "transform" }}
       >
         {organicItems.map((item) => (
           <div
             key={item.key}
-            className="flex items-center justify-center shrink-0"
+            className="flex items-center justify-center shrink-0 px-8 py-4 rounded-sm bg-gray80/50"
             style={{
               marginRight: item.style.marginRight,
               opacity: item.style.opacity,
@@ -88,7 +88,7 @@ function InfiniteTextScroll() {
               alt={item.alt}
               width={160} // ✅ dimensioni controllate
               height={160}
-              className="object-contain w-[100px] h-[100px] lg:w-[130px] lg:h-[130px]"
+              className="object-contain w-[100px] h-[70px] lg:w-[150px] lg:h-[80px]"
             />
           </div>
         ))}

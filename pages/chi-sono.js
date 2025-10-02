@@ -418,7 +418,7 @@ function ChiSono() {
           </FadeInSection>
           <FadeInSection delay={100}>
             <div className="flex flex-col gap-4">
-              <h2 className="font-abhaya font-bold text-[8vw] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+              <h2 className="font-abhaya font-bold text-[6vw] md:text-[38px] 2xl:text-[3vw] leading-none text-gray100">
                 Un paio di cose che non dico a tutti
               </h2>
               <p className="font-abhaya font-[500] text-[22px] my-1 text-gray100 mb-4">
@@ -446,6 +446,22 @@ function ChiSono() {
             </div>
           </FadeInSection>
         </div>
+      </div>
+      <AnimatedLineView />
+      <div className="my-20 flex flex-col gap-10">
+        <FadeInSection delay={100}>
+          <div className="w-full flex justify-between items-center">
+            <h2 className="font-abhaya font-bold text-[28px] md:text-[48px] 2xl:text-[3vw] leading-none text-gray100">
+              Cosa dicono di me
+            </h2>
+
+            {/* <Button href="/testimonianze">Scrivi una recensione</Button> */}
+          </div>
+        </FadeInSection>
+        {/* --- TESTIMONIANZE --- */}
+        <FadeInSection delay={100}>
+          <Reviews />
+        </FadeInSection>
       </div>
       <AnimatedLineView />
       {/* --- PERCORSI --- */}

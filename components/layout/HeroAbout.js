@@ -54,7 +54,7 @@ function HeroAbout() {
               Ciao, mi chiamo Anna Maria Ricci!
             </h1>
             <p
-              className={`text-[4vw] lg:text-[1.4vw] text-gray90 text-center font-abhaya font-normal leading-none ${
+              className={`text-[4.5vw] lg:text-[1.4vw] text-gray90 text-center font-abhaya font-normal leading-none ${
                 animate
                   ? "opacity-100 blur-0 translate-y-0"
                   : "opacity-0 blur-sm translate-y-4"

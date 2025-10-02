@@ -1,206 +1,145 @@
 import React, { useState } from "react";
-import VerticalAnimatedLine from "../AnimatedLine/VerticalAnimatedLine";
-import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
-import Image from "next/image";
-import Modal from "../Modal/Modal";
 import { Icon } from "@iconify/react";
 
-const Reviews = () => {
-  const [selectedText, setSelectedText] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0); // Stato per il gruppo di recensioni corrente
+// Dati recensioni (i tuoi)
+const reviewsData = [
+  {
+    text: "Raramente scrivo recensioni, ma Anna Maria merita tutta la mia gratitudine. E' la professionista di cui si ha bisogno, quando navighi nell'intricatissimo e contorto mondo del lavoro, quando senti di voler gettare la spugna, che non vali niente, che ci sarà sempre qualcuno più avanti e piu' bravo di te. E' stata in grado di aiutarmi con il suo particolare approccio gentile ma deciso, e quando non vedevo più speranza nel futuro. La consiglio veramente a tutti. Vi svolta la vita!",
+    author: "Patrizia Olivieri",
+    role: "Event Manager, Gestione del Personale, Sales",
+    service: "Coaching per lo sviluppo professionale",
+    date: "7 luglio 2025",
+    rating: 5,
+  },
+  {
+    text: "Esperienza molto positiva, staff cordiale e disponibile.",
+    author: "Claudia Tagliaferri",
+    role: "Customer Care Specialist & Sales Assistant",
+    service: "Stesura CV",
+    date: "29 aprile 2025",
+    rating: 5,
+  },
+  {
+    text: "Ho conosciuto Anna Maria Ricci grazie al corso Gestione Risorse Umane e Recruiting 4.0 di Talentform. Le sue lezioni sono un vero valore aggiunto! La sua capacità di trasmettere conoscenze in modo chiaro e concreto, sempre attenta alle esigenze dei discenti, rende il percorso formativo stimolante e arricchente. Un punto di riferimento prezioso nel mondo delle Risorse Umane!",
+    author: "Alessandra Sica",
+    role: "HR Generalist con il cuore nelle relazioni | +10 anni vendite & customer care | AI & Canva lover per progetti HR | Formazione continua | Inglese & Spagnolo | Valorizzo persone e talento.",
+    service: "Corso Gestione Risorse Umane e Recruiting 4.0",
+    date: "23 marzo 2025",
+    rating: 5,
+  },
+  {
+    text: "Ho avuto la fortuna di conoscere Anna Maria in un periodo particolarmente duro e buio della mia vita professionale, una mia carissima amica mi ha indirizzato a lei e mi ha aiutata ad orientarmi nella scelta di un nuovo percorso lavorativo. Mi ha seguita e supportata con grande impegno ed empatia, mi ha guidata nella ricerca del lavoro e nei colloqui facendomi sempre sentire la sua presenza. È una persona splendida ed una professionista molto valida, sempre pronta a proporre nuove idee e a confortare, se serve. È grazie al suo insegnamento se sono riuscita ad intraprendere una nuova strada.",
+    author: "Chiara Fattorini",
+    role: "Impiegata d'ufficio e logistica / Gestione clienti e fornitori",
+    service: "Ricerca nuovo lavoro",
+    date: "2 settembre 2023",
+    rating: 5,
+  },
+];
 
-  const openModal = (text) => {
-    setSelectedText(text);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setSelectedText(null);
-    setIsModalOpen(false);
-  };
-
-  const items = [
-    {
-      text: "Ho conosciuto Anna Maria Ricci grazie al corso Gestione Risorse Umane e Recruiting 4.0 di Talentform. Le sue lezioni sono un vero valore aggiunto! La sua capacità di trasmettere conoscenze in modo chiaro e concreto, sempre attenta alle esigenze dei discenti, rende il percorso formativo stimolante e arricchente. Un punto di riferimento prezioso nel mondo delle Risorse Umane!",
-      avatar: "/assets/review1.jpeg",
-      author: "Alessandra Sica",
-      role: "Futura HR Generalist con il cuore nelle relazioni | +10 anni vendite & customer care | AI & Canva lover per progetti HR | Formazione continua | Inglese & Spagnolo | Valorizzo persone e talento.",
-    },
-    {
-      text: "Ho avuto il privilegio di conoscere Anna Maria alcuni anni fa durante la mia esperienza lavorativa in Vodafone. Durante un momento di grande cambiamento nel mio percorso professionale, ho chiesto il suo supporto e sono rimasta positivamente colpita dalla sua professionalità e empatia. Anna Maria ha dimostrato una competenza eccezionale ed è andata ben oltre il semplice supporto pratico che mi aspettavo, sorprendendomi piacevolmente. Ancora oggi, mi accompagna con i suoi consigli professionali e i suoi suggerimenti, che sono di grande valore per me. Sono grata di averla incontrata e di poter continuare a beneficare della sua guida e del suo prezioso supporto. Grazie Anna Maria.",
-      avatar: "/assets/review2.jpeg",
-      author: "Claudia Tagliaferri",
-      role: "Customer Care Specialist & Sale Assistant",
-    },
-    {
-      text: "Ti aiuto a valorizzare le tue competenze, trovare o cambiare lavoro, prepararti ai colloqui e accompagnarti fino all'inserimento, con un approccio tradizionale e/o olistico.",
-      avatar: "/assets/review1.jpeg",
-      author: "Claudia Tagliaferri",
-      role: "Customer Care Specialist & Sale Assistant",
-    },
-    {
-      text: "Offro corsi di Respirazione Circolare Consapevole, ricerca attiva del lavoro, creazione CV in vari formati, percorsi personalizzati per il benessere e supporto per startup della libera professione.",
-      avatar: "/assets/review1.jpeg",
-      author: "Claudia Tagliaferri",
-      role: "Customer Care Specialist & Sale Assistant",
-    },
-    {
-      text: "Supporto per dipendenti, career counseling, orientamento, politiche attive, tutoraggio, ricerca e selezione, head hunting, design thinking olistico e scouting per tirocini.",
-      avatar: "/assets/review1.jpeg",
-      author: "Claudia Tagliaferri",
-      role: "Customer Care Specialist & Sale Assistant",
-    },
-    {
-      text: "Albero genealogico delle professioni.",
-      avatar: "/assets/review1.jpeg",
-      author: "Claudia Tagliaferri",
-      role: "Customer Care Specialist & Sale Assistant",
-    },
-  ];
-
-  // Paginazione ogni 4
-  const itemsPerPage = 4;
-  const totalPages = Math.ceil(items.length / itemsPerPage);
-  const paginatedItems = items.slice(
-    currentIndex * itemsPerPage,
-    currentIndex * itemsPerPage + itemsPerPage
-  );
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1 < totalPages ? prev + 1 : 0));
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 >= 0 ? prev - 1 : totalPages - 1));
-  };
-
-  // Dividere le recensioni visibili in righe da 2
-  const rows = [];
-  for (let i = 0; i < paginatedItems.length; i += 2) {
-    rows.push(paginatedItems.slice(i, i + 2));
-  }
-
+// Funzione helper per le stelle
+const renderStars = (rating, size = "w-4 h-4") => {
+  const full = Math.floor(rating);
+  const half = rating - full >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
   return (
-    <div className="flex flex-col xl:flex-row gap-10 justify-between min-h-[70vh] my-20">
-      {/* Titolo e controlli */}
-      <div className="w-full lg:w-[40%] flex flex-col justify-between">
-        <h2 className="font-abhaya font-bold text-[35px] md:text-[48px] 2xl:text-[58px] leading-none text-gray100">
-          Siete voi la prova <br /> di ciò che faccio
-        </h2>
-        <div className="mt-4 flex gap-4">
-          {/* Bottone Precedente */}
-          <button
-            onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className={`rounded-full h-10 w-10 flex items-center justify-center transition-colors 
-      ${
-        currentIndex === 0
-          ? "bg-gray80 text-white "
-          : "bg-purple100 text-white hover:bg-gray-80 cursor-pointer"
-      }
-    `}
-          >
-            <Icon
-              icon="lets-icons:arrow-left-light"
-              width="24"
-              height="24"
-              className="transition-transform duration-300"
-            />
-          </button>
-
-          {/* Bottone Successivo */}
-          <button
-            onClick={handleNext}
-            disabled={currentIndex === totalPages - 1}
-            className={`rounded-full h-10 w-10 flex items-center justify-center transition-colors 
-      ${
-        currentIndex === totalPages - 1
-          ? "bg-gray80 text-white "
-          : "bg-purple100 text-white hover:bg-gray-80 cursor-pointer"
-      }
-    `}
-          >
-            <Icon
-              icon="lets-icons:arrow-right-light"
-              width="24"
-              height="24"
-              className="transition-transform duration-300"
-            />
-          </button>
-        </div>
-      </div>
-
-      {/* Linea per layout responsive */}
-      <div className="hidden lg:flex items-center justify-between min-h-[70vh]">
-        <VerticalAnimatedLine />
-      </div>
-      <div className="px-10 lg:hidden block w-full order-2">
-        <AnimatedLineView />
-      </div>
-
-      {/* Recensioni: 2 colonne per riga, 2 righe max (4 totali) */}
-      <div className="w-full lg:w-[60%] flex flex-col  gap-10">
-        {rows.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex flex-col gap-4">
-            <div className="flex flex-col md:flex-row md:items-start gap-10 md:gap-8">
-              {row.map((item, i) => (
-                <React.Fragment key={i}>
-                  <div className="flex-1 flex flex-col items-start gap-4 py-6 px-2">
-                    <p className="text-sm text-gray90 line-clamp-4">
-                      {item.text}
-                    </p>
-                    <button
-                      className="text-xs text-primary underline"
-                      onClick={() => openModal(item.text)}
-                    >
-                      Leggi tutto
-                    </button>
-                    <div className="flex items-start gap-4">
-                      <Image
-                        src={item.avatar}
-                        alt=""
-                        width={50}
-                        height={50}
-                        className="w-8 h-8 2xl:w-12 2xl:h-12 rounded-full"
-                      />
-                      <div>
-                        <h3 className="text-[20px] font-abhaya font-bold text-gray100 leading-none">
-                          {item.author}
-                        </h3>
-                        <p className="text-xs text-gray90 mt-2">{item.role}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Linea verticale tra colonne, solo dopo il primo elemento */}
-                  {i === 0 && row.length === 2 && (
-                    <div className="hidden md:flex justify-center items-center px-4 h-[150px]">
-                      <VerticalAnimatedLine />
-                    </div>
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-
-            {/* Linea orizzontale tra righe (tranne ultima) */}
-            {rowIndex < rows.length - 1 && (
-              <div className="w-full px-2">
-                <AnimatedLineView />
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Modale */}
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <p className="text-sm text-gray90 whitespace-pre-line">
-          {selectedText}
-        </p>
-      </Modal>
+    <div className="flex items-center">
+      {[...Array(full)].map((_, i) => (
+        <Icon
+          key={`full-${i}`}
+          icon="mdi:star"
+          className={`${size} text-yellow-500`}
+        />
+      ))}
+      {half === 1 && (
+        <Icon icon="mdi:star-half-full" className={`${size} text-yellow-500`} />
+      )}
+      {[...Array(empty)].map((_, i) => (
+        <Icon
+          key={`empty-${i}`}
+          icon="mdi:star-outline"
+          className={`${size} text-gray-300`}
+        />
+      ))}
     </div>
   );
 };
 
-export default Reviews;
+function ReviewCard({ item }) {
+  const [expanded, setExpanded] = useState(false);
+  const maxChars = 220; // Limite caratteri prima di clamp
+
+  const isLong = item.text.length > maxChars;
+  const displayedText = expanded ? item.text : item.text.slice(0, maxChars);
+
+  return (
+    <div className="bg-white/70 p-6 shadow-sm">
+      {/* Nome + Ruolo */}
+      <h3 className="font-semibold text-gray100">{item.author}</h3>
+      <p className="text-sm text-gray100">{item.role}</p>
+
+      {/* Servizio */}
+      {item.service && (
+        <div className="mt-2 inline-block bg-gray80 text-gray100 text-sm font-medium px-3 py-1 rounded-full">
+          {item.service}
+        </div>
+      )}
+
+      {/* Rating + Data */}
+      <div className="flex items-center mt-3 text-sm text-gray100">
+        {renderStars(item.rating, "w-5 h-5")}
+        <span className="ml-2 font-semibold">{item.rating.toFixed(1)}</span>
+        <span className="mx-2">·</span>
+        <span>{item.date}</span>
+      </div>
+
+      {/* Testo recensione */}
+      <p className="mt-3 text-gray90 leading-relaxed">
+        {displayedText}
+        {!expanded && isLong && "..."}
+      </p>
+
+      {/* Pulsante Leggi di più/meno */}
+      {isLong && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="mt-2 text-purple100 font-medium hover:underline"
+        >
+          {expanded ? "Leggi di meno" : "Leggi di più"}
+        </button>
+      )}
+    </div>
+  );
+}
+
+export default function Reviews({ reviews = reviewsData }) {
+  const totalReviews = reviews.length;
+  const avgRating =
+    reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviews || 0;
+
+  return (
+    <div className="space-y-10">
+      {/* Riepilogo generale */}
+      <div className="bg-white/70 rounded-lg p-6">
+        <h2 className="text-xl font-semibold">Recensioni</h2>
+        <div className="flex items-center mt-2">
+          <p className="text-3xl font-bold">{avgRating.toFixed(1)}</p>
+          <span className="ml-1 text-lg text-gray-500">di 5</span>
+        </div>
+        <div className="flex items-center mt-1">
+          {renderStars(avgRating, "w-5 h-5")}
+          <span className="ml-2 text-sm text-gray-500">
+            ({totalReviews} recensioni)
+          </span>
+        </div>
+      </div>
+
+      {/* Lista recensioni */}
+      <div className="space-y-6">
+        {reviews.map((item, i) => (
+          <ReviewCard key={i} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+}
