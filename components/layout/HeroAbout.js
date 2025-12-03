@@ -66,7 +66,7 @@ function HeroAbout() {
             </p>
           </div>
           <div
-            className={`relative aspect-square lg:h-[700px] w-full ${
+            className={`relative transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)]  aspect-square lg:h-[700px] w-full ${
               animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"
             }`}
           >
