@@ -200,7 +200,7 @@ function Footer() {
       <footer className="hidden md:grid my-14 grid-cols-3 gap-[120px] p-4 lg:p-0 text-[14px] ">
         {/* Logo + copyright */}
         <div className="flex flex-col">
-          <Link href="/" title="Torna alla home">
+          <Link href="/" title="Torna alla home!">
             <Image
               src="/assets/logo_annamaria.svg"
               alt="Logo"
