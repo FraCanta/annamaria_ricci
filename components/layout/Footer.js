@@ -56,7 +56,8 @@ function Footer() {
             Partita IVA 02068280508 <br /> Professionista ai sensi L. 04-2013
           </p>
           <p className="text-gray100 mt-4">
-            Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
+            Copyright © {new Date().getFullYear()} Anna Maria Ricci. <br />{" "}
+            Tutti i diritti riservati.
           </p>
         </div>
 
@@ -211,7 +212,8 @@ function Footer() {
             Partita IVA 02068280508 <br /> Professionista ai sensi L. 04-2013
           </p>
           <p className="text-gray100 mt-4">
-            Copyright © 2025 Anna Maria Ricci. <br /> Tutti i diritti riservati.
+            Copyright © {new Date().getFullYear()} Anna Maria Ricci. <br />{" "}
+            Tutti i diritti riservati.
           </p>
         </div>
 
