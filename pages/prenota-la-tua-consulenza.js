@@ -6,12 +6,15 @@ import Link from "next/link";
 import Head from "next/head";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import StepsContact from "@/components/StepsContact/StepsContact";
+import { buildSeoTitle } from "@/utils/seo";
 
 const prenotaConsulenza = () => {
+  const seoTitle = buildSeoTitle("Prenota la tua consulenza");
+
   return (
     <div className="content">
       <Head>
-        <title>Prenota la tua consulenza - Anna Maria Ricci</title>
+        <title>{seoTitle}</title>
         <link
           rel="icon"
           type="image/png"
@@ -35,7 +38,7 @@ const prenotaConsulenza = () => {
           <div className="hidden lg:block"></div>
           <Image
             src="/assets/logo_annamaria.svg"
-            alt="Logo"
+            alt="Anna Maria Ricci"
             width={120}
             height={113}
           />

@@ -1,8 +1,8 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import Link from "next/link";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Button from "../layout/Button";
+import PrivacyConsent from "../privacy/PrivacyConsent";
 
 export default function StepsContact() {
   const [step, setStep] = useState(0);
@@ -188,6 +188,7 @@ export default function StepsContact() {
               raggiungere i propri obiettivi con maggiore sicurezza.
             </p>
             <button
+              type="button"
               onClick={nextStep}
               className="group border text-purple100 font-work border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple100 hover:text-white"
             >
@@ -221,12 +222,14 @@ export default function StepsContact() {
             />
             <div className="flex justify-between">
               <button
+                type="button"
                 onClick={prevStep}
                 className="px-4 py-2 underline text-second "
               >
                 indietro
               </button>
               <button
+                type="button"
                 onClick={nextStep}
                 className={`group border text-purple100 font-work border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple100 hover:text-white ${
                   isNextButtonDisabled() ? "disabled opacity-40" : "opacity-100"
@@ -267,12 +270,14 @@ export default function StepsContact() {
             )}
             <div className="flex justify-between">
               <button
+                type="button"
                 onClick={prevStep}
                 className="px-4 py-2 underline text-second "
               >
                 indietro
               </button>
               <button
+                type="button"
                 onClick={nextStep}
                 className={`group border text-purple100 font-work border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple100 hover:text-white ${
                   isNextButtonDisabled() ? "disabled opacity-40" : "opacity-100"
@@ -338,12 +343,14 @@ export default function StepsContact() {
 
             <div className="flex justify-between">
               <button
+                type="button"
                 onClick={prevStep}
                 className="px-4 py-2 underline text-second "
               >
                 indietro
               </button>
               <button
+                type="button"
                 onClick={nextStep}
                 className={`group border text-purple100 font-work border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple100 hover:text-white ${
                   isNextButtonDisabled() ? "disabled opacity-40" : "opacity-100"
@@ -381,36 +388,18 @@ export default function StepsContact() {
               required
             />
 
-            {/* Privacy */}
-            <div className="flex items-center gap-1">
-              <input
-                id="privacy"
-                type="checkbox"
-                name="privacy"
-                checked={formData.privacy}
-                onChange={handleChange}
-                className="border border-gray100 rounded-md !bg-transparent"
-              />
-              <label htmlFor="privacy" className="ms-1 text-gray100 font-work">
-                Ho letto e accetto la{" "}
-                <Link
-                  href="https://www.iubenda.com/privacy-policy/68292067"
-                  target="_blank"
-                  className="underline decoration-purple100 decoration-2 text-purple100"
-                >
-                  Privacy Policy
-                </Link>
-              </label>
-            </div>
+            <PrivacyConsent checked={formData.privacy} onChange={handleChange} />
 
             <div className="flex justify-between">
               <button
+                type="button"
                 onClick={prevStep}
                 className="px-4 py-2 underline text-gray100 "
               >
                 indietro
               </button>
               <button
+                type="button"
                 onClick={handleSubmit}
                 className={`group border text-purple100 font-work border-purple100 px-[18px] py-[14px] text-sm md:text-xl lg:text-lg xl:text-md rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2 hover:bg-purple100 hover:text-white ${
                   !formData.message || !formData.privacy

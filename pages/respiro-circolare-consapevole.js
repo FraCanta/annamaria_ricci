@@ -6,8 +6,10 @@ import StrumentiSection from "@/components/Strumenti/StrumentiSection";
 import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { buildSeoTitle } from "@/utils/seo";
 
 function RespiroCircolareConsapevole() {
+  const seoTitle = buildSeoTitle("Il Respiro Circolare Consapevole");
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function RespiroCircolareConsapevole() {
   return (
     <>
       <Head>
-        <title>Anna Maria Ricci - Il Respiro Circolare Consapevole</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -35,7 +37,7 @@ function RespiroCircolareConsapevole() {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Anna Maria Ricci - Il Respiro Circolare Consapevole"
+          content={seoTitle}
         />
         <meta
           property="og:description"
@@ -57,7 +59,7 @@ function RespiroCircolareConsapevole() {
         />
         <meta
           name="twitter:title"
-          content="Anna Maria Ricci - Il Respiro Circolare Consapevole"
+          content={seoTitle}
         />
         <meta
           name="twitter:description"

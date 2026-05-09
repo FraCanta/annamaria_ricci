@@ -9,8 +9,10 @@ import { useRouter } from "next/router";
 import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS, GET_ALL_CATEGORIES } from "@/utils/queries";
 import Head from "next/head";
+import { buildSeoTitle } from "@/utils/seo";
 
 const Blog = ({ posts, categories }) => {
+  const seoTitle = buildSeoTitle("Blog");
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
   const myRouter = useRouter();
@@ -35,7 +37,7 @@ const Blog = ({ posts, categories }) => {
   return (
     <div className="content">
       <Head>
-        <title>Anna Maria Ricci - Blog</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -70,7 +72,9 @@ const Blog = ({ posts, categories }) => {
 
                 return (
                   <button
+                    type="button"
                     key={i}
+                    aria-pressed={isActive}
                     onClick={() => {
                       myRouter.push({
                         pathname: "/blog",

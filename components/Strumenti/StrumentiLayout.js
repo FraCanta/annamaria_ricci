@@ -19,20 +19,26 @@ export default function StrumentiLayout({ translation }) {
         <FadeInSection delay={100}>
           <div className="hidden lg:flex gap-3">
             <button
+              type="button"
               onClick={() => setView("grid")}
+              aria-label="Visualizza strumenti in griglia"
+              aria-pressed={view === "grid"}
               className={`p-2 rounded-xl shadow transition ${
                 view === "grid" ? "bg-gray100 text-white" : "bg-white/40"
               }`}
             >
-              <Icon icon="mdi:view-grid" width="24" />
+              <Icon icon="mdi:view-grid" width="24" aria-hidden="true" />
             </button>
             <button
+              type="button"
               onClick={() => setView("list")}
+              aria-label="Visualizza strumenti in lista"
+              aria-pressed={view === "list"}
               className={`p-2 rounded-xl shadow transition ${
                 view === "list" ? "bg-gray100 text-white" : "bg-white/40"
               }`}
             >
-              <Icon icon="mdi:view-list" width="24" />
+              <Icon icon="mdi:view-list" width="24" aria-hidden="true" />
             </button>
           </div>
         </FadeInSection>
@@ -47,9 +53,8 @@ export default function StrumentiLayout({ translation }) {
         }
       >
         {translation.map((item, index) => (
-          <FadeInSection delay={100}>
+          <FadeInSection key={item.titolo || index} delay={100}>
             <div
-              key={index}
               className={`flex flex-col gap-14 bg-gray80/30 p-8 justify-start hover:border hover:border-gray100 hover:rounded-lg transition-all duration-500 ${
                 view === "grid" ? "lg:h-[450px]" : "h-auto"
               }`}

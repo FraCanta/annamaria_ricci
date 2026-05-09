@@ -12,9 +12,10 @@ import Button from "@/components/layout/Button";
 import ButtonOutline from "@/components/layout/ButtonOutline";
 import Head from "next/head";
 import { Icon } from "@iconify/react";
+import { buildSeoTitle } from "@/utils/seo";
 
 function SinglePercorso({ percorsi, others }) {
-  console.log(percorsi);
+  const seoTitle = buildSeoTitle(percorsi.seoTitle);
   const [animate, setAnimate] = useState(false);
   const [showPrev, setShowPrev] = useState(false);
   const [showNext, setShowNext] = useState(false);
@@ -28,9 +29,9 @@ function SinglePercorso({ percorsi, others }) {
   return (
     <div className="content">
       <Head>
-        <title>{percorsi.seoTitle}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={percorsi.description} />
-        <meta property="og:title" content={percorsi.seoTitle} />
+        <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={percorsi.description} />
         <meta property="og:image" content={percorsi.img} />
       </Head>

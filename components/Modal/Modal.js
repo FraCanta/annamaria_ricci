@@ -10,6 +10,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center"
           onClick={onClose} // click sullo sfondo chiude
+          role="presentation"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -18,10 +19,14 @@ const Modal = ({ isOpen, onClose, children }) => {
             transition={{ duration: 0.3 }}
             className="bg-white rounded-xl p-6 max-w-xl w-full mx-4"
             onClick={(e) => e.stopPropagation()} // blocca chiusura se clicchi dentro
+            role="dialog"
+            aria-modal="true"
           >
             {children}
             <button
+              type="button"
               onClick={onClose}
+              aria-label="Chiudi finestra"
               className="mt-4 text-sm text-primary underline"
             >
               Chiudi

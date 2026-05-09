@@ -8,8 +8,10 @@ import Banner from "@/components/Banner/Banner";
 import strumentiIT from "@/public/strumenti.json";
 import StrumentiLayout from "@/components/Strumenti/StrumentiLayout";
 import Head from "next/head";
+import { buildSeoTitle } from "@/utils/seo";
 
 const ToolsPage = ({ translation }) => {
+  const seoTitle = buildSeoTitle("I miei strumenti");
   const [animate, setAnimate] = useState(false);
   const controls = useAnimation();
 
@@ -24,7 +26,7 @@ const ToolsPage = ({ translation }) => {
   return (
     <>
       <Head>
-        <title>Anna Maria Ricci - I miei strumenti</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -39,7 +41,7 @@ const ToolsPage = ({ translation }) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Anna Maria Ricci - I miei strumenti"
+          content={seoTitle}
         />
         <meta
           property="og:description"
@@ -61,7 +63,7 @@ const ToolsPage = ({ translation }) => {
         />
         <meta
           name="twitter:title"
-          content="Anna Maria Ricci - I miei strumenti"
+          content={seoTitle}
         />
         <meta
           name="twitter:description"

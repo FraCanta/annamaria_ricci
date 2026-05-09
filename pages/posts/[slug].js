@@ -12,6 +12,7 @@ import Head from "next/head";
 import FadeInSection from "@/components/layout/FadeInSection";
 import Button from "@/components/layout/Button";
 import Banner from "@/components/Banner/Banner";
+import { buildSeoTitle } from "@/utils/seo";
 
 export default function PostPage({ post, otherPosts }) {
   const router = useRouter();
@@ -41,14 +42,15 @@ export default function PostPage({ post, otherPosts }) {
     1,
     Math.ceil(post.content.split(" ").length / 200)
   );
+  const seoTitle = buildSeoTitle(post.title);
 
   return (
     <div className="content">
       <Head>
-        <title>Blog - {post.title}</title>
+        <title>{seoTitle}</title>
         <meta name="description" content={post.excerpt} />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content={post.title} />
+        <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={post.excerpt} />
         <meta
           property="og:image"
@@ -62,7 +64,7 @@ export default function PostPage({ post, otherPosts }) {
           )}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta
           name="twitter:image"

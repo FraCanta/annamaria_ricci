@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 import FadeInSection from "@/components/layout/FadeInSection";
 import ContactForm from "@/components/layout/ContactForm";
 import Head from "next/head";
+import { buildSeoTitle } from "@/utils/seo";
 function Contatti() {
+  const seoTitle = buildSeoTitle("Contatti");
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
 
@@ -20,7 +22,7 @@ function Contatti() {
   return (
     <>
       <Head>
-        <title>Anna Maria Ricci - Contatti</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -33,7 +35,7 @@ function Contatti() {
           content="https://www.annamariaricci.eu/contatti"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Anna Maria Ricci - Contatti" />
+        <meta property="og:title" content={seoTitle} />
         <meta
           property="og:description"
           content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
@@ -52,7 +54,7 @@ function Contatti() {
           name="twitter:image"
           content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
         />
-        <meta name="twitter:title" content="Anna Maria Ricci - Chi Sono" />
+        <meta name="twitter:title" content={seoTitle} />
         <meta
           name="twitter:description"
           content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"

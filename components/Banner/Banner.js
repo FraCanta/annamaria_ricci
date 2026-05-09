@@ -12,7 +12,7 @@ const Banner = ({ title, text, address, book, contact }) => {
         <div className="relative w-full h-full aspect-video">
           <Image
             src="/assets/banner.jpg"
-            alt="contact image"
+            alt="Anna Maria Ricci durante una consulenza"
             fill
             className="object-cover w-full h-full"
             priority

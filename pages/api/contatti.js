@@ -6,9 +6,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Metodo non consentito" });
   }
 
-  const { nome, email, messaggio, subject } = req.body;
+  const { nome, email, messaggio, subject, privacy } = req.body;
 
-  if (!nome || !email || !messaggio || !subject) {
+  if (!nome || !email || !messaggio || !subject || !privacy) {
     return res.status(400).json({ message: "Tutti i campi sono obbligatori" });
   }
 
@@ -37,6 +37,7 @@ export default async function handler(req, res) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Oggetto:</strong> ${subject}</p>
         <p><strong>Messaggio:</strong><br/>${messaggio}</p>
+        <p><strong>Consenso privacy:</strong> Accettato</p>
       `,
     });
 

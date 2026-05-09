@@ -25,7 +25,9 @@ function CommentItem({ comment, onReply }) {
           <p className="text-gray-400 text-sm">{comment.dateGmt}</p>
 
           <button
+            type="button"
             onClick={() => setShowReplyForm((prev) => !prev)}
+            aria-expanded={showReplyForm}
             className="text-sm text-blue-500 mt-2"
           >
             {showReplyForm ? "Annulla" : "Rispondi"}
@@ -85,6 +87,7 @@ function ReplyForm({ parentId, onSubmit, onCancel }) {
         value={authorName}
         onChange={(e) => setAuthorName(e.target.value)}
         placeholder="Nome"
+        aria-label="Nome"
         className="p-2 border rounded-md"
       />
       <input
@@ -92,12 +95,14 @@ function ReplyForm({ parentId, onSubmit, onCancel }) {
         value={authorEmail}
         onChange={(e) => setAuthorEmail(e.target.value)}
         placeholder="Email"
+        aria-label="Email"
         className="p-2 border rounded-md"
       />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Scrivi una risposta..."
+        aria-label="Commento"
         rows={3}
         className="p-2 border rounded-md resize-none"
       />

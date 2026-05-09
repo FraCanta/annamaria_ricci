@@ -78,7 +78,7 @@ const HeroHome = () => {
           >
             <Image
               src="/assets/Io.jpg"
-              alt="Hero Home"
+              alt="Ritratto di Anna Maria Ricci"
               fill
               className="md:w-[600px] h-full w-full absolute top-0 right-0 object-cover object-right"
             />

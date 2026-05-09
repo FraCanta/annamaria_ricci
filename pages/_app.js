@@ -8,11 +8,13 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AudioProvider } from "@/context/AudioContext";
 import Script from "next/script";
+import CookieBanner from "@/components/privacy/CookieBanner";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(router.pathname);
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
   const transitionColor = "#E0DCE2";
   const transitionSpringPhysics = {
@@ -98,19 +100,17 @@ export default function App({ Component, pageProps }) {
         )}
       </AudioProvider>
 
-      {/* Analytics */}
-      <Script id="google-analytics" strategy="afterInteractive" defer>
-        {`window.dataLayer = window.dataLayer || [];
+      {analyticsEnabled && (
+        <Script id="google-analytics" strategy="afterInteractive" defer>
+          {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-BL0G9HLEHG', { 'debug_mode':true });`}
-      </Script>
+        </Script>
+      )}
 
-      <Script
-        type="text/javascript"
-        src="https://embeds.iubenda.com/widgets/d8c1bfb4-11d1-4a04-9f3d-f8cd684ad753.js"
-      />
+      <CookieBanner onConsentChange={setAnalyticsEnabled} />
     </>
   );
 }

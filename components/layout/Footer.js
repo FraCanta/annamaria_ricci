@@ -12,6 +12,8 @@ function AccordionSection({ title, children }) {
     <div className="border-b border-gray90">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={`footer-${title.toLowerCase()}`}
         className="w-full flex justify-between items-center py-4 text-left text-gray100 font-[600] uppercase"
       >
         <span>{title}</span>
@@ -25,7 +27,9 @@ function AccordionSection({ title, children }) {
       </button>
 
       <div
+        id={`footer-${title.toLowerCase()}`}
         ref={contentRef}
+        aria-hidden={!open}
         style={{
           maxHeight: open ? `${contentRef.current.scrollHeight}px` : "0px",
         }}
@@ -47,7 +51,7 @@ function Footer() {
           <Link href="/" title="Torna alla home">
             <Image
               src="/assets/logo_annamaria.svg"
-              alt="Logo"
+              alt="Anna Maria Ricci"
               width={120}
               height={113}
             />
@@ -75,7 +79,7 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/" title="Scopri gli strumenti">
+              <Link href="/i-miei-strumenti" title="Scopri gli strumenti">
                 Strumenti
               </Link>
             </li>
@@ -85,7 +89,10 @@ function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/" title="Scopri il percorso Respiro">
+              <Link
+                href="/respiro-circolare-consapevole"
+                title="Scopri il percorso Respiro"
+              >
                 Respiro
               </Link>
             </li>
@@ -189,9 +196,16 @@ function Footer() {
               </Link>
             </p>
           </div>
-          <div className="flex gap-4">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/cookie-policy">Cookie Policy</Link>
+          <div className="flex w-full items-center gap-4">
+            <Link href="/privacy-policy" className="flex-shrink-0">
+              Privacy Policy
+            </Link>
+            <Link href="/cookie-policy" className="flex-shrink-0">
+              Cookie Policy
+            </Link>
+            <Link href="/accessibilita" className="flex-shrink-0">
+              Accessibilità
+            </Link>
           </div>
         </div>
       </footer>
@@ -203,7 +217,7 @@ function Footer() {
           <Link href="/" title="Torna alla home!">
             <Image
               src="/assets/logo_annamaria.svg"
-              alt="Logo"
+              alt="Anna Maria Ricci"
               width={120}
               height={113}
             />
@@ -361,25 +375,17 @@ function Footer() {
           </p>
         </div>
 
-        <div className="flex gap-4">
-          <Link
-            href="https://www.iubenda.com/privacy-policy/68292067"
-            className="iubenda-white iubenda-noiframe iubenda-embed"
-            title="Privacy Policy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <div className="flex min-w-[360px] items-center gap-4">
+          <Link href="/privacy-policy" title="Privacy Policy">
             Privacy Policy
           </Link>
 
-          <Link
-            href="https://www.iubenda.com/privacy-policy/68292067/cookie-policy"
-            className="iubenda-white iubenda-noiframe iubenda-embed"
-            title="Cookie Policy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link href="/cookie-policy" title="Cookie Policy">
             Cookie Policy
+          </Link>
+
+          <Link href="/accessibilita" title="Accessibilità">
+            Accessibilità
           </Link>
         </div>
       </div>

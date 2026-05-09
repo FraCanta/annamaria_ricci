@@ -161,7 +161,16 @@ const Navbar = () => {
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
             style={{ transitionDelay: `calc(0.02s * 3 + 0.3s)` }}
           >
-            <span>Percorsi +</span>
+            <button
+              type="button"
+              onFocus={handleEnter}
+              onClick={() => setShowMegaMenu((open) => !open)}
+              aria-expanded={showMegaMenu}
+              aria-controls="desktop-percorsi-menu"
+              className="uppercase"
+            >
+              Percorsi +
+            </button>
           </li>
           <li
             className="text-gray100 hover:text-gray90 cursor-pointer opacity-0 translate-y-2 transition-all duration-600 ease-[cubic-bezier(0.33, 1, 0.68, 1)] text-[15px]"
@@ -212,10 +221,12 @@ const Navbar = () => {
 
       {/* Megamenu */}
       <div
+        id="desktop-percorsi-menu"
         ref={megaMenuRef}
         className="bg-gray80 absolute left-0 top-0 right-0 h-[650px] w-screen z-50 overflow-hidden hidden"
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeave}
+        aria-hidden={!showMegaMenu}
       >
         <div
           ref={menuItemsRef}

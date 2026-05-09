@@ -102,7 +102,9 @@ function ReviewCard({ item }) {
       {/* Pulsante Leggi di più/meno */}
       {isLong && (
         <button
+          type="button"
           onClick={() => setExpanded(!expanded)}
+          aria-expanded={expanded}
           className="mt-2 text-purple100 font-medium hover:underline"
         >
           {expanded ? "Leggi di meno" : "Leggi di più"}

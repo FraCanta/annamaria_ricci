@@ -89,6 +89,9 @@ const Mobile = () => {
           className="nav__burger"
           style={{ "--length": 2 }}
           onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? "Chiudi il menu" : "Apri il menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <div
             className={`nav__burger__line transition-all duration-500 ${
@@ -120,9 +123,11 @@ const Mobile = () => {
 
       {/* Menu mobile */}
       <div
+        id="mobile-menu"
         className={`fixed lg:hidden pt-[8rem] top-0 left-0 w-full h-dvh bg-gray80 z-20 transition-transform duration-500 ease-in-out ${
           menuOpen ? "translate-y-0" : "-translate-y-[100vh]"
         }`}
+        aria-hidden={!menuOpen}
       >
         {/* Container interno con padding-top invece di mt */}
         <div className="flex flex-col  uppercase  w-[95%] mx-auto h-full gap-6 text-2xl font-work overflow-y-auto pb-8">
@@ -156,6 +161,8 @@ const Mobile = () => {
           <button
             onClick={() => setPercorsiOpen(true)}
             className="menu-item flex justify-between items-center uppercase  w-full"
+            aria-expanded={percorsiOpen}
+            aria-controls="mobile-percorsi-menu"
           >
             Percorsi
             <Icon icon="ei:chevron-right" className="w-8 h-8" />
@@ -192,6 +199,7 @@ const Mobile = () => {
         <AnimatePresence>
           {percorsiOpen && (
             <motion.div
+              id="mobile-percorsi-menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -200,7 +208,10 @@ const Mobile = () => {
             >
               {/* Chevron fisso */}
               <div className="absolute top-[6rem] left-0 w-full flex items-center justify-start p-4 z-40 bg-gray80">
-                <button onClick={() => setPercorsiOpen(false)}>
+                <button
+                  onClick={() => setPercorsiOpen(false)}
+                  aria-label="Torna al menu principale"
+                >
                   <Icon icon="ei:chevron-left" className="w-10 h-10" />
                 </button>
               </div>

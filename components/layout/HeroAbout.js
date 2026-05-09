@@ -72,7 +72,7 @@ function HeroAbout() {
           >
             <Image
               src="/assets/chi_sono2.webp"
-              alt="Hero"
+              alt="Anna Maria Ricci"
               fill
               className="object-cover "
               priority

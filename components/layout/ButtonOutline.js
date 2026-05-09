@@ -26,6 +26,7 @@ function ButtonOutline({
         icon={icon}
         width="24"
         height="24"
+        aria-hidden="true"
         className="transition-transform duration-300 group-hover:translate-x-1"
       />
     </Link>

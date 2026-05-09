@@ -7,15 +7,18 @@ import FadeInSection from "@/components/layout/FadeInSection";
 import HeroAbout from "@/components/layout/HeroAbout";
 import PercorsiSection from "@/components/Percorsi/PercorsiSection";
 import Reviews from "@/components/Reviews/Reviews";
+import { buildSeoTitle } from "@/utils/seo";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
 function ChiSono() {
+  const seoTitle = buildSeoTitle("Chi sono");
+
   return (
     <div className="content">
       <Head>
-        <title>Anna Maria Ricci - Chi Sono</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -28,7 +31,7 @@ function ChiSono() {
           content="https://www.annamariaricci.eu/chi-sono"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Anna Maria Ricci - Chi Sono" />
+        <meta property="og:title" content={seoTitle} />
         <meta
           property="og:description"
           content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
@@ -47,7 +50,7 @@ function ChiSono() {
           name="twitter:image"
           content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
         />
-        <meta name="twitter:title" content="Anna Maria Ricci - Chi Sono" />
+        <meta name="twitter:title" content={seoTitle} />
         <meta
           name="twitter:description"
           content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
@@ -183,7 +186,7 @@ function ChiSono() {
         <FadeInSection delay={50}>
           <Image
             src="/assets/annamaria2.png"
-            alt="Hero"
+            alt="Anna Maria Ricci in un momento professionale"
             width={1500}
             height={1500}
             className="w-full lg:h-[80vh] object-cover"
@@ -410,7 +413,7 @@ function ChiSono() {
             <div className="relative h-[50vh] lg:h-[90vh]">
               <Image
                 src="/assets/chi_sono3.webp"
-                alt="Formazione Professionale"
+                alt="Attività di formazione professionale"
                 fill
                 className="w-full h-full object-cover aspect-square"
               />

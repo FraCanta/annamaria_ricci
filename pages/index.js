@@ -16,14 +16,16 @@ import PercorsiSection from "@/components/Percorsi/PercorsiSection";
 import RespiroCircolare from "@/components/RespiroCircolare/RespiroCircolare";
 import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS } from "@/utils/queries";
+import { buildSeoTitle } from "@/utils/seo";
 
 export default function Home({ posts }) {
-  console.log(posts);
+  const seoTitle = buildSeoTitle("Home");
+
   return (
     <>
       <Head>
         <>
-          <title>Anna Maria Ricci - Home</title>
+          <title>{seoTitle}</title>
           <meta name="author" content="Anna Maria Ricci" />
           <meta
             name="description"
@@ -36,14 +38,14 @@ export default function Home({ posts }) {
 
           <meta property="og:url" content="https://www.annamariaricci.eu/" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Anna Maria Ricci - Home" />
+          <meta property="og:title" content={seoTitle} />
           <meta
             property="og:description"
             content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
           />
           <meta
             property="og:image"
-            content="https://annamaria-ricci.vercel.app/assets/annamaria_cover.png"
+            content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
           />
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="annamariaricci.eu" />
@@ -53,9 +55,10 @@ export default function Home({ posts }) {
           />
           <meta
             name="twitter:image"
-            content="https://annamaria-ricci.vercel.app/assets/annamaria_cover.png"
+            content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
           />
-          <meta name="twitter:title" content="Anna Maria Ricci - Home" />
+          <link rel="canonical" href="https://www.annamariaricci.eu/" />
+          <meta name="twitter:title" content={seoTitle} />
           <meta
             name="twitter:description"
             content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"

@@ -3,11 +3,14 @@ import { useState, useRef } from "react";
 export default function AccordionItem({ title, children }) {
   const [open, setOpen] = useState(false);
   const contentRef = useRef();
+  const panelId = `accordion-${title.toLowerCase().replace(/\s+/g, "-")}`;
 
   return (
     <div className="border-b">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className={`group w-full flex justify-between items-center py-4 text-left duration-300 transition-all 
           ${open ? "bg-gray80/30" : "hover:bg-gray80/30"}`}
       >
@@ -33,7 +36,10 @@ export default function AccordionItem({ title, children }) {
       </button>
 
       <div
+        id={panelId}
         ref={contentRef}
+        role="region"
+        aria-hidden={!open}
         style={{
           maxHeight: open ? `${contentRef.current.scrollHeight}px` : "0px",
         }}

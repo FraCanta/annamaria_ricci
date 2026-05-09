@@ -6,8 +6,10 @@ import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import Banner from "@/components/Banner/Banner";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { buildSeoTitle } from "@/utils/seo";
 
 function TuttiIPercorsi({ translation }) {
+  const seoTitle = buildSeoTitle("Tutti i percorsi");
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ function TuttiIPercorsi({ translation }) {
   return (
     <div className="content">
       <Head>
-        <title>Anna Maria Ricci - Tutti i Percorsi</title>
+        <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
@@ -44,7 +46,7 @@ function TuttiIPercorsi({ translation }) {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Anna Maria Ricci - Tutti i Percorsi"
+          content={seoTitle}
         />
         <meta
           property="og:description"
@@ -66,7 +68,7 @@ function TuttiIPercorsi({ translation }) {
         />
         <meta
           name="twitter:title"
-          content="Anna Maria Ricci - Tutti i Percorsi"
+          content={seoTitle}
         />
         <meta
           name="twitter:description"
@@ -101,7 +103,9 @@ function TuttiIPercorsi({ translation }) {
         <div className="flex gap-4 overflow-x-auto whitespace-nowrap mt-10 lg:mt-20">
           {tabs.map((tab) => (
             <button
+              type="button"
               key={tab}
+              aria-pressed={activeTab === tab}
               onClick={() => setActiveTab(tab)}
               className={`uppercase text-lg px-4 py-2 rounded font-abhaya font-regular text-[18px] md:text-[20px] leading-tight text-gray90 
         transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 

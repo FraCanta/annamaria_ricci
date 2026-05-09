@@ -3,7 +3,15 @@ import nodemailer from "nodemailer";
 // Utilizza variabili d'ambiente per le credenziali
 
 export default async function mailer(req, res) {
-  const { name, email, goal, message } = req.body;
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Metodo non consentito" });
+  }
+
+  const { name, email, goal, message, privacy } = req.body;
+
+  if (!name || !email || !goal?.length || !message || !privacy) {
+    return res.status(400).json({ message: "Tutti i campi sono obbligatori" });
+  }
 
   const transporter = nodemailer.createTransport({
     host: "smtp.ionos.it",
@@ -36,6 +44,7 @@ export default async function mailer(req, res) {
           <div class="section">
             <p><span class="bold">Nome:</span> ${name}</p>
             <p><span class="bold">Email:</span> ${email}</p>
+            <p><span class="bold">Consenso privacy:</span> Accettato</p>
           </div>
           
           <div class="section">

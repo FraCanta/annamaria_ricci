@@ -1,21 +1,30 @@
 import { useState } from "react";
 import { Icon } from "@iconify/react";
 import toast, { Toaster } from "react-hot-toast";
+import PrivacyConsent from "../privacy/PrivacyConsent";
 
 export default function ContactForm2() {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
     messaggio: "",
+    privacy: false,
   });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, type, checked, value } = e.target;
+    setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.privacy) {
+      toast.error("Devi accettare la Privacy Policy per continuare.");
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -30,7 +39,7 @@ export default function ContactForm2() {
       if (res.ok) {
         toast.success("Messaggio inviato con successo!");
         // reset campi form
-        setFormData({ nome: "", email: "", messaggio: "" });
+        setFormData({ nome: "", email: "", messaggio: "", privacy: false });
       } else {
         toast.error(data.message || "Errore nell'invio del messaggio");
       }
@@ -71,6 +80,7 @@ export default function ContactForm2() {
             type="text"
             name="nome"
             placeholder="Nome"
+            aria-label="Nome"
             value={formData.nome}
             onChange={handleChange}
             className="flex-1 rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-1 focus:ring-purple100"
@@ -79,6 +89,7 @@ export default function ContactForm2() {
             type="email"
             name="email"
             placeholder="Email"
+            aria-label="Email"
             value={formData.email}
             onChange={handleChange}
             className="flex-1 rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-1 focus:ring-purple100"
@@ -88,17 +99,24 @@ export default function ContactForm2() {
         <textarea
           name="messaggio"
           placeholder="Scrivi il tuo messaggio..."
+          aria-label="Messaggio"
           rows={6}
           value={formData.messaggio}
           onChange={handleChange}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:ring-1 focus:ring-purple100"
         />
 
+        <PrivacyConsent
+          id="privacy-respiro"
+          checked={formData.privacy}
+          onChange={handleChange}
+        />
+
         <button
           type="submit"
-          disabled={loading}
+          disabled={loading || !formData.privacy}
           className="group border border-purple100 px-[18px] py-[14px] text-md md:text-xl lg:text-lg xl:text-md 2xl:text-lg rounded-sm transition-all duration-300 max-w-max uppercase flex items-center gap-2
-         hover:bg-purple100 hover:text-white"
+         hover:bg-purple100 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
         >
           {loading ? "Invio..." : "Invia Messaggio"}
           <span className="text-lg">

@@ -71,7 +71,9 @@ const PercorsiCarousel = () => {
         <div className="flex gap-y-4 gap-x-6 lg:gap-10 flex-wrap mb-10">
           {tabs.map((tab) => (
             <button
+              type="button"
               key={tab}
+              aria-pressed={activeTab === tab}
               onClick={() => {
                 setActiveTab(tab);
                 setShowPrev(false);
@@ -170,6 +172,7 @@ const PercorsiCarousel = () => {
             : "opacity-0 pointer-events-none"
         }`}
               aria-label="Previous slide"
+              title="Percorso precedente"
             >
               <Icon
                 icon="prime:chevron-left"
@@ -187,6 +190,7 @@ const PercorsiCarousel = () => {
             : "opacity-0 pointer-events-none"
         }`}
               aria-label="Next slide"
+              title="Percorso successivo"
             >
               <Icon
                 icon="prime:chevron-right"

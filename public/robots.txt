@@ -3,7 +3,6 @@ User-agent: *
 Allow: /
 
 Disallow: /blogannamaria/
-Disallow: /blog/
 Allow: /posts/
 
 # Specificità per un bot specifico (ad esempio, Googlebot)
@@ -16,4 +15,3 @@ Disallow: /temp/
 
 # Sitemap
 Sitemap: https://annamariaricci.eu/sitemap.xml
-SiteMap2: https://annamariaricci.eu/sitemap2.xml
