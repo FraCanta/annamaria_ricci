@@ -14,4 +14,4 @@ Disallow: /temp/
 
 
 # Sitemap
-Sitemap: https://annamariaricci.eu/sitemap.xml
+Sitemap: https://www.annamariaricci.eu/sitemap.xml

@@ -4,7 +4,7 @@ import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
 import percorsiIT from "@/public/locales/it/percorsi.json";
 import { format } from "date-fns";
 
-const siteUrl = "https://annamariaricci.eu";
+const siteUrl = "https://www.annamariaricci.eu";
 const staticPages = [
   "",
   "chi-sono",
@@ -99,12 +99,19 @@ function generateSiteMap(posts) {
 }
 
 export async function getServerSideProps({ res }) {
-  const data = await client.request(GET_POSTS_FOR_SITEMAP);
-  const posts = data?.posts?.edges || [];
+  let posts = [];
+
+  try {
+    const data = await client.request(GET_POSTS_FOR_SITEMAP);
+    posts = data?.posts?.edges || [];
+  } catch (error) {
+    console.error("Unable to fetch posts for sitemap.xml", error);
+  }
 
   const sitemap = generateSiteMap(posts);
 
   res.setHeader("Content-Type", "text/xml");
+  res.setHeader("Cache-Control", "public, s-maxage=3600, stale-while-revalidate=86400");
   res.write(sitemap);
   res.end();
 
