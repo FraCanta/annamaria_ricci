@@ -6,15 +6,46 @@ import Link from "next/link";
 import Head from "next/head";
 import AnimatedLineView from "@/components/AnimatedLine/AnimatedLineView";
 import StepsContact from "@/components/StepsContact/StepsContact";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  absoluteUrl,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  buildWebPageSchema,
+  pageSeo,
+} from "@/utils/seo";
 
 const prenotaConsulenza = () => {
-  const seoTitle = buildSeoTitle("Prenota la tua consulenza");
+  const seo = pageSeo.booking;
+  const seoTitle = buildSeoTitle(seo.title);
+  const canonicalUrl = absoluteUrl(seo.path);
 
   return (
     <div className="content">
       <Head>
         <title>{seoTitle}</title>
+        <meta name="description" content={seo.description} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seo.description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seo.description} />
+        <JsonLd
+          data={[
+            buildWebPageSchema({
+              title: seoTitle,
+              description: seo.description,
+              path: seo.path,
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Prenota la tua consulenza", path: seo.path },
+            ]),
+          ]}
+        />
         <link
           rel="icon"
           type="image/png"

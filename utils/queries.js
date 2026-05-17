@@ -14,6 +14,7 @@ export const GET_ALL_POSTS = gql`
           slug
           excerpt
           date
+          modified
           content
           featuredImage {
             node {

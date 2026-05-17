@@ -12,7 +12,14 @@ import Head from "next/head";
 import FadeInSection from "@/components/layout/FadeInSection";
 import Button from "@/components/layout/Button";
 import Banner from "@/components/Banner/Banner";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  absoluteUrl,
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  stripHtml,
+} from "@/utils/seo";
 import { getPostImageUrl } from "@/utils/images";
 
 export default function PostPage({ post, otherPosts }) {
@@ -44,32 +51,36 @@ export default function PostPage({ post, otherPosts }) {
     Math.ceil(post.content.split(" ").length / 200)
   );
   const seoTitle = buildSeoTitle(post.title);
+  const path = `/posts/${post.uri.replace(/^\/|\/$/g, "")}`;
+  const canonicalUrl = absoluteUrl(path);
+  const description = stripHtml(post.excerpt);
+  const postImage = getPostImageUrl(post.featuredImage?.node?.sourceUrl, 1200);
 
   return (
     <div className="content">
       <Head>
         <title>{seoTitle}</title>
-        <meta name="description" content={post.excerpt} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta
-          property="og:image"
-          content={post.featuredImage?.node?.sourceUrl}
-        />
-        <meta
-          property="og:url"
-          content={`https://annamariaricci.eu/posts/${post.uri.replace(
-            /^\/|\/$/g,
-            ""
-          )}`}
-        />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={postImage} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta
-          name="twitter:image"
-          content={post.featuredImage?.node?.sourceUrl}
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={postImage} />
+        <JsonLd
+          data={[
+            buildArticleSchema({ post, path, image: postImage }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Blog", path: "/blog" },
+              { name: stripHtml(post.title), path },
+            ]),
+          ]}
         />
       </Head>
       <article className="my-8 lg:my-14">
@@ -146,10 +157,7 @@ export default function PostPage({ post, otherPosts }) {
               {/* <div className="flex-grow"></div> */}
               <ShareButtons
                 title={post.title}
-                link={`https://annamariaricci.eu/posts/${post.uri.replace(
-                  /^\/|\/$/g,
-                  ""
-                )}`}
+                link={canonicalUrl}
               />
             </div>
           </div>
@@ -158,10 +166,7 @@ export default function PostPage({ post, otherPosts }) {
             <div className="flex-grow"></div>
             <ShareButtons
               title={post.title}
-              link={`https://annamariaricci.eu/posts/${post.uri.replace(
-                /^\/|\/$/g,
-                ""
-              )}`}
+              link={canonicalUrl}
             />
           </div>
         </div>

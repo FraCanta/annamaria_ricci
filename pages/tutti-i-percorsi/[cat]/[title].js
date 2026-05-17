@@ -12,10 +12,23 @@ import Button from "@/components/layout/Button";
 import ButtonOutline from "@/components/layout/ButtonOutline";
 import Head from "next/head";
 import { Icon } from "@iconify/react";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  absoluteUrl,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  buildServiceSchema,
+  stripHtml,
+} from "@/utils/seo";
 
 function SinglePercorso({ percorsi, others }) {
   const seoTitle = buildSeoTitle(percorsi.seoTitle);
+  const path = `/tutti-i-percorsi/${percorsi.cat}/${percorsi.title}`;
+  const canonicalUrl = absoluteUrl(path);
+  const description = stripHtml(percorsi.description || percorsi.introTitle);
+  const imageUrl = percorsi.img?.startsWith("http")
+    ? percorsi.img
+    : absoluteUrl(percorsi.img);
   const [animate, setAnimate] = useState(false);
   const [showPrev, setShowPrev] = useState(false);
   const [showNext, setShowNext] = useState(false);
@@ -30,10 +43,32 @@ function SinglePercorso({ percorsi, others }) {
     <div className="content">
       <Head>
         <title>{seoTitle}</title>
-        <meta name="description" content={percorsi.description} />
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={percorsi.description} />
-        <meta property="og:image" content={percorsi.img} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={imageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageUrl} />
+        <JsonLd
+          data={[
+            buildServiceSchema({
+              name: percorsi.name,
+              description,
+              path,
+              image: percorsi.img,
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Tutti i percorsi", path: "/tutti-i-percorsi" },
+              { name: stripHtml(percorsi.name), path },
+            ]),
+          ]}
+        />
       </Head>
       <div className="my-10 lg:my-20">
         <h1

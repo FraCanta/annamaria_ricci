@@ -8,10 +8,20 @@ import Banner from "@/components/Banner/Banner";
 import strumentiIT from "@/public/strumenti.json";
 import StrumentiLayout from "@/components/Strumenti/StrumentiLayout";
 import Head from "next/head";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  DEFAULT_OG_IMAGE,
+  absoluteUrl,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  buildWebPageSchema,
+  pageSeo,
+} from "@/utils/seo";
 
 const ToolsPage = ({ translation }) => {
-  const seoTitle = buildSeoTitle("I miei strumenti");
+  const seo = pageSeo.tools;
+  const seoTitle = buildSeoTitle(seo.title);
+  const canonicalUrl = absoluteUrl(seo.path);
   const [animate, setAnimate] = useState(false);
   const controls = useAnimation();
 
@@ -30,13 +40,13 @@ const ToolsPage = ({ translation }) => {
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
         />
         <meta name="keywords" content="consulenza, orientamento, evoluzione" />
 
         <meta
           property="og:url"
-          content="https://www.annamariaricci.eu/i-miei-strumenti"
+          content={canonicalUrl}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -45,21 +55,21 @@ const ToolsPage = ({ translation }) => {
         />
         <meta
           property="og:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
         />
         <meta
           property="og:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+          content={DEFAULT_OG_IMAGE}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="annamariaricci.eu" />
         <meta
           property="twitter:url"
-          content="https://www.annamariaricci.eu/i-miei-strumenti"
+          content={canonicalUrl}
         />
         <meta
           name="twitter:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+          content={DEFAULT_OG_IMAGE}
         />
         <meta
           name="twitter:title"
@@ -67,7 +77,21 @@ const ToolsPage = ({ translation }) => {
         />
         <meta
           name="twitter:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
+        />
+        <link rel="canonical" href={canonicalUrl} />
+        <JsonLd
+          data={[
+            buildWebPageSchema({
+              title: seoTitle,
+              description: seo.description,
+              path: seo.path,
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "I miei strumenti", path: seo.path },
+            ]),
+          ]}
         />
 
         <link rel="icon" type="image/png" href="/favicon-96x96.png" />

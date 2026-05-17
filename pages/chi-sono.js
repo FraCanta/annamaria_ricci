@@ -7,53 +7,76 @@ import FadeInSection from "@/components/layout/FadeInSection";
 import HeroAbout from "@/components/layout/HeroAbout";
 import PercorsiSection from "@/components/Percorsi/PercorsiSection";
 import Reviews from "@/components/Reviews/Reviews";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  DEFAULT_OG_IMAGE,
+  absoluteUrl,
+  buildBaseSchemas,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  buildWebPageSchema,
+  pageSeo,
+} from "@/utils/seo";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
 function ChiSono() {
-  const seoTitle = buildSeoTitle("Chi sono");
+  const seo = pageSeo.about;
+  const seoTitle = buildSeoTitle(seo.title);
+  const canonicalUrl = absoluteUrl(seo.path);
 
   return (
     <div className="content">
       <Head>
         <title>{seoTitle}</title>
         <meta name="author" content="Anna Maria Ricci" />
-        <meta
-          name="description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
-        />
+        <meta name="description" content={seo.description} />
         <meta name="keywords" content="consulenza, orientamento, evoluzione" />
 
         <meta
           property="og:url"
-          content="https://www.annamariaricci.eu/chi-sono"
+          content={canonicalUrl}
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={seoTitle} />
         <meta
           property="og:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
         />
         <meta
           property="og:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+          content={DEFAULT_OG_IMAGE}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="annamariaricci.eu" />
         <meta
           property="twitter:url"
-          content="https://www.annamariaricci.eu/chi-sono"
+          content={canonicalUrl}
         />
         <meta
           name="twitter:image"
-          content="https://www.annamariaricci.eu/assets/annamaria_cover.png"
+          content={DEFAULT_OG_IMAGE}
         />
         <meta name="twitter:title" content={seoTitle} />
         <meta
           name="twitter:description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
+        />
+        <link rel="canonical" href={canonicalUrl} />
+        <JsonLd
+          data={[
+            buildWebPageSchema({
+              title: seoTitle,
+              description: seo.description,
+              path: seo.path,
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Chi sono", path: seo.path },
+            ]),
+            ...buildBaseSchemas(),
+          ]}
         />
 
         <link rel="icon" type="image/png" href="/favicon-96x96.png" />

@@ -9,10 +9,19 @@ import { useRouter } from "next/router";
 import { client } from "@/utils/graphql";
 import { GET_ALL_POSTS, GET_ALL_CATEGORIES } from "@/utils/queries";
 import Head from "next/head";
-import { buildSeoTitle } from "@/utils/seo";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  absoluteUrl,
+  buildBreadcrumbSchema,
+  buildSeoTitle,
+  buildWebPageSchema,
+  pageSeo,
+} from "@/utils/seo";
 
 const Blog = ({ posts, categories }) => {
-  const seoTitle = buildSeoTitle("Blog");
+  const seo = pageSeo.blog;
+  const seoTitle = buildSeoTitle(seo.title);
+  const canonicalUrl = absoluteUrl(seo.path);
   const controls = useAnimation();
   const [animate, setAnimate] = useState(false);
   const myRouter = useRouter();
@@ -41,9 +50,30 @@ const Blog = ({ posts, categories }) => {
         <meta name="author" content="Anna Maria Ricci" />
         <meta
           name="description"
-          content="Consulenze e Servizi di Orientamento, miglioramento, evoluzione"
+          content={seo.description}
         />
         <meta name="keywords" content="consulenza, orientamento, evoluzione" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seo.description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seo.description} />
+        <JsonLd
+          data={[
+            buildWebPageSchema({
+              title: seoTitle,
+              description: seo.description,
+              path: seo.path,
+            }),
+            buildBreadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Blog", path: seo.path },
+            ]),
+          ]}
+        />
       </Head>
 
       <FadeInSection delay={50}>
