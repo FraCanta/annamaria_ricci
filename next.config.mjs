@@ -11,6 +11,7 @@ const nextConfig = {
   // },
   images: {
     domains: ["blogannamaria.annamariaricci.eu", "i0.wp.com"],
+    unoptimized: true,
   },
 };
 
