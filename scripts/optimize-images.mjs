@@ -44,7 +44,7 @@ const images = [
     quality: 76,
   },
   {
-    input: "trova_la_tua_direzione2.jpg",
+    input: "trova_la_tua_direzione2.webp",
     output: "trova-la-tua-direzione.webp",
     width: 1200,
     quality: 76,

@@ -2,7 +2,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import ButtonOutline from "./ButtonOutline";
-import FadeInSection from "./FadeInSection";
 
 const HeroHome = () => {
   const [animate, setAnimate] = useState(false);
@@ -10,7 +9,7 @@ const HeroHome = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimate(true);
-    }, 300); // delay iniziale
+    }, 120);
     return () => clearTimeout(timer);
   }, []);
 
@@ -21,17 +20,17 @@ const HeroHome = () => {
         <div className="w-full lg:w-[55%] py-4 flex flex-col gap-6 lg:gap-10">
           <div className="flex flex-col gap-2">
             <h1
-              className={`font-abhaya font-bold text-[10vw] lg:text-[5vw] leading-none text-gray100 
-              transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
-              ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
+              className={`font-abhaya font-bold text-[10vw] lg:text-[5vw] leading-none text-gray100 transition-[filter,transform] duration-700 ease-[cubic-bezier(0.44,0,0.25,0.99)] ${
+                animate ? "blur-0 translate-y-0" : "blur-sm translate-y-1"
+              }`}
             >
               Anna Maria Ricci
             </h1>
 
             <p
-              className={`font-abhaya font-regular text-[20px] md:text-[30px]   leading-tight text-gray90 
-    transition-all duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] delay-200 
-    ${animate ? "opacity-100 blur-0" : "opacity-0 blur-sm"}`}
+              className={`font-abhaya font-regular text-[20px] md:text-[30px] leading-tight text-gray90 transition-[filter,transform] duration-700 ease-[cubic-bezier(0.44,0,0.25,0.99)] ${
+                animate ? "blur-0 translate-y-0" : "blur-sm translate-y-1"
+              }`}
             >
               Consulenze e Servizi di Orientamento, Miglioramento, Evoluzione
             </p>
@@ -39,13 +38,9 @@ const HeroHome = () => {
 
           {/* BOTTONI */}
           <div
-            className={`flex flex-col md:flex-row gap-4 lg:gap-10 lg:items-center 
-              transition-all duration-1000 ease-in-out delay-500
-              ${
-                animate
-                  ? "opacity-100 blur-0 translate-y-0"
-                  : "opacity-0 blur-sm translate-y-4"
-              }`}
+            className={`flex flex-col md:flex-row gap-4 lg:gap-10 lg:items-center transition-[filter,transform] duration-700 ease-in-out ${
+              animate ? "blur-0 translate-y-0" : "blur-sm translate-y-2"
+            }`}
           >
             <Button href="/tutti-i-percorsi">Scopri i miei percorsi</Button>
             <ButtonOutline href="/prenota-la-tua-consulenza">
@@ -53,12 +48,9 @@ const HeroHome = () => {
             </ButtonOutline>
           </div>
           <div
-            className={`flex flex-col gap-2  transition-all duration-1000 ease-in-out delay-600
-              ${
-                animate
-                  ? "opacity-100 blur-0 translate-y-0"
-                  : "opacity-0 blur-sm translate-y-4"
-              }`}
+            className={`flex flex-col gap-2 transition-[filter,transform] duration-700 ease-in-out ${
+              animate ? "blur-0 translate-y-0" : "blur-sm translate-y-2"
+            }`}
           >
             <h2 className="font-abhaya font-regular text-[18px] md:text-[1.4vw]  leading-none text-gray90 ">
               “Ogni orientamento presuppone un disorientamento”
@@ -72,9 +64,9 @@ const HeroHome = () => {
         {/* IMMAGINE */}
         <div className=" w-full lg:w-[40%] relative flex justify-end overflow-hidden">
           <div
-            className={`transition-transform transition-filter duration-[1500ms] ease-[cubic-bezier(0.44,0,0.25,0.99)] 
-              ${animate ? "scale-100 blur-0" : "scale-[1.1] blur-sm"} 
-              w-full h-[60vh] md:h-[80vh]  relative`}
+            className={`w-full h-[60vh] md:h-[80vh] relative transition-[filter,transform] duration-700 ease-[cubic-bezier(0.44,0,0.25,0.99)] ${
+              animate ? "scale-100 blur-0" : "scale-[1.03] blur-sm"
+            }`}
           >
             <Image
               src="/assets/Io.jpg"

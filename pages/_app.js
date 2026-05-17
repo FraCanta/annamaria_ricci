@@ -64,12 +64,15 @@ export default function App({ Component, pageProps }) {
     const scheduleCookieBanner = () => {
       const load = () => setLoadCookieBanner(true);
 
-      if ("requestIdleCallback" in window) {
-        const idleId = window.requestIdleCallback(load, { timeout: 2500 });
-        return () => window.cancelIdleCallback?.(idleId);
-      }
+      const timeoutId = window.setTimeout(() => {
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(load, { timeout: 2500 });
+          return;
+        }
 
-      const timeoutId = window.setTimeout(load, 1200);
+        load();
+      }, 7000);
+
       return () => window.clearTimeout(timeoutId);
     };
 
