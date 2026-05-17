@@ -80,6 +80,9 @@ const HeroHome = () => {
               src="/assets/Io.jpg"
               alt="Ritratto di Anna Maria Ricci"
               fill
+              priority
+              fetchPriority="high"
+              sizes="(min-width: 1024px) 40vw, 95vw"
               className="md:w-[600px] h-full w-full absolute top-0 right-0 object-cover object-right"
             />
           </div>

@@ -11,11 +11,11 @@ const Banner = ({ title, text, address, book, contact }) => {
       <div className="grid items-center w-full gap-2 xl:grid-cols-2 bg-gray80/30">
         <div className="relative w-full h-full aspect-video">
           <Image
-            src="/assets/banner.jpg"
+            src="/assets/optimized/banner.webp"
             alt="Anna Maria Ricci durante una consulenza"
             fill
+            sizes="(min-width: 1280px) 50vw, 95vw"
             className="object-cover w-full h-full"
-            priority
           />
         </div>
         <div className="flex flex-col gap-6 w-[90%] lg:w-[80%] mx-auto py-10 ">

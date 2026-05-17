@@ -54,6 +54,9 @@ function SinglePercorso({ percorsi, others }) {
             src={percorsi.img}
             alt={percorsi.name}
             fill
+            priority
+            fetchPriority="high"
+            sizes="95vw"
             className="absolute  w-full h-full object-cover"
           />
         </div>
@@ -328,6 +331,7 @@ function SinglePercorso({ percorsi, others }) {
                         src={post.img}
                         alt={post.name}
                         fill
+                        sizes="(min-width: 1024px) 31vw, (min-width: 768px) 47vw, 95vw"
                         className="object-cover"
                       />
                       <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>

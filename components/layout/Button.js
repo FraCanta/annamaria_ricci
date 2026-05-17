@@ -1,6 +1,8 @@
 import { Icon } from "@iconify/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import clsx from "clsx";
+
+const Link = (props) => <NextLink prefetch={false} {...props} />;
 
 function Button({
   href = "/",

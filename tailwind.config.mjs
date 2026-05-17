@@ -10,7 +10,7 @@ module.exports = {
       fontFamily: {
         abhaya: ["AbhayaLibre", "sans-serif"],
         ppneue: ["PP Neue Montreal", "sans-serif"],
-        work: ["Work Sans", "sans-serif"],
+        work: ["var(--font-work)", "sans-serif"],
       },
       screens: {
         sm: "640px",

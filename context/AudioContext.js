@@ -1,29 +1,33 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { Howl } from "howler";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
-  const [sound, setSound] = useState(null);
+  const soundRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Inizializza Howl una sola volta
-  useEffect(() => {
-    const newSound = new Howl({
+  const getSound = async () => {
+    if (soundRef.current) return soundRef.current;
+
+    const { Howl } = await import("howler");
+    soundRef.current = new Howl({
       src: ["/audio/nuvole_bianche.mp3"],
       loop: true,
       volume: 0.02,
+      preload: false,
     });
 
-    setSound(newSound);
+    return soundRef.current;
+  };
 
+  useEffect(() => {
     return () => {
-      newSound.unload();
+      soundRef.current?.unload();
     };
   }, []);
 
-  const toggle = () => {
-    if (!sound) return;
+  const toggle = async () => {
+    const sound = await getSound();
     if (isPlaying) {
       sound.pause();
       setIsPlaying(false);

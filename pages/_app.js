@@ -9,6 +9,13 @@ import { useEffect, useState } from "react";
 import { AudioProvider } from "@/context/AudioContext";
 import Script from "next/script";
 import CookieBanner from "@/components/privacy/CookieBanner";
+import { Work_Sans } from "next/font/google";
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-work",
+});
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -51,7 +58,7 @@ export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
 
   return (
-    <>
+    <div className={workSans.variable}>
       <AudioProvider>
         <AnimatePresence mode="wait">
           {isTransitioning && (
@@ -111,6 +118,6 @@ export default function App({ Component, pageProps }) {
       )}
 
       <CookieBanner onConsentChange={setAnalyticsEnabled} />
-    </>
+    </div>
   );
 }

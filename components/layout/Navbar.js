@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import gsap from "gsap";
 import { Icon } from "@iconify/react";
 // import AdvertBanner from "../Banner/AdvertBanner";
+
+const Link = (props) => <NextLink prefetch={false} {...props} />;
 
 const Navbar = () => {
   const navbarRef = useRef(null);

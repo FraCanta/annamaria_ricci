@@ -76,6 +76,8 @@ function HeroAbout() {
               fill
               className="object-cover "
               priority
+              fetchPriority="high"
+              sizes="95vw"
             />
           </div>
         </div>

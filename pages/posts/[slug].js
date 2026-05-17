@@ -13,6 +13,7 @@ import FadeInSection from "@/components/layout/FadeInSection";
 import Button from "@/components/layout/Button";
 import Banner from "@/components/Banner/Banner";
 import { buildSeoTitle } from "@/utils/seo";
+import { getPostImageUrl } from "@/utils/images";
 
 export default function PostPage({ post, otherPosts }) {
   const router = useRouter();
@@ -127,7 +128,7 @@ export default function PostPage({ post, otherPosts }) {
         >
           {post.featuredImage?.node?.sourceUrl && (
             <Image
-              src={post.featuredImage.node.sourceUrl}
+              src={getPostImageUrl(post.featuredImage.node.sourceUrl, 1200)}
               alt={post.title}
               width={800}
               height={800}
@@ -192,7 +193,7 @@ export default function PostPage({ post, otherPosts }) {
                     <div className="relative w-full h-[200px] lg:h-[300px]  aspect-square">
                       <Image
                         src={
-                          p.featuredImage?.node?.sourceUrl ||
+                          getPostImageUrl(p.featuredImage?.node?.sourceUrl, 600) ||
                           "/assets/blog_placeholder.jpg"
                         }
                         alt={p.title}

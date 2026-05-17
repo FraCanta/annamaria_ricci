@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import gsap from "gsap/dist/gsap";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@iconify/react";
 import AccordionItem from "../AccordionItem/AccordionItem";
+
+const Link = (props) => <NextLink prefetch={false} {...props} />;
 
 const Mobile = () => {
   const [menuOpen, setMenuOpen] = useState(false);

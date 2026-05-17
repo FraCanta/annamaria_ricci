@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@iconify/react": "^5.2.1",

@@ -415,6 +415,7 @@ function ChiSono() {
                 src="/assets/chi_sono3.webp"
                 alt="Attività di formazione professionale"
                 fill
+                sizes="(min-width: 1024px) 47vw, 95vw"
                 className="w-full h-full object-cover aspect-square"
               />
             </div>

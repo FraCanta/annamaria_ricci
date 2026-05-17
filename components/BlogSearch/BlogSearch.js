@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { getPostImageUrl } from "@/utils/images";
 
 export default function BlogSearch() {
   const [search, setSearch] = useState("");
@@ -132,7 +133,7 @@ export default function BlogSearch() {
             >
               {post.featuredImage?.node?.sourceUrl && (
                 <img
-                  src={post.featuredImage.node.sourceUrl}
+                  src={getPostImageUrl(post.featuredImage.node.sourceUrl, 160)}
                   alt={post.title}
                   className="w-16 h-16 object-cover rounded"
                 />

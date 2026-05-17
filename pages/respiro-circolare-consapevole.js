@@ -95,6 +95,9 @@ function RespiroCircolareConsapevole() {
             src="/assets/respiro.webp"
             alt="Respiro Circolare Consapevole"
             fill
+            priority
+            fetchPriority="high"
+            sizes="95vw"
             className="absolute w-full h-full object-cover "
           />
         </div>
@@ -136,6 +139,7 @@ function RespiroCircolareConsapevole() {
                   src="/assets/respiro1.webp"
                   alt="Respiro consapevole"
                   fill
+                  sizes="(min-width: 1024px) 47vw, 95vw"
                   className="object-cover "
                 />
               </div>
@@ -146,6 +150,7 @@ function RespiroCircolareConsapevole() {
                   src="/assets/respiro4.jpg"
                   alt="Respiro consapevole"
                   fill
+                  sizes="(min-width: 1024px) 47vw, 95vw"
                   className="object-cover "
                 />
               </div>

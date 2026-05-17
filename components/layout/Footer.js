@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import { useState, useRef } from "react";
 import AnimatedLineView from "../AnimatedLine/AnimatedLineView";
+
+const Link = (props) => <NextLink prefetch={false} {...props} />;
 
 function AccordionSection({ title, children }) {
   const [open, setOpen] = useState(false);

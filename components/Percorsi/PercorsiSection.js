@@ -15,25 +15,25 @@ const percorsiPerTab = {
     {
       id: 1,
       title: "Trova la tua direzione",
-      image: "/assets/trova_la_tua_direzione2.webp",
+      image: "/assets/optimized/trova-la-tua-direzione.webp",
       link: "/tutti-i-percorsi/privati/trova-la-tua-direzione",
     },
     {
       id: 2,
       title: "Cambia e trova la tua strada nel lavoro",
-      image: "/assets/cambia_e_trova_la_tua_strada_nel_lavoro_2.jpg",
+      image: "/assets/optimized/cambia-e-trova-la-tua-strada-nel-lavoro-card.webp",
       link: "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
     },
     {
       id: 3,
       title: "Trova il lavoro che desideri",
-      image: "/assets/trova_il_lavoro_che_desideri.jpg",
+      image: "/assets/optimized/trova-il-lavoro-che-desideri.webp",
       link: "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
     },
     {
       id: 4,
       title: "Trova le tue radici",
-      image: "/assets/cerca_le_tue_radici.jpg",
+      image: "/assets/optimized/cerca-le-tue-radici.webp",
       link: "/tutti-i-percorsi/privati/trova-le-tue-radici",
     },
   ],
@@ -41,7 +41,7 @@ const percorsiPerTab = {
     {
       id: 5,
       title: "Avvia la tua attività con consapevolezza",
-      image: "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
+      image: "/assets/optimized/avvia-la-tua-attivita-con-consapevolezza.webp",
       link: "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
     },
   ],
@@ -49,7 +49,7 @@ const percorsiPerTab = {
     {
       id: 6,
       title: "Soluzioni su misura per crescere",
-      image: "/assets/soluzioni_su_misura_per_crescere.jpg",
+      image: "/assets/optimized/soluzioni-su-misura-per-crescere.webp",
       link: "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
     },
   ],
@@ -138,6 +138,7 @@ const PercorsiCarousel = () => {
                       src={post.image}
                       alt={post.title}
                       fill
+                      sizes="(min-width: 1024px) 31vw, (min-width: 768px) 47vw, 95vw"
                       className="object-cover"
                     />
                     <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>

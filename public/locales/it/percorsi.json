@@ -7,28 +7,28 @@
         "name": "Privati",
         "content": [
           {
-            "img": "/assets/trova_la_tua_direzione2.webp",
+            "img": "/assets/optimized/trova-la-tua-direzione.webp",
             "name": "Trova la tua direzione",
             "link": "/tutti-i-percorsi/privati/trova-la-tua-direzione",
             "cat": "privati",
             "type": "Privati"
           },
           {
-            "img": "/assets/cambia_e_trova_la_tua_strada_nel_lavoro_2.jpg",
+            "img": "/assets/optimized/cambia-e-trova-la-tua-strada-nel-lavoro-card.webp",
             "name": "Cambia e trova la tua strada nel lavoro",
             "link": "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
             "cat": "privati",
             "type": "Privati"
           },
           {
-            "img": "/assets/trova_il_lavoro_che_desideri.jpg",
+            "img": "/assets/optimized/trova-il-lavoro-che-desideri.webp",
             "name": "Trova il lavoro che desideri",
             "link": "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
             "cat": "privati",
             "type": "Privati"
           },
           {
-            "img": "/assets/cerca_le_tue_radici.jpg",
+            "img": "/assets/optimized/cerca-le-tue-radici.webp",
             "name": "Trova le tue radici",
             "link": "/tutti-i-percorsi/privati/trova-le-tue-radici",
             "cat": "privati",
@@ -40,7 +40,7 @@
         "name": "Libera Professione",
         "content": [
           {
-            "img": "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
+            "img": "/assets/optimized/avvia-la-tua-attivita-con-consapevolezza.webp",
             "name": "Avvia la tua attività con consapevolezza",
             "link": "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
             "cat": "libera-professione",
@@ -52,7 +52,7 @@
         "name": "Organizzazioni",
         "content": [
           {
-            "img": "/assets/soluzioni_su_misura_per_crescere.jpg",
+            "img": "/assets/optimized/soluzioni-su-misura-per-crescere.webp",
             "name": "Soluzioni su misura per crescere",
             "link": "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
             "cat": "organizzazioni",
@@ -110,7 +110,7 @@
         "name": "Cambia e trova<br/> la tua strada nel lavoro",
         "introTitle": "Vuoi cercare lavoro in autonomia, con strumenti efficaci e il giusto supporto?",
         "description": "Questo percorso ti guida passo dopo passo nella costruzione della tua nuova carriera.",
-        "img": "/assets/cambia_e_trova_la_tua_strada_nel_lavoro_2.jpg",
+        "img": "/assets/optimized/cambia-e-trova-la-tua-strada-nel-lavoro-card.webp",
         "link": "/tutti-i-percorsi/privati/cambia-e-trova-la-tua-strada-nel-lavoro",
         "cat": "privati",
         "title": "cambia-e-trova-la-tua-strada-nel-lavoro",
@@ -150,7 +150,7 @@
         "name": "Trova il lavoro<br/> che desideri",
         "introTitle": "Cerchi un supporto completo e continuativo per realizzare il tuo obiettivo professionale?",
         "description": "Con questo percorso ti accompagno fino al traguardo.",
-        "img": "/assets/trova_il_lavoro_che_desideri.jpg",
+        "img": "/assets/optimized/trova-il-lavoro-che-desideri.webp",
         "link": "/tutti-i-percorsi/privati/trova-il-lavoro-che-desideri",
         "cat": "privati",
         "title": "trova-il-lavoro-che-desideri",
@@ -190,7 +190,7 @@
         "seoTitle": "Trova le tue radici - Percorsi",
         "name": "Trova le tue<br/> radici",
         "introTitle": "Sei curioso di scoprire la storia della tua famiglia e dare un senso profondo alla tua identità?",
-        "img": "/assets/cerca_le_tue_radici.jpg",
+        "img": "/assets/optimized/cerca-le-tue-radici.webp",
         "link": "/tutti-i-percorsi/privati/trova-le-tue-radici",
         "cat": "privati",
         "title": "trova-le-tue-radici",
@@ -227,7 +227,7 @@
         "name": "Avvia la tua attività con consapevolezza",
         "introTitle": "Hai già un’idea chiara e vuoi trasformarla in un’attività autonoma?",
         "description": "Ti affianco in modo pratico e strategico per costruire le basi della tua libera professione con serenità e fiducia.",
-        "img": "/assets/avvia_la_tua_attività_con_consapevolezza.jpg",
+        "img": "/assets/optimized/avvia-la-tua-attivita-con-consapevolezza.webp",
         "link": "/tutti-i-percorsi/libera-professione/avvia-la-tua-attività-con-consapevolezza",
         "cat": "libera-professione",
         "title": "avvia-la-tua-attività-con-consapevolezza",
@@ -261,7 +261,7 @@
         "seoTitle": "Soluzioni su misura per crescere - Percorsi",
         "name": "Soluzioni su misura per crescere",
         "introTitle": "Con oltre 20 anni da libera professionista e 23 da dipendente in aziende di ogni dimensione, conosco da vicino le sfide organizzative e il valore delle persone nei contesti di lavoro.",
-        "img": "/assets/soluzioni_su_misura_per_crescere.jpg",
+        "img": "/assets/optimized/soluzioni-su-misura-per-crescere.webp",
         "link": "/tutti-i-percorsi/organizzazioni/soluzioni-su-misura-per-crescere",
         "cat": "organizzazioni",
         "title": "soluzioni-su-misura-per-crescere",

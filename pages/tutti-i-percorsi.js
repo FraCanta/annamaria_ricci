@@ -136,6 +136,7 @@ function TuttiIPercorsi({ translation }) {
                     src={item.img}
                     alt={item.name}
                     fill
+                    sizes="(min-width: 1024px) 31vw, (min-width: 768px) 47vw, 95vw"
                     className="object-cover object-bottom"
                   />
                   <div className="absolute top-0 left-0 w-full h-full bg-gray100/40"></div>

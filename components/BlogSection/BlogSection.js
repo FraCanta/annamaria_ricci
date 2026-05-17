@@ -1,10 +1,13 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "next/link";
 import React from "react";
 import FadeInSection from "../layout/FadeInSection";
 import { format } from "date-fns";
 import { it } from "date-fns/locale";
+import { getPostImageUrl } from "@/utils/images";
+
+const Link = (props) => <NextLink prefetch={false} {...props} />;
 
 // Calcolo tempo di lettura basato sul contenuto
 function calculateReadingTime(content) {
@@ -40,11 +43,12 @@ function BlogSection({ posts }) {
           <div className="relative w-full h-full">
             <Image
               src={
-                posts[0].featuredImage?.node?.sourceUrl ||
+                getPostImageUrl(posts[0].featuredImage?.node?.sourceUrl, 1200) ||
                 "/assets/blog_placeholder.jpg"
               }
               alt={posts[0].title}
               fill
+              sizes="(min-width: 1024px) 40vw, 95vw"
               className="w-full aspect-video h-full object-cover transition-all duration-500"
             />
           </div>
@@ -107,11 +111,12 @@ function BlogSection({ posts }) {
               <div className="relative w-full h-[200px] md:h-[300px] aspect-square">
                 <Image
                   src={
-                    post.featuredImage?.node?.sourceUrl ||
+                    getPostImageUrl(post.featuredImage?.node?.sourceUrl, 600) ||
                     "/assets/blog_placeholder.jpg"
                   }
                   alt={post.title}
                   fill
+                  sizes="(min-width: 1024px) 31vw, 95vw"
                   className="object-cover"
                 />
               </div>

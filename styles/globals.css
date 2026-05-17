@@ -23,7 +23,7 @@ html {
 
 a,
 p {
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-work), sans-serif;
 }
 
 .swiper-pagination-bullet {
@@ -127,18 +127,21 @@ p {
   src: url("/fonts/AbhayaLibre-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AbhayaLibre";
   src: url("/fonts/AbhayaLibre-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "AbhayaLibre";
   src: url("/fonts/AbhayaLibre-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -146,6 +149,7 @@ p {
   src: url("/fonts/AbhayaLibre-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -153,6 +157,7 @@ p {
   src: url("/fonts/AbhayaLibre-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
 .main {

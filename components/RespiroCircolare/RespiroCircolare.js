@@ -80,11 +80,11 @@ export default function RespiroCircolare() {
         }}
       >
         <Image
-          src="/assets/respiro.jpg"
+          src="/assets/optimized/respiro.webp"
           alt="Respiro Circolare"
           fill
           className="object-cover"
-          priority
+          sizes="95vw"
         />
         <div
           ref={overlayRef}
