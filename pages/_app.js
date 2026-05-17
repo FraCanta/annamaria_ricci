@@ -8,8 +8,12 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { AudioProvider } from "@/context/AudioContext";
 import Script from "next/script";
-import CookieBanner from "@/components/privacy/CookieBanner";
 import { Work_Sans } from "next/font/google";
+import dynamic from "next/dynamic";
+
+const CookieBanner = dynamic(() => import("@/components/privacy/CookieBanner"), {
+  ssr: false,
+});
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -22,6 +26,7 @@ export default function App({ Component, pageProps }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(router.pathname);
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
+  const [loadCookieBanner, setLoadCookieBanner] = useState(false);
 
   const transitionColor = "#E0DCE2";
   const transitionSpringPhysics = {
@@ -54,6 +59,36 @@ export default function App({ Component, pageProps }) {
       router.events.off("routeChangeError", handleComplete);
     };
   }, [router]);
+
+  useEffect(() => {
+    const scheduleCookieBanner = () => {
+      const load = () => setLoadCookieBanner(true);
+
+      if ("requestIdleCallback" in window) {
+        const idleId = window.requestIdleCallback(load, { timeout: 2500 });
+        return () => window.cancelIdleCallback?.(idleId);
+      }
+
+      const timeoutId = window.setTimeout(load, 1200);
+      return () => window.clearTimeout(timeoutId);
+    };
+
+    if (document.readyState === "complete") {
+      return scheduleCookieBanner();
+    }
+
+    let cleanupIdle;
+    const handleLoad = () => {
+      cleanupIdle = scheduleCookieBanner();
+    };
+
+    window.addEventListener("load", handleLoad, { once: true });
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+      cleanupIdle?.();
+    };
+  }, []);
 
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
 
@@ -117,7 +152,9 @@ export default function App({ Component, pageProps }) {
         </Script>
       )}
 
-      <CookieBanner onConsentChange={setAnalyticsEnabled} />
+      {loadCookieBanner && (
+        <CookieBanner onConsentChange={setAnalyticsEnabled} />
+      )}
     </div>
   );
 }
