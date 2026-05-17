@@ -1,32 +1,113 @@
-// pages/sitemap.xml.js
+import { format } from "date-fns";
+import percorsiIT from "@/public/locales/it/percorsi.json";
+import { client } from "@/utils/graphql";
+import { GET_POSTS_FOR_SITEMAP } from "@/utils/queries";
+
 const siteUrl = "https://www.annamariaricci.eu";
 
-function renderSitemap({ loc }) {
-  return `
-  <sitemap>
-    <loc>${loc}</loc>
-  </sitemap>`;
+const staticPages = [
+  "",
+  "chi-sono",
+  "i-miei-strumenti",
+  "tutti-i-percorsi",
+  "respiro-circolare-consapevole",
+  "blog",
+  "contatti",
+  "prenota-la-tua-consulenza",
+  "privacy-policy",
+  "cookie-policy",
+  "accessibilita",
+];
+
+function escapeXml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
 }
 
-function generateSitemapIndex() {
+function normalizeUrl(path) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return escapeXml(`${siteUrl}${encodeURI(normalizedPath)}`);
+}
+
+function getPercorsiPages() {
+  return (
+    percorsiIT?.percorsi?.tabs?.flatMap((tab) =>
+      tab.content.map((item) => item.link)
+    ) ?? []
+  );
+}
+
+function renderUrl({ loc, lastmod, changefreq = "monthly", priority = "0.8" }) {
+  return `
+  <url>
+    <loc>${loc}</loc>${
+    lastmod
+      ? `
+    <lastmod>${lastmod}</lastmod>`
+      : ""
+  }
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+}
+
+function generateSitemap(posts) {
+  const percorsiPages = getPercorsiPages();
+
   return `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${[
-    `${siteUrl}/sitemap-pages.xml`,
-    `${siteUrl}/sitemap-posts.xml`,
-  ]
-    .map((loc) => renderSitemap({ loc }))
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${staticPages
+    .map((page) => {
+      const path = page ? `/${page}` : "/";
+      return renderUrl({
+        loc: normalizeUrl(path),
+        changefreq: page ? "monthly" : "weekly",
+        priority: page ? "0.8" : "1.0",
+      });
+    })
     .join("")}
-</sitemapindex>`;
+  ${percorsiPages
+    .map((path) =>
+      renderUrl({
+        loc: normalizeUrl(path),
+      })
+    )
+    .join("")}
+  ${posts
+    .map(({ node }) => {
+      const lastMod = new Date(node.modified || node.date);
+      const isoDate = format(lastMod, "yyyy-MM-dd");
+      return renderUrl({
+        loc: normalizeUrl(`/posts/${node.slug}`),
+        lastmod: isoDate,
+        changefreq: "weekly",
+        priority: "0.5",
+      });
+    })
+    .join("")}
+</urlset>`;
 }
 
 export async function getServerSideProps({ res }) {
+  let posts = [];
+
+  try {
+    const data = await client.request(GET_POSTS_FOR_SITEMAP);
+    posts = data?.posts?.edges || [];
+  } catch (error) {
+    console.error("Unable to fetch posts for sitemap.xml", error);
+  }
+
   res.setHeader("Content-Type", "text/xml");
   res.setHeader(
     "Cache-Control",
     "public, s-maxage=3600, stale-while-revalidate=86400"
   );
-  res.write(generateSitemapIndex());
+  res.write(generateSitemap(posts));
   res.end();
 
   return { props: {} };
