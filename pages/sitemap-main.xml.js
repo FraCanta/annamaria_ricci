@@ -14,6 +14,6 @@ export async function getServerSideProps({ res }) {
   return { props: {} };
 }
 
-export default function SiteMap() {
+export default function MainSitemap() {
   return null;
 }
